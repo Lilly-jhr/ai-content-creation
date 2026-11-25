@@ -1,0 +1,901 @@
+{
+  "$defs": {
+    "Character": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 40,
+          "minLength": 2,
+          "pattern": "^[a-z0-9_]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "role": {
+          "description": "Role, never a real name, e.g. 'great-grandmother, tailor'",
+          "title": "Role",
+          "type": "string"
+        },
+        "chapter": {
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Chapter",
+          "type": "integer"
+        },
+        "age_range": {
+          "title": "Age Range",
+          "type": "string"
+        },
+        "description": {
+          "description": "Visual block reused verbatim in every prompt",
+          "title": "Description",
+          "type": "string"
+        },
+        "wardrobe": {
+          "title": "Wardrobe",
+          "type": "string"
+        },
+        "demeanour": {
+          "title": "Demeanour",
+          "type": "string"
+        },
+        "continuity_rules": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Continuity Rules",
+          "type": "array"
+        },
+        "ref": {
+          "$ref": "#/$defs/RefImage"
+        },
+        "fact_flags": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/FactFlag"
+          },
+          "title": "Fact Flags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "role",
+        "chapter",
+        "age_range",
+        "description",
+        "wardrobe",
+        "demeanour",
+        "ref"
+      ],
+      "title": "Character",
+      "type": "object"
+    },
+    "EndCard": {
+      "additionalProperties": false,
+      "properties": {
+        "lines": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Lines",
+          "type": "array"
+        },
+        "duration_s": {
+          "default": 3.0,
+          "maximum": 6.0,
+          "minimum": 2.0,
+          "title": "Duration S",
+          "type": "number"
+        }
+      },
+      "required": [
+        "lines"
+      ],
+      "title": "EndCard",
+      "type": "object"
+    },
+    "FactFlag": {
+      "additionalProperties": false,
+      "description": "Marks where a detail comes from, so nothing invented is presented as fact.",
+      "properties": {
+        "claim": {
+          "title": "Claim",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "family-confirmed",
+            "researched",
+            "interpretation",
+            "pending-family"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Citation for researched claims, or who confirmed",
+          "title": "Source"
+        }
+      },
+      "required": [
+        "claim",
+        "status"
+      ],
+      "title": "FactFlag",
+      "type": "object"
+    },
+    "KenBurns": {
+      "additionalProperties": false,
+      "properties": {
+        "zoom_start": {
+          "default": 1.0,
+          "maximum": 1.6,
+          "minimum": 1.0,
+          "title": "Zoom Start",
+          "type": "number"
+        },
+        "zoom_end": {
+          "default": 1.12,
+          "maximum": 1.6,
+          "minimum": 1.0,
+          "title": "Zoom End",
+          "type": "number"
+        },
+        "pan": {
+          "default": "none",
+          "enum": [
+            "none",
+            "left",
+            "right",
+            "up",
+            "down"
+          ],
+          "title": "Pan",
+          "type": "string"
+        }
+      },
+      "title": "KenBurns",
+      "type": "object"
+    },
+    "Keyframe": {
+      "additionalProperties": false,
+      "properties": {
+        "prompt": {
+          "description": "Shot-specific prompt; character/location blocks are prepended",
+          "title": "Prompt",
+          "type": "string"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        },
+        "width": {
+          "default": 1024,
+          "title": "Width",
+          "type": "integer"
+        },
+        "height": {
+          "default": 1024,
+          "title": "Height",
+          "type": "integer"
+        },
+        "use_refs": {
+          "default": true,
+          "description": "Condition on approved character/location references",
+          "title": "Use Refs",
+          "type": "boolean"
+        },
+        "approved_key": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Approved Key"
+        }
+      },
+      "required": [
+        "prompt",
+        "seed"
+      ],
+      "title": "Keyframe",
+      "type": "object"
+    },
+    "Location": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 40,
+          "minLength": 2,
+          "pattern": "^[a-z0-9_]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "era": {
+          "title": "Era",
+          "type": "string"
+        },
+        "description": {
+          "description": "Visual block reused verbatim in prompts",
+          "title": "Description",
+          "type": "string"
+        },
+        "ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RefImage"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "fact_flags": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/FactFlag"
+          },
+          "title": "Fact Flags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "era",
+        "description"
+      ],
+      "title": "Location",
+      "type": "object"
+    },
+    "Meta": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "language": {
+          "description": "BCP-47 code of the narration, e.g. 'am'",
+          "title": "Language",
+          "type": "string"
+        },
+        "subtitle_language": {
+          "default": "en",
+          "title": "Subtitle Language",
+          "type": "string"
+        },
+        "audience": {
+          "title": "Audience",
+          "type": "string"
+        },
+        "intent": {
+          "description": "What the audience should feel or understand at the end",
+          "title": "Intent",
+          "type": "string"
+        },
+        "logline": {
+          "title": "Logline",
+          "type": "string"
+        },
+        "style_block": {
+          "description": "Appended verbatim to every image prompt",
+          "title": "Style Block",
+          "type": "string"
+        },
+        "negative_prompt": {
+          "default": "",
+          "title": "Negative Prompt",
+          "type": "string"
+        },
+        "fps": {
+          "default": 24,
+          "title": "Fps",
+          "type": "integer"
+        },
+        "loudness_lufs": {
+          "default": -14.0,
+          "title": "Loudness Lufs",
+          "type": "number"
+        },
+        "true_peak_db": {
+          "default": -1.0,
+          "title": "True Peak Db",
+          "type": "number"
+        },
+        "lead_in_s": {
+          "default": 0.5,
+          "description": "Silence before each narration line in its shot",
+          "title": "Lead In S",
+          "type": "number"
+        },
+        "tail_s": {
+          "default": 0.9,
+          "description": "Breathing room after each narration line",
+          "title": "Tail S",
+          "type": "number"
+        },
+        "transition_s": {
+          "default": 0.5,
+          "description": "Dissolve length between shots",
+          "title": "Transition S",
+          "type": "number"
+        }
+      },
+      "required": [
+        "title",
+        "language",
+        "audience",
+        "intent",
+        "logline",
+        "style_block"
+      ],
+      "title": "Meta",
+      "type": "object"
+    },
+    "Motion": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "default": "auto",
+          "description": "auto = Wan clip if cached, else Ken Burns",
+          "enum": [
+            "auto",
+            "wan",
+            "kenburns",
+            "still"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "prompt": {
+          "default": "",
+          "description": "Motion and camera only; the keyframe holds the subject",
+          "title": "Prompt",
+          "type": "string"
+        },
+        "seed": {
+          "default": 0,
+          "title": "Seed",
+          "type": "integer"
+        },
+        "targets": {
+          "items": {
+            "enum": [
+              "9x16",
+              "16x9"
+            ],
+            "type": "string"
+          },
+          "title": "Targets",
+          "type": "array"
+        },
+        "frames": {
+          "default": 81,
+          "maximum": 121,
+          "minimum": 17,
+          "title": "Frames",
+          "type": "integer"
+        },
+        "steps": {
+          "default": 30,
+          "maximum": 60,
+          "minimum": 4,
+          "title": "Steps",
+          "type": "integer"
+        },
+        "kenburns": {
+          "$ref": "#/$defs/KenBurns",
+          "default": {
+            "zoom_start": 1.0,
+            "zoom_end": 1.12,
+            "pan": "none"
+          }
+        }
+      },
+      "title": "Motion",
+      "type": "object"
+    },
+    "Music": {
+      "additionalProperties": false,
+      "properties": {
+        "cues": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/MusicCue"
+          },
+          "title": "Cues",
+          "type": "array"
+        },
+        "caption": {
+          "title": "Caption",
+          "type": "string"
+        },
+        "lyrics": {
+          "default": "[Instrumental]",
+          "title": "Lyrics",
+          "type": "string"
+        },
+        "bpm": {
+          "anyOf": [
+            {
+              "maximum": 300,
+              "minimum": 30,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Bpm"
+        },
+        "keyscale": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Keyscale"
+        },
+        "timesignature": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "4",
+          "title": "Timesignature"
+        },
+        "duration_s": {
+          "default": 95.0,
+          "maximum": 600,
+          "minimum": 10,
+          "title": "Duration S",
+          "type": "number"
+        },
+        "seeds": {
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 1,
+          "title": "Seeds",
+          "type": "array"
+        },
+        "chosen_seed": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Chosen Seed"
+        },
+        "why": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Why the chosen candidate won",
+          "title": "Why"
+        }
+      },
+      "required": [
+        "caption",
+        "seeds"
+      ],
+      "title": "Music",
+      "type": "object"
+    },
+    "MusicCue": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 40,
+          "minLength": 2,
+          "pattern": "^[a-z0-9_]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "from_shot": {
+          "title": "From Shot",
+          "type": "string"
+        },
+        "to_shot": {
+          "title": "To Shot",
+          "type": "string"
+        },
+        "purpose": {
+          "title": "Purpose",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "from_shot",
+        "to_shot",
+        "purpose"
+      ],
+      "title": "MusicCue",
+      "type": "object"
+    },
+    "Narration": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "description": "Narration in meta.language",
+          "title": "Text",
+          "type": "string"
+        },
+        "text_en": {
+          "description": "English subtitle text",
+          "title": "Text En",
+          "type": "string"
+        },
+        "provider": {
+          "anyOf": [
+            {
+              "enum": [
+                "addis",
+                "gemini"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider"
+        },
+        "voice": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Voice"
+        },
+        "speed": {
+          "default": 1.0,
+          "maximum": 1.5,
+          "minimum": 0.5,
+          "title": "Speed",
+          "type": "number"
+        },
+        "style": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Delivery note (used by providers that support it)",
+          "title": "Style"
+        }
+      },
+      "required": [
+        "text",
+        "text_en"
+      ],
+      "title": "Narration",
+      "type": "object"
+    },
+    "RefImage": {
+      "additionalProperties": false,
+      "properties": {
+        "prompt": {
+          "description": "Reference-sheet prompt (style_block is appended)",
+          "title": "Prompt",
+          "type": "string"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "integer"
+        },
+        "width": {
+          "default": 1024,
+          "title": "Width",
+          "type": "integer"
+        },
+        "height": {
+          "default": 1024,
+          "title": "Height",
+          "type": "integer"
+        },
+        "approved_key": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Cache key of the approved reference image",
+          "title": "Approved Key"
+        }
+      },
+      "required": [
+        "prompt",
+        "seed"
+      ],
+      "title": "RefImage",
+      "type": "object"
+    },
+    "Shot": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^s\\d{2}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "seq": {
+          "minimum": 1,
+          "title": "Seq",
+          "type": "integer"
+        },
+        "chapter": {
+          "description": "1 great-grandparents ... 5 me",
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Chapter",
+          "type": "integer"
+        },
+        "purpose": {
+          "description": "Why this shot exists",
+          "title": "Purpose",
+          "type": "string"
+        },
+        "emotional_beat": {
+          "title": "Emotional Beat",
+          "type": "string"
+        },
+        "visual": {
+          "title": "Visual",
+          "type": "string"
+        },
+        "characters": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Characters",
+          "type": "array"
+        },
+        "location": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Location"
+        },
+        "shot_size": {
+          "enum": [
+            "extreme-wide",
+            "wide",
+            "medium",
+            "medium-close",
+            "close",
+            "extreme-close"
+          ],
+          "title": "Shot Size",
+          "type": "string"
+        },
+        "angle": {
+          "default": "eye-level",
+          "title": "Angle",
+          "type": "string"
+        },
+        "camera_move": {
+          "title": "Camera Move",
+          "type": "string"
+        },
+        "subject_move": {
+          "title": "Subject Move",
+          "type": "string"
+        },
+        "lighting": {
+          "title": "Lighting",
+          "type": "string"
+        },
+        "composition": {
+          "default": "subject centred, safe for 9:16 and 16:9 crops",
+          "title": "Composition",
+          "type": "string"
+        },
+        "transition_out": {
+          "default": "dissolve",
+          "enum": [
+            "cut",
+            "dissolve",
+            "fade"
+          ],
+          "title": "Transition Out",
+          "type": "string"
+        },
+        "min_duration_s": {
+          "default": 5.0,
+          "maximum": 15.0,
+          "minimum": 2.0,
+          "title": "Min Duration S",
+          "type": "number"
+        },
+        "keyframe": {
+          "$ref": "#/$defs/Keyframe"
+        },
+        "motion": {
+          "$ref": "#/$defs/Motion",
+          "default": {
+            "mode": "auto",
+            "prompt": "",
+            "seed": 0,
+            "targets": [
+              "9x16"
+            ],
+            "frames": 81,
+            "steps": 30,
+            "kenburns": {
+              "pan": "none",
+              "zoom_end": 1.12,
+              "zoom_start": 1.0
+            }
+          }
+        },
+        "narration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Narration"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "music_cue": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Music Cue"
+        },
+        "ambience": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ambience"
+        },
+        "fact_flags": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/FactFlag"
+          },
+          "title": "Fact Flags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "seq",
+        "chapter",
+        "purpose",
+        "emotional_beat",
+        "visual",
+        "shot_size",
+        "camera_move",
+        "subject_move",
+        "lighting",
+        "keyframe"
+      ],
+      "title": "Shot",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "meta": {
+      "$ref": "#/$defs/Meta"
+    },
+    "characters": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Character"
+      },
+      "title": "Characters",
+      "type": "array"
+    },
+    "locations": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Location"
+      },
+      "title": "Locations",
+      "type": "array"
+    },
+    "shots": {
+      "items": {
+        "$ref": "#/$defs/Shot"
+      },
+      "maxItems": 12,
+      "minItems": 8,
+      "title": "Shots",
+      "type": "array"
+    },
+    "music": {
+      "$ref": "#/$defs/Music"
+    },
+    "end_card": {
+      "$ref": "#/$defs/EndCard"
+    }
+  },
+  "required": [
+    "meta",
+    "shots",
+    "music",
+    "end_card"
+  ],
+  "title": "Storyboard",
+  "type": "object"
+}

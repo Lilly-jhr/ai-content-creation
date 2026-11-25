@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv run pytest:*)",
+      "Bash(uv run ruff:*)",
+      "Bash(uv run python -m pipeline validate)",
+      "Bash(uv run python -m pipeline schema)",
+      "Bash(uv run python -m pipeline --dry-run:*)",
+      "Bash(uv run python -m pipeline costs)",
+      "Bash(uv run python -m pipeline audit)",
+      "Bash(make check)",
+      "Bash(make validate)",
+      "Bash(make dry-run)",
+      "Bash(ffprobe:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)"
+    ],
+    "ask": [
+      "Bash(make film)",
+      "Bash(make clips:*)",
+      "Bash(make music)",
+      "Bash(uv run python -m pipeline narration:*)",
+      "Bash(uv run python -m pipeline refs:*)",
+      "Bash(uv run python -m pipeline keyframes:*)",
+      "Bash(uv run python -m pipeline video-submit:*)",
+      "Bash(uv run python -m pipeline music:*)",
+      "Bash(git push:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(~/.kaggle/kaggle.json)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [{"type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard_secrets.sh\"", "timeout": 10}]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [{"type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/post_edit.sh\"", "timeout": 30}]
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+# secrets: never commit
+.env
+.env.*
+!.env.example
+kaggle.json
+*.key
+*.pem
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# heavy third-party code and weights (installed by `make music-setup`)
+vendor/
+
+# scratch renders (finals in outputs/final are committed)
+outputs/_tmp/
+*.part
+
+# course brief (not ours to publish)
+assignement.md

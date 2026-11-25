@@ -1,0 +1,57 @@
+# Central model/provider configuration. Stages read defaults from here;
+# the storyboard can override per shot (e.g. narration.provider / narration.voice).
+# Prices are LIST-PRICE EQUIVALENTS used for COSTS.md, with their source. We pay $0 on free tiers.
+
+[text]
+provider = "gemini"
+model = "gemini-3.5-flash-lite"      # bulk: translation, checks
+draft_model = "gemini-3.8-flash"     # storyboard drafting (low free RPD; cached)
+licence = "Gemini API Terms; free tier inputs may be used to improve Google products"
+
+[tts]
+default_provider = "addis"           # decided by Experiment 1 (blind native-speaker test)
+sample_rate = 48000                  # every narration clip is normalised to 48 kHz mono WAV
+
+[tts.addis]
+base_url = "https://api.addisassistant.com/api/v1"
+voice = "am-hamen"
+output_format = "wav_44100"
+max_seconds_per_request = 60
+etb_per_minute = 5.0                 # docs.addisassistant.com/docs/platform/pricing (2026-11-25)
+usd_per_etb = 0.0065                 # approximate; update with the rate on the day
+licence = "Addis AI API terms: commercial use allowed, inputs not used for training (FAQ, 2026-11-25)"
+
+[tts.gemini]
+model = "gemini-3.8-flash-tts"
+voice = "Charon"
+usd_per_minute_list = 0.0            # free tier on 2026-11-25; paid list price not used
+licence = "Gemini API Terms; output watermarked with SynthID"
+
+[image]
+provider = "cloudflare"
+model = "@cf/black-forest-labs/flux-2-klein-4b"
+fallback_model = "@cf/black-forest-labs/flux-1-schnell"
+max_ref_side = 504                   # klein input images must be < 512x512
+usd_per_1k_neurons = 0.011           # Cloudflare Workers AI list price beyond free 10k/day
+neurons_per_output_tile = 26.05      # 512x512 output tile, klein-4b
+neurons_per_input_tile = 5.37
+licence = "FLUX.2 klein 4B: Apache-2.0 weights; Cloudflare Workers AI terms"
+
+[video]
+provider = "kaggle"
+model = "Wan-AI/Wan2.2-TI2V-5B-Diffusers"
+# Draft resolution for T4 (multiples of 32). Native is 704x1280; Experiment 8 measures the trade-off.
+width_9x16 = 544
+height_9x16 = 960
+width_16x9 = 960
+height_16x9 = 544
+fps = 24
+usd_per_gpu_hour_list = 0.35         # NVIDIA T4 on-demand list price equivalent (cloud GPU)
+licence = "Wan 2.2: Apache-2.0"
+
+[music]
+provider = "acestep"
+model = "ACE-Step-1.5 (acestep-v15-turbo + 0.6B LM)"
+vendor_dir = "vendor/ACE-Step-1.5"
+usd_per_gpu_hour_list = 0.35
+licence = "ACE-Step 1.5: MIT; generated music usable commercially"

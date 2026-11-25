@@ -1,0 +1,33 @@
+[project]
+name = "a-little-further"
+version = "0.1.0"
+description = "Storyboard-driven AI film pipeline for the heritage short 'A Little Further'"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "pydantic>=2.8",
+    "requests>=2.32",
+    "python-dotenv>=1.0",
+    "pillow>=10.4",
+    "typer>=0.12",
+]
+
+[project.optional-dependencies]
+kaggle = ["kaggle>=1.6"]
+
+[dependency-groups]
+dev = ["pytest>=8.3", "ruff>=0.6"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["vendor", "kaggle/wan_i2v/run.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]  # the formatter owns line length; long f-strings/filtergraphs stay readable
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = ["slow: needs ffmpeg rendering"]
