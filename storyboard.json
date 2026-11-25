@@ -4,9 +4,9 @@
     "title": "A Little Further",
     "language": "am",
     "subtitle_language": "en",
-    "audience": "My family and relatives in Ethiopia and the diaspora, watching on a phone in WhatsApp/Telegram; secondary: peers and colleagues on LinkedIn/Slack. The film is also a tribute to my late mother.",
+    "audience": "My family and relatives in Ethiopia and the diaspora, watching on a phone in WhatsApp/Telegram; secondary: peers and colleagues on LinkedIn/Slack.",
     "intent": "At the end, viewers feel that one person's achievement is the accumulated sacrifice of many generations, and that the story is not finished: it is the narrator's turn to carry the family a little further.",
-    "logline": "Four generations, from a tailor on Harar's street of sewing machines to an AI engineer in Addis Ababa, each giving up something so the next could go a little further.",
+    "logline": "Four generations in Harar, from immigrant tailors to an AI engineer, each giving up something so the next could go a little further.",
     "style_block": "Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
     "negative_prompt": "photorealistic, archival photograph, sepia photo, Moroccan medina, horseshoe arches, zellige tiles, domes, minarets on every roof, palm trees, adobe, readable signs or text, hyena, exoticised or voyeuristic framing, extra fingers, distorted hands",
     "fps": 24,
@@ -21,7 +21,7 @@
   "characters": [
     {
       "id": "gen1_tailor_m",
-      "role": "great-grandfather, tailor on Makina Girgir (Harar), about 80 years ago",
+      "role": "great-grandfather, immigrant tailor",
       "chapter": 1,
       "age_range": "25-35",
       "description": "A slim young Ethiopian man from Harar in his late twenties, with Habesha features, dark brown skin, short tightly curled black hair and a neat short beard, calm focused eyes, wearing a plain white cotton shirt with rolled sleeves and a dark waistcoat, a thin bracelet of woven green and gold thread on his right wrist.",
@@ -37,17 +37,12 @@
       },
       "fact_flags": [
         {
-          "claim": "came to Harar from far away",
+          "claim": "great-grandparents were immigrants who worked as tailors in Harar",
           "status": "family-confirmed",
-          "source": "producer, 2026-11-26"
+          "source": "producer brief"
         },
         {
-          "claim": "great-grandfather was the tailor and worked on Makina Girgir, about 80 years ago",
-          "status": "family-confirmed",
-          "source": "producer, 2026-11-26"
-        },
-        {
-          "claim": "appearance and clothing",
+          "claim": "appearance, clothing and origin",
           "status": "interpretation",
           "source": null
         },
@@ -60,10 +55,10 @@
     },
     {
       "id": "gen1_greatgrandmother",
-      "role": "great-grandmother, came to Harar with him",
+      "role": "great-grandmother, immigrant tailor",
       "chapter": 1,
       "age_range": "20-30",
-      "description": "A young Ethiopian woman from Harar in her mid twenties, with Habesha features, dark brown skin, an oval face and kind dark eyes, hair covered by a soft muted-indigo cotton headscarf, wearing a long simple cotton dress, a thin bracelet of woven green and gold thread on her right wrist.",
+      "description": "A young Ethiopian woman from Harar in her mid twenties, with Habesha features, dark brown skin, an oval face and kind dark eyes, hair covered by a soft muted-indigo cotton headscarf, wearing a long cotton dress with a small faded floral print, a thin bracelet of woven green and gold thread on her right wrist.",
       "wardrobe": "long plain cotton dress, muted indigo headscarf",
       "demeanour": "gentle, resilient, observant",
       "continuity_rules": [
@@ -76,14 +71,14 @@
       },
       "fact_flags": [
         {
-          "claim": "came to Harar from far away with the great-grandfather",
+          "claim": "immigrant, tailor",
           "status": "family-confirmed",
-          "source": "producer, 2026-11-26"
+          "source": "producer brief"
         },
         {
           "claim": "appearance and clothing",
           "status": "interpretation",
-          "source": null
+          "source": "producer-supplied reference photos of Harar (used as written visual notes only; not committed, not sent to any model)"
         }
       ]
     },
@@ -92,7 +87,7 @@
       "role": "grandmother, street-side stall merchant in Harar",
       "chapter": 2,
       "age_range": "40-55",
-      "description": "A strong, warm Ethiopian woman from Harar in her late forties, with Habesha features, dark brown skin, a round kind face and steady dark eyes, hair covered by a deep-red patterned headscarf, wearing a long dark dress with a shawl over her shoulders, a thin bracelet of woven green and gold thread on her right wrist.",
+      "description": "A strong, warm Ethiopian woman from Harar in her late forties, with Habesha features, dark brown skin, a round kind face and steady dark eyes, hair covered by a deep-red patterned headscarf, wearing a long floral-print dress with a shawl over her shoulders, a thin bracelet of woven green and gold thread on her right wrist.",
       "wardrobe": "deep-red patterned headscarf, long dark dress, shawl",
       "demeanour": "steady, hard-working, warm with customers",
       "continuity_rules": [
@@ -105,7 +100,7 @@
       },
       "fact_flags": [
         {
-          "claim": "grandmother was the one in trade, a street-side stall merchant in Harar",
+          "claim": "grandmother was a merchant with a street-side stall in Harar",
           "status": "family-confirmed",
           "source": "producer, 2026-11-26"
         },
@@ -115,15 +110,15 @@
           "source": null
         },
         {
-          "claim": "appearance and clothing (Harari dress colours are low-confidence in research)",
+          "claim": "appearance and clothing (bright headscarves, floral long dresses)",
           "status": "interpretation",
-          "source": "docs/research/harar-brief.md #18"
+          "source": "producer-supplied reference photos of Harar (used as written visual notes only; not committed, not sent to any model)"
         }
       ]
     },
     {
       "id": "mother",
-      "role": "my late mother (market worker and student, later graduate and office worker)",
+      "role": "my mother (market worker and student, later graduate and office worker)",
       "chapter": 3,
       "age_range": "16-45 across chapters 3-4",
       "description": "An Ethiopian woman from Harar with Habesha features, dark brown skin, an oval face, high cheekbones and bright determined dark eyes, her hair covered by a simple deep-green headscarf, a thin bracelet of woven green and gold thread on her right wrist.",
@@ -140,24 +135,14 @@
       },
       "fact_flags": [
         {
-          "claim": "helped her mother (my grandmother) in the market while studying; graduated",
+          "claim": "worked in the market while studying, graduated, then worked long office hours while raising me",
           "status": "family-confirmed",
-          "source": "producer, 2026-11-26"
-        },
-        {
-          "claim": "worked long hours in a government office about 25 years ago while raising me",
-          "status": "family-confirmed",
-          "source": "producer, 2026-11-26"
-        },
-        {
-          "claim": "she has passed away; the film is a tribute to her",
-          "status": "family-confirmed",
-          "source": "producer, 2026-11-25"
+          "source": "producer brief"
         },
         {
           "claim": "fictionalised AI depiction, not her likeness",
           "status": "interpretation",
-          "source": "consent on her behalf recorded in ETHICS.md"
+          "source": "consent recorded in ETHICS.md"
         }
       ]
     },
@@ -199,23 +184,28 @@
     {
       "id": "harar_wall",
       "era": "early 20th century to today",
-      "description": "The old walled city of Harar, Ethiopia (Jugol): a rough, irregular wall of rubble stone plastered with pale limewash, low flat-roofed two-storey houses of the same plastered stone, small wooden doors, almost no windows facing the street, a narrow winding dirt alley, dry highland light; no towers, no battlements, no arches.",
+      "description": "A narrow paved lane inside Harar's old walled city: whitewashed and pale-cream plastered stone walls, some wall panels carved in low relief, ochre-yellow wooden doors, corrugated metal roofs with wooden eaves, dry highland light, no signs or text.",
       "ref": {
         "prompt": "Location reference, wide establishing view, no people, no text.",
         "seed": 701
       },
       "fact_flags": [
         {
-          "claim": "Jugol: stone wall, narrow alleys, inward-facing two-storey houses; limewashed walls in early eras",
+          "claim": "Jugol: plastered stone walls, narrow alleys, inward-facing houses",
           "status": "researched",
-          "source": "OVPM/UNESCO description; Zerihun 2018; see docs/research/harar-brief.md"
+          "source": "OVPM/UNESCO; Zerihun 2018; docs/research/harar-brief.md"
+        },
+        {
+          "claim": "carved relief panels, painted doors, corrugated roofs",
+          "status": "researched",
+          "source": "producer-supplied reference photos of Harar (used as written visual notes only; not committed, not sent to any model)"
         }
       ]
     },
     {
       "id": "street_stall",
       "era": "1960s-1990s",
-      "description": "A small street-side stall at the edge of a busy market road in old Harar: goods laid out on a cloth and a low wooden table under a simple shade, woven baskets, limewashed and stone walls behind, people passing in everyday clothes, warm dusty light.",
+      "description": "A busy street-side market in old Harar: women sellers in bright headscarves sitting beside goods laid out on cloth on the ground and in woven baskets, a striped awning, whitewashed walls and a distant white gate, warm dusty light.",
       "ref": null,
       "fact_flags": [
         {
@@ -224,27 +214,9 @@
           "source": "producer, 2026-11-26"
         },
         {
-          "claim": "goods shown (cloth, baskets, small heaps of spices)",
+          "claim": "goods and market look",
           "status": "interpretation",
-          "source": "plausible per Zerihun 2018; what she sold is pending-family"
-        }
-      ]
-    },
-    {
-      "id": "makina_girgir",
-      "era": "1940s",
-      "description": "Makina Girgir, the narrow street of tailors in old Harar in the 1940s: small shop fronts with tailors seated at sewing machines outside under overhanging wooden and corrugated roofs, bolts of plain cotton cloth, pale limewashed walls, dusty street.",
-      "ref": null,
-      "fact_flags": [
-        {
-          "claim": "great-grandfather worked on Makina Girgir about 80 years ago",
-          "status": "family-confirmed",
-          "source": "producer, 2026-11-26"
-        },
-        {
-          "claim": "Makina Girgir: sewing-machine street beside Gidir Magala; tailors work outside under overhanging roofs; limewashed walls in early eras",
-          "status": "researched",
-          "source": "Zerihun 2018; Pankhurst (TWL); Qantara; docs/research/harar-brief.md #3,#7-9"
+          "source": "producer-supplied reference photos of Harar (used as written visual notes only; not committed, not sent to any model)"
         }
       ]
     },
@@ -260,6 +232,40 @@
           "source": "producer, 2026-11-26"
         }
       ]
+    },
+    {
+      "id": "harar_gate",
+      "era": "all",
+      "description": "One of the old gates of Harar's walled city: a thick white limewashed gatehouse with a sawtooth stepped parapet along its top and a single round archway, a dusty open square in front, low white walls on either side, no signs, no text.",
+      "ref": {
+        "prompt": "Location reference, wide establishing view, no people, no text.",
+        "seed": 711
+      },
+      "fact_flags": [
+        {
+          "claim": "historic gates of Harar (e.g. Asmadin Bari / Shoa Gate): white, crenellated, single arch",
+          "status": "researched",
+          "source": "Zerihun 2018; producer-supplied reference photos of Harar (used as written visual notes only; not committed, not sent to any model)"
+        }
+      ]
+    },
+    {
+      "id": "tailor_lane",
+      "era": "early 20th century",
+      "description": "A lane in old Harar where tailors work outdoors: an old black sewing machine on a worn wooden table against a whitewashed wall, bolts of plain cotton cloth, a paved lane behind.",
+      "ref": null,
+      "fact_flags": [
+        {
+          "claim": "tailors in Harar work outdoors at machines under overhanging roofs (Makina Girgir)",
+          "status": "researched",
+          "source": "Pankhurst (TWL); Qantara; producer-supplied reference photos of Harar (used as written visual notes only; not committed, not sent to any model)"
+        },
+        {
+          "claim": "where the great-grandparents worked",
+          "status": "interpretation",
+          "source": null
+        }
+      ]
     }
   ],
   "shots": [
@@ -269,9 +275,9 @@
       "chapter": 1,
       "purpose": "Establish place and time: the film begins where the family's story begins, at Harar's old walls.",
       "emotional_beat": "humility, a quiet beginning",
-      "visual": "Harar's old stone wall at dawn, a narrow alley leading into the walled city, nobody yet in the street.",
+      "visual": "One of Harar's old white gates at dawn, the square in front still empty.",
       "characters": [],
-      "location": "harar_wall",
+      "location": "harar_gate",
       "shot_size": "extreme-wide",
       "angle": "eye-level",
       "camera_move": "very slow push-in",
@@ -281,12 +287,12 @@
       "transition_out": "dissolve",
       "min_duration_s": 6.0,
       "keyframe": {
-        "prompt": "Extreme wide view at dawn of the old stone wall of a walled Ethiopian city and a narrow alley leading inside, empty street, first golden light on the stones.",
+        "prompt": "Extreme wide view at dawn of an old white limewashed city gate with a sawtooth parapet and a single round archway, an empty dusty square in front, first golden light on the white walls.",
         "seed": 1001
       },
       "motion": {
         "mode": "auto",
-        "prompt": "The camera pushes in very slowly. Morning light gradually brightens on the stone walls. A little dust drifts in the air.",
+        "prompt": "The camera pushes in very slowly toward the archway. Morning light gradually brightens on the white walls. A little dust drifts in the air.",
         "seed": 1,
         "kenburns": {
           "zoom_start": 1.0,
@@ -321,7 +327,7 @@
         "gen1_tailor_m",
         "gen1_greatgrandmother"
       ],
-      "location": "harar_wall",
+      "location": "harar_gate",
       "shot_size": "wide",
       "angle": "slightly low, from behind",
       "camera_move": "slow follow",
@@ -331,7 +337,7 @@
       "transition_out": "dissolve",
       "min_duration_s": 6.5,
       "keyframe": {
-        "prompt": "Wide shot from behind of a young couple in the 1940s carrying cloth bundles, walking along a dusty road toward the old stone wall of the city in morning light.",
+        "prompt": "Wide shot from behind of a young couple carrying cloth bundles, walking across a dusty square toward an old white city gate with a round archway, in morning light.",
         "seed": 1002
       },
       "motion": {
@@ -345,8 +351,8 @@
         }
       },
       "narration": {
-        "text": "የቅድመ አያቶቼ ከሩቅ ነው የመጡት፤ ይዘውት የመጡትም ከሙያቸው ውጭ ብዙ አልነበረም።",
-        "text_en": "My great-grandparents came here from far away, carrying little more than a skill.",
+        "text": "ቅድመ አያቶቼ ወደዚህ የመጡት እንደ እንግዳ ነበር፤ ከሙያቸው በቀር ብዙ የያዙት ነገር አልነበረም።",
+        "text_en": "My great-grandparents came here as strangers, carrying little more than a skill.",
         "provider": "addis",
         "voice": "am-sara"
       },
@@ -354,12 +360,12 @@
       "ambience": "wind, footsteps on dirt",
       "fact_flags": [
         {
-          "claim": "they came from far away",
+          "claim": "they were immigrants",
           "status": "family-confirmed",
-          "source": "producer, 2026-11-26"
+          "source": "producer brief"
         },
         {
-          "claim": "how they travelled",
+          "claim": "where they came from and how they travelled",
           "status": "interpretation",
           "source": null
         }
@@ -369,13 +375,13 @@
       "id": "s03",
       "seq": 3,
       "chapter": 1,
-      "purpose": "Show the first generation's contribution (a livelihood made by hand on Harar's street of tailors) and introduce the thread motif.",
+      "purpose": "Show the first generation's contribution, a livelihood made by hand, and introduce the thread motif.",
       "emotional_beat": "patient work",
-      "visual": "Close-up of the great-grandfather's hands guiding cloth through a sewing machine outside his shop on Makina Girgir; the thread bracelet on his wrist.",
+      "visual": "Close-up of hands guiding cloth through an old sewing machine outdoors; the thread bracelet on the wrist.",
       "characters": [
         "gen1_tailor_m"
       ],
-      "location": "makina_girgir",
+      "location": "tailor_lane",
       "shot_size": "close",
       "angle": "high angle over the work",
       "camera_move": "static",
@@ -385,7 +391,7 @@
       "transition_out": "dissolve",
       "min_duration_s": 6.0,
       "keyframe": {
-        "prompt": "Close-up of a tailor's hands guiding plain cotton cloth through an old black sewing machine on a small table outside his shop, a thin green-and-gold thread bracelet on his wrist, a spool of thread beside it, 1940s.",
+        "prompt": "Close-up of a tailor's hands guiding plain cotton cloth through an old black sewing machine on a worn wooden table outdoors, a thin green-and-gold thread bracelet on the wrist, a spool of thread beside it.",
         "seed": 1003
       },
       "motion": {
@@ -399,8 +405,8 @@
         }
       },
       "narration": {
-        "text": "ቅድመ አያቴ መኪና ግርግር በሚባለው የስፌት ማሽኖች መንገድ ላይ ልብስ ሰፊ ነበር።",
-        "text_en": "My great-grandfather was a tailor on Makina Girgir, the street of sewing machines.",
+        "text": "ልብስ ሰፊዎች ነበሩ። ስፌት በስፌት፣ በእጆቻቸው ኑሮን ገነቡ።",
+        "text_en": "They were tailors. Stitch by stitch, they built a life with their hands.",
         "provider": "addis",
         "voice": "am-sara"
       },
@@ -408,19 +414,14 @@
       "ambience": "sewing machine rhythm, market murmur",
       "fact_flags": [
         {
-          "claim": "great-grandfather was a tailor on Makina Girgir",
+          "claim": "they were tailors",
           "status": "family-confirmed",
-          "source": "producer, 2026-11-26"
+          "source": "producer brief"
         },
         {
-          "claim": "sewing machines in Harar from 1905; Singer from 1909; tailors outside under overhanging roofs",
+          "claim": "working outdoors at a machine",
           "status": "researched",
-          "source": "Pankhurst (TWL); Qantara"
-        },
-        {
-          "claim": "machine type (hand-crank vs treadle)",
-          "status": "pending-family",
-          "source": null
+          "source": "Pankhurst (TWL); Qantara; producer-supplied reference photos of Harar (used as written visual notes only; not committed, not sent to any model)"
         }
       ]
     },
@@ -533,10 +534,9 @@
       "chapter": 3,
       "purpose": "Introduce my mother carrying two responsibilities at once: work and school.",
       "emotional_beat": "struggle, determination",
-      "visual": "The teenage mother at her mother's street-side stall, a schoolbook open on her lap between customers; the grandmother behind her.",
+      "visual": "A teenage girl at a market stall with a schoolbook open on her lap between customers.",
       "characters": [
-        "mother",
-        "gen2_grandmother"
+        "mother"
       ],
       "location": "street_stall",
       "shot_size": "medium",
@@ -548,7 +548,7 @@
       "transition_out": "dissolve",
       "min_duration_s": 6.5,
       "keyframe": {
-        "prompt": "Medium shot of a 17-year-old girl sitting at her mother's street-side stall with an open schoolbook on her lap and a pencil in her hand, an older woman in a deep-red headscarf arranging goods behind her.",
+        "prompt": "Medium shot of a 17-year-old girl in a deep-green headscarf sitting at a market stall with an open schoolbook on her lap and a pencil in her hand, goods and woven baskets around her.",
         "seed": 1006
       },
       "motion": {
@@ -562,8 +562,8 @@
         }
       },
       "narration": {
-        "text": "እናቴ በቀን እዚያው መደብር ላይ ታግዛት ነበር፤ ደብተሮቿንም አብራ ይዛ ትሄድ ነበር።",
-        "text_en": "My mother helped her at the stall by day, and carried her schoolbooks with her.",
+        "text": "እናቴ ቀን ቀን ገበያ ውስጥ ትሰራ ነበር፤ የትምህርት ደብተሮቿንም ይዛ ትሄድ ነበር።",
+        "text_en": "My mother worked in the market by day, and carried her schoolbooks with her.",
         "provider": "addis",
         "voice": "am-sara"
       },
@@ -571,9 +571,14 @@
       "ambience": "market bustle",
       "fact_flags": [
         {
-          "claim": "helped her mother in the market while studying",
+          "claim": "worked in the market while studying",
           "status": "family-confirmed",
-          "source": "producer, 2026-11-26"
+          "source": "producer brief"
+        },
+        {
+          "claim": "what she sold",
+          "status": "pending-family",
+          "source": null
         }
       ]
     },
@@ -686,7 +691,7 @@
       "chapter": 4,
       "purpose": "Show the sacrifice made for a child: long office hours, time and energy given up.",
       "emotional_beat": "love and responsibility",
-      "visual": "The mother working late in a government office around 2000; stacks of paper files; a child's school notebook beside her papers.",
+      "visual": "The mother working late at an office desk; a child's school notebook beside her papers.",
       "characters": [
         "mother"
       ],
@@ -700,7 +705,7 @@
       "transition_out": "dissolve",
       "min_duration_s": 7.0,
       "keyframe": {
-        "prompt": "Medium shot of the same woman at about 35 years old working late at a desk in a busy government office around the year 2000, stacks of paper files and folders, an old beige computer monitor, a desk lamp, night outside the window, a child's school notebook resting beside her work.",
+        "prompt": "Medium shot of the same woman at about 35 years old working late at an office desk with stacks of papers and folders, a desk lamp, night outside the window, a child's school notebook resting beside her work.",
         "seed": 1009
       },
       "motion": {
@@ -714,8 +719,8 @@
         }
       },
       "narration": {
-        "text": "ከዚያም በመንግሥት መሥሪያ ቤት ረጅም ሰዓታት ሠራች፤ እኔ እንድማርም ያላትን ሁሉ ሰጠችኝ።",
-        "text_en": "Then she worked long hours in a government office, and gave everything she had so that I could learn.",
+        "text": "ከዚያም ቢሮ ውስጥ ረጅም ሰዓታት ሠራች፤ እኔ እንድማርም ያላትን ሁሉ ሰጠች።",
+        "text_en": "Then she worked long hours in an office, and gave everything she had so that I could learn.",
         "provider": "addis",
         "voice": "am-sara"
       },
@@ -723,14 +728,14 @@
       "ambience": "quiet office hum, clock",
       "fact_flags": [
         {
-          "claim": "long hours in a government office about 25 years ago, while raising me",
+          "claim": "long office hours while raising me and investing in my education",
           "status": "family-confirmed",
-          "source": "producer, 2026-11-26"
+          "source": "producer brief"
         },
         {
-          "claim": "office details (files, beige computer)",
+          "claim": "her profession",
           "status": "interpretation",
-          "source": null
+          "source": "kept non-specific by the producer's choice"
         }
       ]
     },

@@ -12,19 +12,18 @@ Style: Default,Noto Sans,50,&H00FFFFFF,&H000000FF,&H00101010,&H64000000,0,0,0,0,
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:00:00.40,0:00:06.37,Default,,0,0,0,,Every family has a beginning. Ours\Nbegins at the old walls of Harar.
-Dialogue: 0,0:00:07.07,0:00:14.29,Default,,0,0,0,,My great-grandparents came here from far\Naway, carrying little more than a skill.
-Dialogue: 0,0:00:14.99,0:00:21.19,Default,,0,0,0,,My great-grandfather was a tailor on\NMakina Girgir, the street of sewing
-Dialogue: 0,0:00:21.19,0:00:21.98,Default,,0,0,0,,machines.
-Dialogue: 0,0:00:22.68,0:00:27.45,Default,,0,0,0,,My grandmother kept a small stall by the\Nstreet. The stitches became trade, and
-Dialogue: 0,0:00:27.45,0:00:29.04,Default,,0,0,0,,the trade became a living.
-Dialogue: 0,0:00:29.73,0:00:34.25,Default,,0,0,0,,What she earned, she saved, for the ones\Nwho would come after her.
-Dialogue: 0,0:00:35.23,0:00:42.09,Default,,0,0,0,,My mother helped her at the stall by\Nday, and carried her schoolbooks with
-Dialogue: 0,0:00:42.09,0:00:42.46,Default,,0,0,0,,her.
-Dialogue: 0,0:00:43.16,0:00:47.66,Default,,0,0,0,,At night, when she was tired, she\Nstudied anyway.
-Dialogue: 0,0:00:49.16,0:00:52.02,Default,,0,0,0,,And one day, she graduated.
-Dialogue: 0,0:00:55.16,0:01:00.03,Default,,0,0,0,,Then she worked long hours in a\Ngovernment office, and gave everything
-Dialogue: 0,0:01:00.03,0:01:02.15,Default,,0,0,0,,she had so that I could learn.
-Dialogue: 0,0:01:02.85,0:01:09.09,Default,,0,0,0,,I graduated in software engineering with\Nhonours, won a scholarship for my
-Dialogue: 0,0:01:09.09,0:01:14.99,Default,,0,0,0,,master's, and today I am an AI engineer,\Nwith comforts they never had.
-Dialogue: 0,0:01:15.69,0:01:22.26,Default,,0,0,0,,Nothing I have is mine alone. It is the\Nwork of everyone who came before me. Now
-Dialogue: 0,0:01:22.26,0:01:25.68,Default,,0,0,0,,it is my turn to take us a little\Nfurther.
+Dialogue: 0,0:00:07.07,0:00:13.34,Default,,0,0,0,,My great-grandparents came here as\Nstrangers, carrying little more than a
+Dialogue: 0,0:00:13.34,0:00:13.86,Default,,0,0,0,,skill.
+Dialogue: 0,0:00:14.56,0:00:19.69,Default,,0,0,0,,They were tailors. Stitch by stitch,\Nthey built a life with their hands.
+Dialogue: 0,0:00:20.56,0:00:25.32,Default,,0,0,0,,My grandmother kept a small stall by the\Nstreet. The stitches became trade, and
+Dialogue: 0,0:00:25.32,0:00:26.91,Default,,0,0,0,,the trade became a living.
+Dialogue: 0,0:00:27.61,0:00:32.13,Default,,0,0,0,,What she earned, she saved, for the ones\Nwho would come after her.
+Dialogue: 0,0:00:33.11,0:00:39.13,Default,,0,0,0,,My mother worked in the market by day,\Nand carried her schoolbooks with her.
+Dialogue: 0,0:00:39.83,0:00:44.32,Default,,0,0,0,,At night, when she was tired, she\Nstudied anyway.
+Dialogue: 0,0:00:45.83,0:00:48.68,Default,,0,0,0,,And one day, she graduated.
+Dialogue: 0,0:00:51.83,0:00:57.17,Default,,0,0,0,,Then she worked long hours in an office,\Nand gave everything she had so that I
+Dialogue: 0,0:00:57.17,0:00:58.01,Default,,0,0,0,,could learn.
+Dialogue: 0,0:00:58.83,0:01:05.07,Default,,0,0,0,,I graduated in software engineering with\Nhonours, won a scholarship for my
+Dialogue: 0,0:01:05.07,0:01:10.97,Default,,0,0,0,,master's, and today I am an AI engineer,\Nwith comforts they never had.
+Dialogue: 0,0:01:11.67,0:01:18.24,Default,,0,0,0,,Nothing I have is mine alone. It is the\Nwork of everyone who came before me. Now
+Dialogue: 0,0:01:18.24,0:01:21.65,Default,,0,0,0,,it is my turn to take us a little\Nfurther.

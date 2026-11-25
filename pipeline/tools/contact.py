@@ -12,7 +12,7 @@ from pipeline.core import config
 THUMB = 300
 
 
-def sheet(stage: str, items: list[str] | None = None) -> Path:
+def sheet(stage: str, items: list[str] | None = None, latest: int | None = None) -> Path:
     root = config.OUTPUTS / stage
     rows: list[tuple[str, list[tuple[Path, dict]]]] = []
     for d in sorted(p for p in root.iterdir() if p.is_dir()):
@@ -24,6 +24,8 @@ def sheet(stage: str, items: list[str] | None = None) -> Path:
             img = meta_p.with_name(meta_p.name.replace(".meta.json", ".png"))
             if img.exists():
                 cands.append((img, meta))
+        if latest:
+            cands = cands[-latest:]
         if cands:
             rows.append((d.name, cands))
     cols = max(len(c) for _, c in rows)

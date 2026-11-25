@@ -8,7 +8,6 @@
 |---|---|
 | **Film** | *A Little Further*: a 60–90 s heritage short, Amharic narration, English subtitles |
 | **Who watches** | Primary: my family and relatives in Ethiopia and the diaspora. Secondary: peers and colleagues (Slack/LinkedIn) |
-| **What it is** | A tribute to my late mother and the generations before her (updated 2026-11-25 when I told the agent she has passed away; this changes the tone of the ending, see open question below) |
 | **Where** | On a phone, vertical, forwarded in WhatsApp/Telegram family groups, often watched with the sound low |
 | **One feeling at the end** | That one person's achievement is the accumulated sacrifice of many, and that the story isn't finished: it's my turn to take the family a little further |
 | **How might we…** | …help my family see four generations of quiet sacrifice as one continuous story, in under 90 seconds, without inventing anything about them? |
@@ -21,11 +20,12 @@
 - **Painterly, not photoreal**: these are AI *actors* standing in for real people, so it must never look like archival photographs.
 - **Motif**: a thin green-and-gold thread bracelet worn in every generation. This is a creative interpretation (not a real heirloom unless the family names one); it ties tailoring (thread) to the later generations and gives the consistency system an anchor detail.
 
-### Open question (producer to decide): how the film acknowledges her passing
-- (a) Leave the narration as is and change the end-card dedication to "In loving memory of my mother."
-- (b) Add one short line in s09/s10, e.g. "She did not live to see where it led", **only if** the producer wants it and the family approves.
-- (c) Don't mention it at all; the film simply honours her.
-The current draft is (c), with the dedication "For my mother, and everyone before her."
+### Story revisions (producer decisions, 2026-11-26)
+- After adding detailed family facts (a specific street, decades, a government office), the producer chose to **return to the first,
+  less specific story**. She kept only two of the later facts: her own path (honours graduate, master's on scholarship, AI engineer in
+  Addis Ababa) and her grandmother's **street-side stall**. A simpler, more universal story was preferred over a more documented one.
+  Because the cache is keyed by text, reverting cost **one** TTS call (s09). The other 10 lines were reused.
+- The film does not comment on family members' lives beyond the story itself (producer's wish).
 
 ## Ideation (alternatives considered)
 1. **Chronological, four chapters** (chosen): simplest for a family audience; each chapter is 2–3 shots.

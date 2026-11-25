@@ -32,6 +32,18 @@ UNESCO description.
 
 Correction recorded: the Argobba are an Ethiopian Muslim people, not immigrants. The Argob Bari gate is named after them.
 
+## Visual notes from producer-supplied reference photos (2026-11-26)
+Six photos of Harar (a street tailor, the Harar/Duke's Gate, two markets, Shoa Gate / Asmadin Bari from outside and inside). They are used
+**only as written notes**: they show real, identifiable people and are third-party photographs, so they are not committed and are not
+sent to any image model.
+- **Gates:** thick white limewashed gatehouses with a **sawtooth / stepped crenellated parapet** and a single round arch. This corrected the
+  agent's earlier "no battlements" instruction, which was right for the *walls* and wrong for the *gates*.
+- **Lanes:** paved stone lanes, whitewashed and cream plaster, wall panels carved in low relief (some painted green), ochre-yellow wooden doors,
+  corrugated roofs (often teal) with wooden eaves.
+- **Tailors:** men working outdoors at old black/rust sewing machines on worn wooden tables against the wall.
+- **Markets:** women sellers in bright headscarves (orange, red, pink, teal) and long floral-print dresses, goods on cloth on the ground,
+  baskets carried on the head, striped awnings. Modern scenes use plastic basins; earlier eras use woven baskets.
+
 ## Do not depict / avoid (used in `meta.negative_prompt` and in reviews)
 - Hyena feeding (a tourist cliché).
 - Moroccan or Arabian medina tropes: horseshoe arches, zellige tiles, minarets on every roof, domes, palms, adobe.
