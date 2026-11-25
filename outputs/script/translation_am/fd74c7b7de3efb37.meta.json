@@ -1,0 +1,16 @@
+{
+  "key": "fd74c7b7de3efb37",
+  "stage": "script",
+  "item": "translation_am",
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "inputs": {
+    "prompt": "Translate these narration lines:\n{\n \"s01\": \"Every family has a beginning. Ours begins at the old walls of Harar.\",\n \"s02\": \"My great-grandparents came here from far away, carrying little more than a skill.\",\n \"s03\": \"My great-grandfather was a tailor on Makina Girgir, the street of sewing machines.\",\n \"s04\": \"My grandmother kept a small stall by the street. The stitches became trade, and the trade became a living.\",\n \"s05\": \"What she earned, she saved, for the ones who would come after her.\",\n \"s06\": \"My mother helped her at the stall by day, and carried her schoolbooks with her.\",\n \"s07\": \"At night, when she was tired, she studied anyway.\",\n \"s08\": \"And one day, she graduated.\",\n \"s09\": \"Then she worked long hours in a government office, and gave everything she had so that I could learn.\",\n \"s10\": \"I graduated in software engineering with honours, won a scholarship for my master's, and today I am an AI engineer, with comforts they never had.\",\n \"s11\": \"Nothing I have is mine alone. It is the work of everyone who came before me. Now it is my turn to take us a little further.\"\n}\nUse this glossary:\n{\"tailors\": \"ልብስ ሰፊዎች\", \"my mother\": \"እናቴ\", \"merchants\": \"ነጋዴዎች\"}",
+    "system": "You translate documentary film narration for voice-over. Write natural, spoken Amharic in its native script (no transliteration), for a young woman narrating in the first person about her own family. Use short sentences written for the ear, warm and simple, never bureaucratic. Keep the meaning of each line exactly; do not add facts, names, places or dates. Keep 'Harar' as the city name. 'My' must stay possessive (my mother, my great-grandparents). Return only a JSON object mapping each line id to its translation.",
+    "language": "am"
+  },
+  "run_id": "20261125T214644-dedde2",
+  "latency_s": 140.093,
+  "licence": "Gemini API Terms; free tier inputs may be used to improve Google products",
+  "provider_response": null
+}

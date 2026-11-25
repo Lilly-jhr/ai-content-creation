@@ -1,0 +1,17 @@
+{
+  "key": "67ed2522a75d8e5d",
+  "stage": "refs",
+  "item": "mother",
+  "provider": "cloudflare",
+  "model": "@cf/black-forest-labs/flux-2-klein-4b",
+  "inputs": {
+    "prompt": "Character reference sheet: a full-body portrait and a head-and-shoulders portrait of the same person side by side, neutral warm paper background, no text. An Ethiopian woman from Harar with Habesha features, dark brown skin, an oval face, high cheekbones and bright determined dark eyes, her hair covered by a simple deep-green headscarf, a thin bracelet of woven green and gold thread on her right wrist. Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
+    "seed": 301,
+    "width": 1024,
+    "height": 1024
+  },
+  "run_id": "20261125T220056-6b737f",
+  "latency_s": 24.127,
+  "licence": "FLUX.2 klein 4B: Apache-2.0 weights; Cloudflare Workers AI terms",
+  "provider_response": null
+}

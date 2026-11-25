@@ -44,17 +44,58 @@ def cached_clip(sb: Storyboard, shot: Shot) -> Path | None:
     if not shot.narration:
         return None
     prov, inputs = inputs_for(sb, shot)
-    return cache.lookup(STAGE, shot.id, compute_key(STAGE, prov.name, prov.model, inputs), "wav")
+    raw = cache.lookup(STAGE, shot.id, compute_key(STAGE, prov.name, prov.model, inputs), "wav")
+    return voiced(sb, raw) if raw else None
+
+
+WARMTH = "bass=g=2.5:f=160:w=0.8,treble=g=-2.5:f=7500,acompressor=threshold=-20dB:ratio=2:attack=15:release=200"
+
+
+def voiced(sb: Storyboard, raw: Path) -> Path:
+    """Deterministic post-processing of a TTS take (no model call): tempo + warmth.
+
+    Addis did not reliably honour its `speed` parameter (EXPERIMENTS E1b), so tempo is applied
+    here with a pitch-preserving atempo. Derived files sit next to the raw take, keyed by the
+    raw key plus the processing settings, so changing them never re-bills TTS.
+    """
+    m = sb.meta
+    if m.vo_tempo == 1.0 and not m.vo_warmth:
+        return raw
+    tag = f"t{m.vo_tempo:.2f}" + ("_warm" if m.vo_warmth else "")
+    out = raw.with_name(f"{raw.stem}.{tag}.wav")
+    if out.exists() or CTX.dry_run:
+        return out if out.exists() else raw
+    chain = [f"atempo={m.vo_tempo}"] if m.vo_tempo != 1.0 else []
+    if m.vo_warmth:
+        chain.append(WARMTH)
+    media.run(["-i", str(raw), "-af", ",".join(chain), "-ar", "48000", "-ac", "1", str(out)])
+    return out
 
 
 def run(sb: Storyboard) -> None:
+    """Generate every missing line. One failing line does not stop the others (F12)."""
+    failed: dict[str, str] = {}
     for shot in sb.shots:
         if not shot.narration or not CTX.wants(shot.id):
             continue
         prov, inputs = inputs_for(sb, shot)
+        try:
+            _synth(prov, shot.id, inputs)
+        except Exception as exc:  # noqa: BLE001 - logged in runs.jsonl; reported below
+            failed[shot.id] = str(exc)[:120]
+            print(f"[narration] {shot.id} failed after retries: {failed[shot.id]}")
+    build_timeline(sb)
+    if failed:
+        raise RuntimeError(f"narration failed for {sorted(failed)}; re-run to retry only those")
+
+
+def _synth(prov, shot_id: str, inputs: dict[str, Any]) -> None:
+    attempts = CTX.max_attempts
+    CTX.max_attempts = max(attempts, 5)  # Addis read timeouts/resets are transient (F12)
+    try:
         call_model(
             stage=STAGE,
-            item=shot.id,
+            item=shot_id,
             provider=prov.name,
             model=prov.model,
             inputs=inputs,
@@ -69,7 +110,8 @@ def run(sb: Storyboard) -> None:
                 style=inputs["style"],
             ),
         )
-    build_timeline(sb)
+    finally:
+        CTX.max_attempts = attempts
 
 
 def build_timeline(sb: Storyboard) -> dict[str, Any]:

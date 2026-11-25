@@ -1,0 +1,40 @@
+{
+  "ratio": "9x16",
+  "total_s": 96.6,
+  "segments": {
+    "s01": "placeholder",
+    "s02": "placeholder",
+    "s03": "placeholder",
+    "s04": "placeholder",
+    "s05": "placeholder",
+    "s06": "placeholder",
+    "s07": "placeholder",
+    "s08": "placeholder",
+    "s09": "placeholder",
+    "s10": "placeholder",
+    "s11": "placeholder"
+  },
+  "summary": {
+    "placeholder": 11
+  },
+  "music": "placeholder",
+  "picture": "picture_1de43e70509c0f14.mp4",
+  "mix": "mix_8605a6d3a600df91.wav",
+  "edit": {
+    "crf": 18,
+    "preset": "medium",
+    "head_trim_s": 0.25,
+    "cut_s": 0.041666666666666664,
+    "vo_lufs": -16.0,
+    "music_lufs": -24.0,
+    "duck": {
+      "threshold": 0.02,
+      "ratio": 6,
+      "attack": 300,
+      "release": 1500
+    },
+    "music_fade_in_s": 2.0,
+    "music_fade_out_s": 3.5,
+    "kb_oversample": 2
+  }
+}

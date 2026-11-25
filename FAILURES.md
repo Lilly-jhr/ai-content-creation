@@ -57,3 +57,22 @@ Newest last. Evidence is in runs.jsonl (`status: "error"` lines) where a model c
 - **Also found:** the default download pulls the **1.7B** LM. The plan for 8 GB VRAM is the **0.6B** LM.
 - **Fix:** download only what we use, with `hf download` (resumable) in a retry loop: `acestep-v15-turbo/`, `vae/`, `Qwen3-Embedding-0.6B/` and the separate `ACE-Step/acestep-5Hz-lm-0.6B` repo.
 - **Lesson:** my `pkill -f "pipeline music"` also matched the shell running it (exit 144). Use PIDs, not patterns.
+
+### F11. Addis TTS `speed` parameter silently ignored (2026-11-25 ~23:55 EAT)
+- **What:** after the testers asked for a slower, warmer voice, `speed=0.85` returned a clip the same length as `speed=1.0` (5.30 s vs 5.29 s). There was no error. Addis also documents that `style` is accepted but ignored.
+- **Fix:** the slow-down and warmth are now a deterministic FFmpeg post-process in our own narration stage (EXPERIMENTS E1b). The provider only supplies the take.
+- **Lesson:** an accepted parameter isn't necessarily an honoured one. Measure the output.
+
+### F12. Addis API read timeouts and connection resets mid-run (2026-11-25 ~23:58 EAT)
+- **What:** in the first full narration run, s01 and s07 timed out once each (`Read timed out`, 180 s and 227 s; one was on the CDN audio download). s09 failed **3/3** (a read timeout, then a timeout, then `Connection reset by peer`). The stage raised on s09, so **s10–s11 and the radio cut were never produced**. Everything is in runs.jsonl.
+- **Fix:** (1) narration now continues past a failed line and reports all failures at the end, so one bad line can't block the rest. (2) It allows 5 attempts for TTS. (3) Re-running only retries the missing lines, because the others are cached.
+- **Result:** the re-run regenerated only the 7 changed or missing lines (s06 needed 3 attempts). The radio cut rendered at 89.5 s.
+
+### F13. True peak over the ceiling after AAC encoding (2026-11-26 00:51 EAT)
+- **What:** the radio cut measured −14.0 LUFS (on target) but a true peak of **−0.6 dBTP**, above the −1 dBTP spec. `loudnorm` in linear mode doesn't guarantee the peak, and AAC encoding overshoots.
+- **Fix:** a 4×-oversampled `alimiter` (limit 0.83 ≈ −1.6 dBFS) after the second loudnorm pass. Re-measured: **−14.0 LUFS, −1.4 dBTP**.
+
+### F14. Reference sheets: wrong ethnicity and a European "old town" (2026-11-26 ~01:00 EAT)
+- **What:** the first 18 reference candidates had South Asian / Middle Eastern faces. "Warm brown skin" wasn't specific enough, so the model fell back on its default. The Harar wall came out as a **crenellated European castle wall with glass windows**, the "generic old town" error the research brief warned about.
+- **Fix:** each character description now says "Ethiopian … from Harar, with Habesha features, dark brown skin". The wall description uses the research facts (rubble stone with limewash, flat-roofed two-storey houses, few street-facing windows, wooden doors) and says "no towers, no battlements, no arches".
+- **Result:** the second batch reads as Ethiopian, and the Jugol looks plausible (see `outputs/review/refs_sheet.png`: left three columns are the old prompts, right three the new). Written up as EXPERIMENTS E3a.

@@ -4,25 +4,27 @@
     "title": "A Little Further",
     "language": "am",
     "subtitle_language": "en",
-    "audience": "My family (especially my mother) and relatives in Ethiopia and the diaspora, watching on a phone in WhatsApp/Telegram; secondary: peers and colleagues on LinkedIn/Slack.",
+    "audience": "My family and relatives in Ethiopia and the diaspora, watching on a phone in WhatsApp/Telegram; secondary: peers and colleagues on LinkedIn/Slack. The film is also a tribute to my late mother.",
     "intent": "At the end, viewers feel that one person's achievement is the accumulated sacrifice of many generations, and that the story is not finished: it is the narrator's turn to carry the family a little further.",
-    "logline": "Four generations in Harar, from immigrant tailors to a software engineer, each giving up something so the next could go a little further.",
+    "logline": "Four generations, from a tailor on Harar's street of sewing machines to an AI engineer in Addis Ababa, each giving up something so the next could go a little further.",
     "style_block": "Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
     "negative_prompt": "photorealistic, archival photograph, sepia photo, Moroccan medina, horseshoe arches, zellige tiles, domes, minarets on every roof, palm trees, adobe, readable signs or text, hyena, exoticised or voyeuristic framing, extra fingers, distorted hands",
     "fps": 24,
     "loudness_lufs": -14.0,
     "true_peak_db": -1.0,
-    "lead_in_s": 0.5,
-    "tail_s": 0.9,
-    "transition_s": 0.5
+    "lead_in_s": 0.4,
+    "tail_s": 0.6,
+    "transition_s": 0.5,
+    "vo_tempo": 0.9,
+    "vo_warmth": true
   },
   "characters": [
     {
       "id": "gen1_tailor_m",
-      "role": "great-grandfather, immigrant tailor",
+      "role": "great-grandfather, tailor on Makina Girgir (Harar), about 80 years ago",
       "chapter": 1,
       "age_range": "25-35",
-      "description": "A slim young man in his late twenties with warm brown skin, short dark hair and a neat close-cropped beard, calm focused eyes, wearing a plain white cotton shirt with rolled sleeves and a dark waistcoat, a thin bracelet of woven green and gold thread on his right wrist.",
+      "description": "A slim young Ethiopian man from Harar in his late twenties, with Habesha features, dark brown skin, short tightly curled black hair and a neat short beard, calm focused eyes, wearing a plain white cotton shirt with rolled sleeves and a dark waistcoat, a thin bracelet of woven green and gold thread on his right wrist.",
       "wardrobe": "plain white cotton shirt, dark waistcoat, simple trousers",
       "demeanour": "patient, careful, quietly determined",
       "continuity_rules": [
@@ -30,33 +32,38 @@
         "never photoreal"
       ],
       "ref": {
-        "prompt": "Character reference sheet, full body and head-and-shoulders portrait side by side, neutral warm background.",
+        "prompt": "Character reference sheet: a full-body portrait and a head-and-shoulders portrait of the same person side by side, neutral warm paper background, no text.",
         "seed": 101
       },
       "fact_flags": [
         {
-          "claim": "great-grandparents were immigrants who worked as tailors in Harar",
+          "claim": "came to Harar from far away",
           "status": "family-confirmed",
-          "source": "producer brief"
+          "source": "producer, 2026-11-26"
         },
         {
-          "claim": "appearance, clothing and origin",
+          "claim": "great-grandfather was the tailor and worked on Makina Girgir, about 80 years ago",
+          "status": "family-confirmed",
+          "source": "producer, 2026-11-26"
+        },
+        {
+          "claim": "appearance and clothing",
           "status": "interpretation",
           "source": null
         },
         {
           "claim": "thread bracelet passed down the generations",
           "status": "interpretation",
-          "source": "symbolic motif, not a real heirloom unless the family confirms one"
+          "source": "symbolic motif invented for the film; producer chose to keep it (2026-11-26)"
         }
       ]
     },
     {
-      "id": "gen1_tailor_f",
-      "role": "great-grandmother, immigrant tailor",
+      "id": "gen1_greatgrandmother",
+      "role": "great-grandmother, came to Harar with him",
       "chapter": 1,
       "age_range": "20-30",
-      "description": "A young woman in her mid twenties with warm brown skin, an oval face and kind dark eyes, hair covered by a soft muted-indigo cotton headscarf, wearing a long simple dress, a thin bracelet of woven green and gold thread on her right wrist.",
+      "description": "A young Ethiopian woman from Harar in her mid twenties, with Habesha features, dark brown skin, an oval face and kind dark eyes, hair covered by a soft muted-indigo cotton headscarf, wearing a long simple cotton dress, a thin bracelet of woven green and gold thread on her right wrist.",
       "wardrobe": "long plain cotton dress, muted indigo headscarf",
       "demeanour": "gentle, resilient, observant",
       "continuity_rules": [
@@ -64,10 +71,15 @@
         "indigo headscarf"
       ],
       "ref": {
-        "prompt": "Character reference sheet, full body and head-and-shoulders portrait side by side, neutral warm background.",
+        "prompt": "Character reference sheet: a full-body portrait and a head-and-shoulders portrait of the same person side by side, neutral warm paper background, no text.",
         "seed": 102
       },
       "fact_flags": [
+        {
+          "claim": "came to Harar from far away with the great-grandfather",
+          "status": "family-confirmed",
+          "source": "producer, 2026-11-26"
+        },
         {
           "claim": "appearance and clothing",
           "status": "interpretation",
@@ -76,44 +88,45 @@
       ]
     },
     {
-      "id": "gen2_merchant",
-      "role": "grandparent, merchant in Harar",
+      "id": "gen2_grandmother",
+      "role": "grandmother, street-side stall merchant in Harar",
       "chapter": 2,
-      "age_range": "35-50",
-      "description": "A sturdy man in his forties with warm brown skin, greying short hair and a broad kind face, wearing a cream cotton shirt and a dark jacket, a thin bracelet of woven green and gold thread on his right wrist.",
-      "wardrobe": "cream shirt, dark jacket",
-      "demeanour": "steady, responsible, warm with customers",
+      "age_range": "40-55",
+      "description": "A strong, warm Ethiopian woman from Harar in her late forties, with Habesha features, dark brown skin, a round kind face and steady dark eyes, hair covered by a deep-red patterned headscarf, wearing a long dark dress with a shawl over her shoulders, a thin bracelet of woven green and gold thread on her right wrist.",
+      "wardrobe": "deep-red patterned headscarf, long dark dress, shawl",
+      "demeanour": "steady, hard-working, warm with customers",
       "continuity_rules": [
+        "deep-red headscarf",
         "thread bracelet on right wrist"
       ],
       "ref": {
-        "prompt": "Character reference sheet, full body and head-and-shoulders portrait side by side, neutral warm background.",
-        "seed": 201
+        "prompt": "Character reference sheet: a full-body portrait and a head-and-shoulders portrait of the same person side by side, neutral warm paper background, no text.",
+        "seed": 202
       },
       "fact_flags": [
         {
-          "claim": "grandparents were merchants in Harar",
+          "claim": "grandmother was the one in trade, a street-side stall merchant in Harar",
           "status": "family-confirmed",
-          "source": "producer brief"
+          "source": "producer, 2026-11-26"
         },
         {
-          "claim": "what they traded",
+          "claim": "what she sold",
           "status": "pending-family",
           "source": null
         },
         {
-          "claim": "appearance",
+          "claim": "appearance and clothing (Harari dress colours are low-confidence in research)",
           "status": "interpretation",
-          "source": null
+          "source": "docs/research/harar-brief.md #18"
         }
       ]
     },
     {
       "id": "mother",
-      "role": "my mother (market worker and student, later graduate and office worker)",
+      "role": "my late mother (market worker and student, later graduate and office worker)",
       "chapter": 3,
       "age_range": "16-45 across chapters 3-4",
-      "description": "A woman with warm brown skin, an oval face, high cheekbones and bright determined dark eyes, dark hair tied back under a simple deep-green scarf, a thin bracelet of woven green and gold thread on her right wrist.",
+      "description": "An Ethiopian woman from Harar with Habesha features, dark brown skin, an oval face, high cheekbones and bright determined dark eyes, her hair covered by a simple deep-green headscarf, a thin bracelet of woven green and gold thread on her right wrist.",
       "wardrobe": "chapter 3: simple blouse and long skirt; chapter 4: modest office blouse and cardigan",
       "demeanour": "tired but determined, tender with her child",
       "continuity_rules": [
@@ -122,42 +135,52 @@
         "age stated in each shot prompt"
       ],
       "ref": {
-        "prompt": "Character reference sheet of the same woman at about 18 years old, full body and head-and-shoulders portrait side by side, neutral warm background.",
+        "prompt": "Character reference sheet: a full-body portrait and a head-and-shoulders portrait of the same person side by side, neutral warm paper background, no text.",
         "seed": 301
       },
       "fact_flags": [
         {
-          "claim": "worked in the market while studying, graduated, then worked long office hours while raising me",
+          "claim": "helped her mother (my grandmother) in the market while studying; graduated",
           "status": "family-confirmed",
-          "source": "producer brief"
+          "source": "producer, 2026-11-26"
+        },
+        {
+          "claim": "worked long hours in a government office about 25 years ago while raising me",
+          "status": "family-confirmed",
+          "source": "producer, 2026-11-26"
+        },
+        {
+          "claim": "she has passed away; the film is a tribute to her",
+          "status": "family-confirmed",
+          "source": "producer, 2026-11-25"
         },
         {
           "claim": "fictionalised AI depiction, not her likeness",
           "status": "interpretation",
-          "source": "consent recorded in ETHICS.md"
+          "source": "consent on her behalf recorded in ETHICS.md"
         }
       ]
     },
     {
       "id": "me",
-      "role": "the narrator (a young woman), software engineering graduate",
+      "role": "the narrator (a young woman), AI engineer in Addis Ababa",
       "chapter": 5,
       "age_range": "22-26",
-      "description": "A young woman in her early twenties with warm brown skin, an oval face and an attentive, hopeful expression, dark hair neatly tied back, wearing a plain dark blouse, a thin bracelet of woven green and gold thread on her right wrist.",
+      "description": "A young Ethiopian woman in her early twenties with Habesha features, dark brown skin, an oval face and an attentive, hopeful expression, natural curly black hair tied back, wearing a plain dark blouse, a thin bracelet of woven green and gold thread on her right wrist.",
       "wardrobe": "plain dark blouse; graduation gown in s10",
       "demeanour": "grateful, focused, looking forward",
       "continuity_rules": [
         "thread bracelet"
       ],
       "ref": {
-        "prompt": "Character reference sheet, full body and head-and-shoulders portrait side by side, neutral warm background.",
+        "prompt": "Character reference sheet: a full-body portrait and a head-and-shoulders portrait of the same person side by side, neutral warm paper background, no text.",
         "seed": 501
       },
       "fact_flags": [
         {
-          "claim": "software engineering graduate with honours, now working on AI",
+          "claim": "software engineering graduate with honours (Addis Ababa Science and Technology University); master's on a scholarship earned during the bachelor's; works as an AI engineer in Addis Ababa with a comfortable life and a great workplace setup",
           "status": "family-confirmed",
-          "source": "producer brief"
+          "source": "producer, 2026-11-26"
         },
         {
           "claim": "the narrator is a young woman; narration in a female voice",
@@ -166,7 +189,7 @@
         },
         {
           "claim": "exact appearance",
-          "status": "pending-family",
+          "status": "interpretation",
           "source": null
         }
       ]
@@ -176,9 +199,9 @@
     {
       "id": "harar_wall",
       "era": "early 20th century to today",
-      "description": "The old stone wall of Harar's walled city (Jugol), limewashed stone, a narrow winding alley of inward-facing two-storey houses, plain walls, no signage.",
+      "description": "The old walled city of Harar, Ethiopia (Jugol): a rough, irregular wall of rubble stone plastered with pale limewash, low flat-roofed two-storey houses of the same plastered stone, small wooden doors, almost no windows facing the street, a narrow winding dirt alley, dry highland light; no towers, no battlements, no arches.",
       "ref": {
-        "prompt": "Location reference, wide establishing view.",
+        "prompt": "Location reference, wide establishing view, no people, no text.",
         "seed": 701
       },
       "fact_flags": [
@@ -190,15 +213,51 @@
       ]
     },
     {
-      "id": "market",
-      "era": "mid 20th century",
-      "description": "An open-air market in old Harar with stalls under overhanging roofs and simple wooden sheds, bundles of cloth, woven baskets and sacks, people in modest everyday clothing, warm dusty light.",
+      "id": "street_stall",
+      "era": "1960s-1990s",
+      "description": "A small street-side stall at the edge of a busy market road in old Harar: goods laid out on a cloth and a low wooden table under a simple shade, woven baskets, limewashed and stone walls behind, people passing in everyday clothes, warm dusty light.",
       "ref": null,
       "fact_flags": [
         {
-          "claim": "tailors and traders worked in the open air or under sheds and overhanging roofs; textiles, baskets and spices sold in Harar markets",
+          "claim": "grandmother had a street-side stall",
+          "status": "family-confirmed",
+          "source": "producer, 2026-11-26"
+        },
+        {
+          "claim": "goods shown (cloth, baskets, small heaps of spices)",
+          "status": "interpretation",
+          "source": "plausible per Zerihun 2018; what she sold is pending-family"
+        }
+      ]
+    },
+    {
+      "id": "makina_girgir",
+      "era": "1940s",
+      "description": "Makina Girgir, the narrow street of tailors in old Harar in the 1940s: small shop fronts with tailors seated at sewing machines outside under overhanging wooden and corrugated roofs, bolts of plain cotton cloth, pale limewashed walls, dusty street.",
+      "ref": null,
+      "fact_flags": [
+        {
+          "claim": "great-grandfather worked on Makina Girgir about 80 years ago",
+          "status": "family-confirmed",
+          "source": "producer, 2026-11-26"
+        },
+        {
+          "claim": "Makina Girgir: sewing-machine street beside Gidir Magala; tailors work outside under overhanging roofs; limewashed walls in early eras",
           "status": "researched",
-          "source": "Pankhurst (TWL); Zerihun 2018"
+          "source": "Zerihun 2018; Pankhurst (TWL); Qantara; docs/research/harar-brief.md #3,#7-9"
+        }
+      ]
+    },
+    {
+      "id": "addis_city",
+      "era": "today",
+      "description": "Modern Addis Ababa today: mid-rise and glass buildings spreading across green hills, the Entoto hills on the horizon.",
+      "ref": null,
+      "fact_flags": [
+        {
+          "claim": "the narrator lives and works in Addis Ababa",
+          "status": "family-confirmed",
+          "source": "producer, 2026-11-26"
         }
       ]
     }
@@ -236,8 +295,10 @@
         }
       },
       "narration": {
-        "text": "Every family has a beginning. Ours begins at the old walls of Harar.",
-        "text_en": "Every family has a beginning. Ours begins at the old walls of Harar."
+        "text": "እያንዳንዱ ቤተሰብ መጀመሪያ አለው። የእኛ የሚጀምረው ከድሮው የሐረር ግንብ ነው።",
+        "text_en": "Every family has a beginning. Ours begins at the old walls of Harar.",
+        "provider": "addis",
+        "voice": "am-sara"
       },
       "music_cue": "m1",
       "ambience": "early morning birds, distant footsteps",
@@ -258,7 +319,7 @@
       "visual": "A young couple seen from behind, carrying cloth bundles, walking toward the city wall.",
       "characters": [
         "gen1_tailor_m",
-        "gen1_tailor_f"
+        "gen1_greatgrandmother"
       ],
       "location": "harar_wall",
       "shot_size": "wide",
@@ -270,7 +331,7 @@
       "transition_out": "dissolve",
       "min_duration_s": 6.5,
       "keyframe": {
-        "prompt": "Wide shot from behind of a young couple carrying cloth bundles, walking along a dusty road toward the old stone wall of the city in morning light.",
+        "prompt": "Wide shot from behind of a young couple in the 1940s carrying cloth bundles, walking along a dusty road toward the old stone wall of the city in morning light.",
         "seed": 1002
       },
       "motion": {
@@ -284,20 +345,22 @@
         }
       },
       "narration": {
-        "text": "My great-grandparents came here as strangers, carrying little more than a skill.",
-        "text_en": "My great-grandparents came here as strangers, carrying little more than a skill."
+        "text": "የቅድመ አያቶቼ ከሩቅ ነው የመጡት፤ ይዘውት የመጡትም ከሙያቸው ውጭ ብዙ አልነበረም።",
+        "text_en": "My great-grandparents came here from far away, carrying little more than a skill.",
+        "provider": "addis",
+        "voice": "am-sara"
       },
       "music_cue": "m1",
       "ambience": "wind, footsteps on dirt",
       "fact_flags": [
         {
-          "claim": "they were immigrants",
+          "claim": "they came from far away",
           "status": "family-confirmed",
-          "source": "producer brief"
+          "source": "producer, 2026-11-26"
         },
         {
-          "claim": "where they came from and how they travelled",
-          "status": "pending-family",
+          "claim": "how they travelled",
+          "status": "interpretation",
           "source": null
         }
       ]
@@ -306,23 +369,23 @@
       "id": "s03",
       "seq": 3,
       "chapter": 1,
-      "purpose": "Show their contribution, a livelihood made by hand, and introduce the thread motif.",
+      "purpose": "Show the first generation's contribution (a livelihood made by hand on Harar's street of tailors) and introduce the thread motif.",
       "emotional_beat": "patient work",
-      "visual": "Close-up of hands guiding cloth through a sewing machine; the green-and-gold thread bracelet on the wrist.",
+      "visual": "Close-up of the great-grandfather's hands guiding cloth through a sewing machine outside his shop on Makina Girgir; the thread bracelet on his wrist.",
       "characters": [
         "gen1_tailor_m"
       ],
-      "location": "market",
+      "location": "makina_girgir",
       "shot_size": "close",
       "angle": "high angle over the work",
       "camera_move": "static",
       "subject_move": "hands slowly feed cloth under the needle",
-      "lighting": "warm daylight from the side under an overhanging roof",
+      "lighting": "warm daylight under an overhanging roof",
       "composition": "hands and needle centred",
       "transition_out": "dissolve",
       "min_duration_s": 6.0,
       "keyframe": {
-        "prompt": "Close-up of a tailor's hands guiding plain cotton cloth through an old hand-cranked sewing machine, a thin green-and-gold thread bracelet on the wrist, a spool of thread beside it.",
+        "prompt": "Close-up of a tailor's hands guiding plain cotton cloth through an old black sewing machine on a small table outside his shop, a thin green-and-gold thread bracelet on his wrist, a spool of thread beside it, 1940s.",
         "seed": 1003
       },
       "motion": {
@@ -336,21 +399,28 @@
         }
       },
       "narration": {
-        "text": "They were tailors. Stitch by stitch, they built a life with their hands.",
-        "text_en": "They were tailors. Stitch by stitch, they built a life with their hands."
+        "text": "ቅድመ አያቴ መኪና ግርግር በሚባለው የስፌት ማሽኖች መንገድ ላይ ልብስ ሰፊ ነበር።",
+        "text_en": "My great-grandfather was a tailor on Makina Girgir, the street of sewing machines.",
+        "provider": "addis",
+        "voice": "am-sara"
       },
       "music_cue": "m1",
       "ambience": "sewing machine rhythm, market murmur",
       "fact_flags": [
         {
-          "claim": "they were tailors",
+          "claim": "great-grandfather was a tailor on Makina Girgir",
           "status": "family-confirmed",
-          "source": "producer brief"
+          "source": "producer, 2026-11-26"
         },
         {
-          "claim": "hand-cranked machine (sewing machines reached Harar from 1905; Singer from 1909)",
+          "claim": "sewing machines in Harar from 1905; Singer from 1909; tailors outside under overhanging roofs",
           "status": "researched",
-          "source": "Pankhurst, TWL; machine type pending-family"
+          "source": "Pankhurst (TWL); Qantara"
+        },
+        {
+          "claim": "machine type (hand-crank vs treadle)",
+          "status": "pending-family",
+          "source": null
         }
       ]
     },
@@ -358,23 +428,23 @@
       "id": "s04",
       "seq": 4,
       "chapter": 2,
-      "purpose": "Generation two continues and extends the foundation: work by hand becomes trade.",
+      "purpose": "The second generation extends the foundation: work by hand becomes trade.",
       "emotional_beat": "building, responsibility",
-      "visual": "A merchant arranging goods at a market stall under an overhanging roof.",
+      "visual": "The grandmother arranging goods at her street-side stall.",
       "characters": [
-        "gen2_merchant"
+        "gen2_grandmother"
       ],
-      "location": "market",
+      "location": "street_stall",
       "shot_size": "medium",
       "angle": "eye-level",
       "camera_move": "slow push-in",
-      "subject_move": "he straightens a stack of folded cloth",
+      "subject_move": "she straightens a stack of folded cloth",
       "lighting": "warm afternoon light, dust in the air",
-      "composition": "merchant centred behind his stall",
+      "composition": "grandmother centred behind her stall",
       "transition_out": "dissolve",
       "min_duration_s": 6.5,
       "keyframe": {
-        "prompt": "Medium shot of a merchant in her forties standing behind a small market stall of folded cloth and woven baskets under an overhanging roof, neatly arranging her goods.",
+        "prompt": "Medium shot of a woman in her late forties standing behind a small street-side stall of folded cloth, woven baskets and small heaps of spices on a low wooden table under a simple shade, neatly arranging her goods.",
         "seed": 1004
       },
       "motion": {
@@ -388,21 +458,23 @@
         }
       },
       "narration": {
-        "text": "Their children became merchants. The stitches became trade, and the trade became a living.",
-        "text_en": "Their children became merchants. The stitches became trade, and the trade became a living."
+        "text": "አያቴ መንገድ ዳር ትንሽ መደብር ነበራት። ስፌቱ ንግድ ሆነ፤ ንግዱም ኑሮ ሆነ።",
+        "text_en": "My grandmother kept a small stall by the street. The stitches became trade, and the trade became a living.",
+        "provider": "addis",
+        "voice": "am-sara"
       },
       "music_cue": "m1",
       "ambience": "market voices, coins, footsteps",
       "fact_flags": [
         {
-          "claim": "grandparents were merchants in Harar",
+          "claim": "grandmother was a street-side stall merchant",
           "status": "family-confirmed",
-          "source": "producer brief"
+          "source": "producer, 2026-11-26"
         },
         {
-          "claim": "goods shown (cloth, baskets)",
+          "claim": "goods shown",
           "status": "interpretation",
-          "source": "pending-family: what they traded"
+          "source": "pending-family: what she sold"
         }
       ]
     },
@@ -412,11 +484,11 @@
       "chapter": 2,
       "purpose": "Make the sacrifice concrete: what is earned is put aside for the next generation.",
       "emotional_beat": "quiet sacrifice",
-      "visual": "Close-up of hands placing coins into a small tin box at the end of the day.",
+      "visual": "Close-up of the grandmother's hands placing coins into a small tin box at the end of the day.",
       "characters": [
-        "gen2_merchant"
+        "gen2_grandmother"
       ],
-      "location": "market",
+      "location": "street_stall",
       "shot_size": "close",
       "angle": "high angle",
       "camera_move": "static",
@@ -426,7 +498,7 @@
       "transition_out": "dissolve",
       "min_duration_s": 5.5,
       "keyframe": {
-        "prompt": "Close-up of a merchant's hands with a green-and-gold thread bracelet placing coins into a small worn tin box on a wooden counter in evening light.",
+        "prompt": "Close-up of a woman's hands with a green-and-gold thread bracelet placing coins into a small worn tin box on a wooden table in warm evening light.",
         "seed": 1005
       },
       "motion": {
@@ -440,8 +512,10 @@
         }
       },
       "narration": {
-        "text": "What they earned, they saved, for the ones who would come after them.",
-        "text_en": "What they earned, they saved, for the ones who would come after them."
+        "text": "ያገኘችውን ሁሉ ቆጠበች፤ ከእሷ በኋላ ለሚመጡት ብላ።",
+        "text_en": "What she earned, she saved, for the ones who would come after her.",
+        "provider": "addis",
+        "voice": "am-sara"
       },
       "music_cue": "m1",
       "ambience": "coins, evening quiet",
@@ -459,11 +533,12 @@
       "chapter": 3,
       "purpose": "Introduce my mother carrying two responsibilities at once: work and school.",
       "emotional_beat": "struggle, determination",
-      "visual": "A teenage girl at a market stall with a schoolbook open on her lap between customers.",
+      "visual": "The teenage mother at her mother's street-side stall, a schoolbook open on her lap between customers; the grandmother behind her.",
       "characters": [
-        "mother"
+        "mother",
+        "gen2_grandmother"
       ],
-      "location": "market",
+      "location": "street_stall",
       "shot_size": "medium",
       "angle": "eye-level",
       "camera_move": "slow push-in",
@@ -473,7 +548,7 @@
       "transition_out": "dissolve",
       "min_duration_s": 6.5,
       "keyframe": {
-        "prompt": "Medium shot of the same woman as a 17-year-old girl sitting at a market stall with an open schoolbook on her lap, a pencil in her hand, goods around her.",
+        "prompt": "Medium shot of a 17-year-old girl sitting at her mother's street-side stall with an open schoolbook on her lap and a pencil in her hand, an older woman in a deep-red headscarf arranging goods behind her.",
         "seed": 1006
       },
       "motion": {
@@ -487,21 +562,18 @@
         }
       },
       "narration": {
-        "text": "My mother worked in the market by day, and carried her schoolbooks with her.",
-        "text_en": "My mother worked in the market by day, and carried her schoolbooks with her."
+        "text": "እናቴ በቀን እዚያው መደብር ላይ ታግዛት ነበር፤ ደብተሮቿንም አብራ ይዛ ትሄድ ነበር።",
+        "text_en": "My mother helped her at the stall by day, and carried her schoolbooks with her.",
+        "provider": "addis",
+        "voice": "am-sara"
       },
       "music_cue": "m2",
       "ambience": "market bustle",
       "fact_flags": [
         {
-          "claim": "worked in the market while studying",
+          "claim": "helped her mother in the market while studying",
           "status": "family-confirmed",
-          "source": "producer brief"
-        },
-        {
-          "claim": "what she sold",
-          "status": "pending-family",
-          "source": null
+          "source": "producer, 2026-11-26"
         }
       ]
     },
@@ -539,8 +611,10 @@
         }
       },
       "narration": {
-        "text": "At night, when she was tired, she studied anyway.",
-        "text_en": "At night, when she was tired, she studied anyway."
+        "text": "ማታ ማታ ቢደክማትም እንኳ፣ ታጠና ነበር።",
+        "text_en": "At night, when she was tired, she studied anyway.",
+        "provider": "addis",
+        "voice": "am-sara"
       },
       "music_cue": "m2",
       "ambience": "night crickets, lamp hiss",
@@ -586,8 +660,10 @@
         }
       },
       "narration": {
-        "text": "And one day, she graduated.",
-        "text_en": "And one day, she graduated."
+        "text": "አንድ ቀንም ተመረቀች።",
+        "text_en": "And one day, she graduated.",
+        "provider": "addis",
+        "voice": "am-sara"
       },
       "music_cue": "m2",
       "ambience": "distant celebration",
@@ -610,7 +686,7 @@
       "chapter": 4,
       "purpose": "Show the sacrifice made for a child: long office hours, time and energy given up.",
       "emotional_beat": "love and responsibility",
-      "visual": "The mother working late at an office desk; a child's school notebook beside her papers.",
+      "visual": "The mother working late in a government office around 2000; stacks of paper files; a child's school notebook beside her papers.",
       "characters": [
         "mother"
       ],
@@ -624,7 +700,7 @@
       "transition_out": "dissolve",
       "min_duration_s": 7.0,
       "keyframe": {
-        "prompt": "Medium shot of the same woman at about 35 years old working late at an office desk with papers, a desk lamp, night outside the window, a child's school notebook resting beside her work.",
+        "prompt": "Medium shot of the same woman at about 35 years old working late at a desk in a busy government office around the year 2000, stacks of paper files and folders, an old beige computer monitor, a desk lamp, night outside the window, a child's school notebook resting beside her work.",
         "seed": 1009
       },
       "motion": {
@@ -638,20 +714,22 @@
         }
       },
       "narration": {
-        "text": "Then she worked long hours in an office, and gave everything she had so that I could learn.",
-        "text_en": "Then she worked long hours in an office, and gave everything she had so that I could learn."
+        "text": "ከዚያም በመንግሥት መሥሪያ ቤት ረጅም ሰዓታት ሠራች፤ እኔ እንድማርም ያላትን ሁሉ ሰጠችኝ።",
+        "text_en": "Then she worked long hours in a government office, and gave everything she had so that I could learn.",
+        "provider": "addis",
+        "voice": "am-sara"
       },
       "music_cue": "m2",
       "ambience": "quiet office hum, clock",
       "fact_flags": [
         {
-          "claim": "long office hours while raising me and investing in my education",
+          "claim": "long hours in a government office about 25 years ago, while raising me",
           "status": "family-confirmed",
-          "source": "producer brief"
+          "source": "producer, 2026-11-26"
         },
         {
-          "claim": "her profession",
-          "status": "pending-family",
+          "claim": "office details (files, beige computer)",
+          "status": "interpretation",
           "source": null
         }
       ]
@@ -662,21 +740,21 @@
       "chapter": 5,
       "purpose": "The fifth stage: my achievement, shown as the result of everything before it.",
       "emotional_beat": "pride and gratitude",
-      "visual": "The young woman at a laptop, light from the screen on her face, the thread bracelet on her wrist as she types.",
+      "visual": "The narrator at a modern, well-equipped workspace in Addis Ababa: large monitors, a laptop, plants, a big window with the city beyond; the thread bracelet on her wrist as she types.",
       "characters": [
         "me"
       ],
-      "location": null,
+      "location": "addis_city",
       "shot_size": "medium-close",
       "angle": "eye-level",
       "camera_move": "slow push-in",
       "subject_move": "she types, then pauses and looks at the bracelet",
-      "lighting": "soft screen glow mixed with warm room light",
+      "lighting": "soft screen glow mixed with warm evening light from the window",
       "composition": "face and hands centred",
       "transition_out": "dissolve",
-      "min_duration_s": 6.5,
+      "min_duration_s": 7.0,
       "keyframe": {
-        "prompt": "Medium close-up of a young woman in her early twenties typing on a laptop at a desk, soft glow of the screen on her face, a green-and-gold thread bracelet on her wrist, focused and hopeful.",
+        "prompt": "Medium close-up of a young woman in her early twenties typing at a modern, well-equipped desk with two large monitors and a laptop, plants beside her, a big window behind her showing city lights at dusk, soft screen glow on her face, a green-and-gold thread bracelet on her wrist, focused and hopeful.",
         "seed": 1010
       },
       "motion": {
@@ -690,16 +768,18 @@
         }
       },
       "narration": {
-        "text": "I graduated in software engineering, with honours. Today, I work on artificial intelligence.",
-        "text_en": "I graduated in software engineering, with honours. Today, I work on artificial intelligence."
+        "text": "እኔ በሶፍትዌር ኢንጂነሪንግ በማዕረግ ተመረቅሁ፤ ለማስተርሴ የነፃ ትምህርት ዕድል አገኘሁ፤ ዛሬ ደግሞ እነሱ ፈጽሞ ያላዩትን ምቾት ያገኘሁ የኤአይ ኢንጂነር ነኝ።",
+        "text_en": "I graduated in software engineering with honours, won a scholarship for my master's, and today I am an AI engineer, with comforts they never had.",
+        "provider": "addis",
+        "voice": "am-sara"
       },
       "music_cue": "m3",
       "ambience": "keyboard, room tone",
       "fact_flags": [
         {
-          "claim": "software engineering graduate with honours, working on AI",
+          "claim": "honours graduate in software engineering, master's on scholarship, AI engineer in Addis Ababa with a comfortable life and great workplace setup",
           "status": "family-confirmed",
-          "source": "producer brief"
+          "source": "producer, 2026-11-26"
         }
       ]
     },
@@ -707,13 +787,13 @@
       "id": "s11",
       "seq": 11,
       "chapter": 5,
-      "purpose": "Close the circle at Harar's walls (echo of s01) and hand the story forward.",
+      "purpose": "Close the story with the central message and hand it forward: from Harar's old walls (s01) to the modern city she now lives in.",
       "emotional_beat": "possibility, responsibility",
-      "visual": "The young woman on a rooftop above the old city at sunrise, looking out over Harar.",
+      "visual": "The narrator on a high balcony above Addis Ababa at sunrise, looking out over the city.",
       "characters": [
         "me"
       ],
-      "location": "harar_wall",
+      "location": "addis_city",
       "shot_size": "wide",
       "angle": "from behind, slightly high",
       "camera_move": "slow rise",
@@ -723,7 +803,7 @@
       "transition_out": "fade",
       "min_duration_s": 7.5,
       "keyframe": {
-        "prompt": "Wide shot from behind of a young woman standing on a flat rooftop above the old walled city at sunrise, rooftops and the stone wall stretching below, warm golden light.",
+        "prompt": "Wide shot from behind of a young woman standing on a high balcony above a modern city at sunrise, buildings spreading across green hills below, warm golden light.",
         "seed": 1011
       },
       "motion": {
@@ -737,12 +817,19 @@
         }
       },
       "narration": {
-        "text": "Nothing I have is mine alone. It is the work of everyone who came before me. Now it is my turn to take us a little further.",
-        "text_en": "Nothing I have is mine alone. It is the work of everyone who came before me. Now it is my turn to take us a little further."
+        "text": "ያለኝ ነገር ሁሉ የእኔ ብቻ አይደለም። ከእኔ በፊት የነበሩት ሁሉ የድካም ውጤት ነው። አሁን ደግሞ ሁላችንንም ጥቂት ወደፊት የማራመድ ተራው የእኔ ነው።",
+        "text_en": "Nothing I have is mine alone. It is the work of everyone who came before me. Now it is my turn to take us a little further.",
+        "provider": "addis",
+        "voice": "am-sara"
       },
       "music_cue": "m3",
       "ambience": "morning wind, distant city",
       "fact_flags": [
+        {
+          "claim": "lives in Addis Ababa",
+          "status": "family-confirmed",
+          "source": "producer, 2026-11-26"
+        },
         {
           "claim": "forward-looking responsibility",
           "status": "family-confirmed",

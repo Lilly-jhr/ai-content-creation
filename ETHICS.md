@@ -9,13 +9,22 @@ real people, so informed consent to the story and to the words spoken about them
 
 | Person (role) | Alive | What is depicted / said | Consent given by | How recorded | Date | Words approved? |
 |---|---|---|---|---|---|---|
-| Mother | yes | fictional AI actor; narration lines s06–s09 about her work, study, graduation, office hours | *(pending: her own consent)* | *(e.g. voice note / WhatsApp message, stored privately)* | | *(pending)* |
-| Me (narrator) | yes | fictional AI actor; lines s10–s11; first-person narration in a stock voice | myself | this file | 2026-11-25 | yes |
-| Great-grandparents | no | fictional AI actors; immigrant tailors (s02–s03) | *(pending: family elder / mother on the family's behalf)* | | | |
-| Grandparents | no | fictional AI actor; merchant (s04–s05) | *(pending: as above)* | | | |
+| Me (narrator, her daughter) | yes | fictional AI actor (young woman); lines s10–s11; first-person narration in a stock female voice (Addis `am-sara`), not my own voice | myself | this file | 2026-11-25 | yes |
+| Mother | **deceased** | fictional AI actor, **not her likeness** (no photos used); her voice is never used or imitated; lines s06–s09 describe her helping at her mother's stall while studying, graduating, and long hours in a government office, in my words as her daughter | **her daughters (my sisters), as next of kin**, plus me as her daughter | consent given to me by my sisters; the record is kept privately by me, not in the repo | 2026-11-25/26 | my sisters are also radio-cut testers and hear every line before release (DESIGN.md test 1) |
+| Great-grandparents (great-grandfather the tailor; great-grandmother) | deceased *(assumed: about 80 years ago; confirm)* | fictional AI actors; came to Harar from far away; tailor on Makina Girgir (s02–s03) | my sisters and me, as descendants, on the family's behalf | as above | 2026-11-25/26 | as above |
+| Grandmother (street-side stall merchant) | *(confirm)* | fictional AI actor; her stall (s04–s06) | my sisters and me, on the family's behalf | as above | 2026-11-25/26 | as above |
 
-Informed means the person knew: it's AI-generated, it will be posted publicly with an AI label, the exact
-narration lines, and that they can ask for changes or removal.
+Informed means the person (or, for someone who has died, their next of kin) knew: it's AI-generated, it will be posted
+publicly with an AI label, the exact narration lines, and that they can ask for changes or removal.
+
+### People who have died
+A person who has died cannot consent. That is why this film represents my mother and earlier generations as
+**fictional, painterly AI actors**, never their faces, photographs or voices. Instead:
+1. **Next-of-kin permission:** a close relative agrees to the story being told publicly in this form and approves the lines about her.
+2. **My standing as her daughter:** the narration is my account of my own family, in my own words. It does not put words in her mouth.
+3. **No likeness, no voice:** no photographs as references, no voice cloning, nothing that could pass as a real recording of her.
+4. **Respect and accuracy:** only facts the family confirms are stated as fact (`fact_flags`). Everything else is marked as interpretation.
+5. **Right to withdraw:** if any family member objects after release, the post is edited or taken down.
 
 ## 2. Privacy
 - No real names, dates, addresses or private family details in any prompt. Prompts use role ids (`mother`, `gen1_tailor_m`).

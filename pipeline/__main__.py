@@ -80,16 +80,18 @@ def translate(
     language: Annotated[
         str | None, typer.Option(help="Target language code (default meta.language)")
     ] = None,
+    model: Annotated[str | None, typer.Option(help="Gemini model id (no fallback)")] = None,
 ) -> None:
     """Draft the narration translation from text_en with Gemini (native-speaker review required)."""
     from pipeline.stages import script
 
     sb = _load()
-    tr = script.draft(sb, language)
+    tr = script.draft(sb, language, model)
     for sid, text in tr.items():
         typer.echo(f"{sid}: {text}")
     if apply and tr and not CTX.dry_run:
-        typer.echo(f"applied {script.apply(tr)} line(s) to storyboard.json")
+        chosen = {k: v for k, v in tr.items() if CTX.wants(k)}  # --shot limits what is applied
+        typer.echo(f"applied {script.apply(chosen)} line(s) to storyboard.json: {sorted(chosen)}")
     _print_plan()
 
 

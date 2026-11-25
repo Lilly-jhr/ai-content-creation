@@ -26,8 +26,29 @@ estimated or invented. Planned entries are marked *planned* until they are run.
 
 - **Side finding:** Addis took **74–159 s to synthesise ~5 s of audio**, roughly 15–30× slower than real time. For 11 lines that is about 15–20 min,
   so narration runs as a background job, and caching it matters more than expected.
-- **Listener results:** *pending*
-- **Conclusion / change:** *pending*
+- **Listener results (2026-11-25, blind A–D):** the producer and her testers independently chose **B** (`am-sara`).
+  Their note: *"a little fast, and it needs more warmth."* (Their names and exact number go in DESIGN.md test notes.)
+- **Conclusion:** the hypothesis was **wrong**. Listeners preferred the voice tagged "motherly, warm, inspiring" over the one tagged
+  "studio narration". For a family tribute, warmth beat polish.
+- **Change:** `narration.voice = am-sara` on every shot, and it is the default in `config/providers.toml`. That led to E1b.
+
+## E1b. Can we slow the voice down with the provider's `speed` parameter?
+- **Hypothesis:** Addis' `speed` < 1 lengthens the same line proportionally.
+- **Variable:** speed ∈ {1.0, 0.85, 0.9}. **Controls:** same voice (`am-sara`) and same s01 line.
+- **Result (runs.jsonl):**
+
+| speed | audio length (s) | expected at 1.0 = 5.29 s | latency (s) |
+|---|---|---|---|
+| 1.0 | 5.29 | n/a | 74.8 |
+| 0.85 | **5.30** | 6.22 | 49.5 |
+| 0.90 | 5.84 | 5.88 | 69.0 |
+
+- **Conclusion:** `speed` is **not reliably honoured**. 0.85 gave the same length as 1.0. 0.9 came out longer, but by an amount consistent with
+  take-to-take variation (TTS is stochastic). We can't depend on it.
+- **Change:** tempo and warmth moved into a **deterministic post-process** in the narration stage:
+  - `atempo=0.9` (pitch-preserving), plus a gentle low-shelf +2.5 dB @160 Hz, high-shelf −2.5 dB @7.5 kHz and light 2:1 compression.
+  - The settings are `meta.vo_tempo = 0.9` and `meta.vo_warmth = true` in the storyboard.
+  - Derived files are keyed by the raw take plus the settings, so tuning them never re-bills TTS.
 
 ## E2. Translation model: Gemini 3.8 Flash vs 3.5 Flash-Lite for Amharic narration
 - **Hypothesis:** the larger model gives more natural spoken Amharic. Flash-Lite is fine for bulk work but makes errors in a low-resource language.
@@ -36,8 +57,27 @@ estimated or invented. Planned entries are marked *planned* until they are run.
   - s03 "ሰብቺዎች" is not a word for tailors (expected "ልብስ ሰፊዎች").
   - s06 "እናትየዋ" means "the mother", not "my mother" ("እናቴ"), and the clause "አብረዋቸው ይዟት ይዞ ነበር" is ungrammatical.
   - s02 "ከክህሎት ውጪ የያዙት ትንሽ ነገር ነበረ" is awkward.
-- **Status:** *in progress.* Re-run with 3.8 Flash when available, then have a native speaker rate both drafts line by line.
-- **Change so far:** the draft was **not** applied. Narration stays unapproved until native review (Gate 1).
+- **Re-run (2026-11-25 ~23:50 EAT), same prompt + a 3-term glossary:**
+  - `gemini-3.8-flash` succeeded on its 3rd attempt (two earlier tries: a 180 s read timeout, then a 503). Latency 164.9 s.
+  - `gemini-3.6-flash` failed 6/6 with 503 "high demand". There is no draft from it to compare.
+- **3.8 Flash vs 3.5 Flash-Lite (agent reading; producer to confirm):**
+  - 3.8 used the correct terms: ልብስ ሰፊዎች (tailors), እናቴ (my mother), በማዕረግ ተመረቅሁ (graduated with honours).
+  - Its sentences are natural and spoken ("ማታ ማታ ቢደክማትም እንኳ፣ ታጠና ነበር።").
+  - One oddity remained, s03 "እያያዙ", which the agent removed.
+  - **Caveat:** the glossary was added for the 3.8 run, so this isn't a single-variable comparison. Part of the improvement is the glossary.
+- **Conclusion:** for a low-resource language, the larger model is worth the 503 retries. The fallback model is only safe with a glossary and native review.
+- **Change:** the 3.8 draft (+ s03 edit) went into `narration.text`, pending the producer's line-by-line approval (Gate 1).
+
+## E3a. Does naming the ethnicity explicitly change who the model draws?
+- **Hypothesis:** "warm brown skin" is too vague. The model will default to non-Ethiopian faces unless the ethnicity and region are named.
+- **Variable:** the character description text (vague vs "Ethiopian from Harar, Habesha features, dark brown skin"). The same goes for the wall description (generic vs research-grounded).
+- **Controls:** the same model (klein-4B), the **same seeds** (101–104, 202–204, 301–303, 501–503, 701–703), the same style block and size.
+- **Result:** 18 candidates before, 18 after (runs.jsonl, stage `refs`; side by side in `outputs/review/refs_sheet.png`).
+  - Before, every face read as South Asian / Middle Eastern.
+  - After, all 15 character images read as Ethiopian.
+  - Before, the walls were a crenellated European castle or Mediterranean houses with glass windows. After, they show rubble-stone, flat-roofed houses on a dirt alley.
+- **Conclusion:** the model's default identity is not ours. Specificity grounded in the research brief fixed both problems at no extra cost.
+- **Change:** the descriptions are updated in `storyboard.json`. Since every keyframe prompt reuses them verbatim, the fix propagates to all shots.
 
 ## Planned
 | # | Question | Variable | Evidence |

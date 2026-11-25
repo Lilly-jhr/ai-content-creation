@@ -14,7 +14,7 @@ sample_rate = 48000                  # every narration clip is normalised to 48 
 
 [tts.addis]
 base_url = "https://api.addisassistant.com/api/v1"
-voice = "am-hamen"
+voice = "am-sara"                    # chosen in E1 blind test (voice_B)
 output_format = "wav_44100"
 max_seconds_per_request = 60
 etb_per_minute = 5.0                 # docs.addisassistant.com/docs/platform/pricing (2026-11-25)

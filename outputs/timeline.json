@@ -3,96 +3,96 @@
     {
       "id": "s01",
       "start": 0.0,
-      "duration": 7.9,
-      "vo_path": null,
-      "vo_start": 0.5,
-      "vo_duration": 6.5
+      "duration": 6.674,
+      "vo_path": "outputs/narration/s01/818184b14d8fcec2.t0.90_warm.wav",
+      "vo_start": 0.4,
+      "vo_duration": 5.674
     },
     {
       "id": "s02",
-      "start": 7.9,
-      "duration": 7.4,
-      "vo_path": null,
-      "vo_start": 8.4,
-      "vo_duration": 6.0
+      "start": 6.674,
+      "duration": 7.918,
+      "vo_path": "outputs/narration/s02/26fa87aa876e995d.t0.90_warm.wav",
+      "vo_start": 7.074,
+      "vo_duration": 6.918
     },
     {
       "id": "s03",
-      "start": 15.3,
-      "duration": 7.9,
-      "vo_path": null,
-      "vo_start": 15.8,
-      "vo_duration": 6.5
+      "start": 14.591,
+      "duration": 7.686,
+      "vo_path": "outputs/narration/s03/8e0293a426645c2f.t0.90_warm.wav",
+      "vo_start": 14.991,
+      "vo_duration": 6.686
     },
     {
       "id": "s04",
-      "start": 23.2,
-      "duration": 8.4,
-      "vo_path": null,
-      "vo_start": 23.7,
-      "vo_duration": 7.0
+      "start": 22.278,
+      "duration": 7.057,
+      "vo_path": "outputs/narration/s04/b37ea63e2403d174.t0.90_warm.wav",
+      "vo_start": 22.678,
+      "vo_duration": 6.057
     },
     {
       "id": "s05",
-      "start": 31.6,
-      "duration": 7.9,
-      "vo_path": null,
-      "vo_start": 32.1,
-      "vo_duration": 6.5
+      "start": 29.334,
+      "duration": 5.5,
+      "vo_path": "outputs/narration/s05/7603bb12f247057e.t0.90_warm.wav",
+      "vo_start": 29.734,
+      "vo_duration": 4.213
     },
     {
       "id": "s06",
-      "start": 39.5,
-      "duration": 8.4,
-      "vo_path": null,
-      "vo_start": 40.0,
-      "vo_duration": 7.0
+      "start": 34.834,
+      "duration": 7.931,
+      "vo_path": "outputs/narration/s06/0523aea104fd7f6f.t0.90_warm.wav",
+      "vo_start": 35.234,
+      "vo_duration": 6.931
     },
     {
       "id": "s07",
-      "start": 47.9,
+      "start": 42.765,
       "duration": 6.0,
-      "vo_path": null,
-      "vo_start": 48.4,
-      "vo_duration": 4.5
+      "vo_path": "outputs/narration/s07/03b9fc38e0608a89.t0.90_warm.wav",
+      "vo_start": 43.165,
+      "vo_duration": 4.192
     },
     {
       "id": "s08",
-      "start": 53.9,
+      "start": 48.765,
       "duration": 6.0,
-      "vo_path": null,
-      "vo_start": 54.4,
-      "vo_duration": 2.5
+      "vo_path": "outputs/narration/s08/c920fd27fe827efb.t0.90_warm.wav",
+      "vo_start": 49.165,
+      "vo_duration": 2.559
     },
     {
       "id": "s09",
-      "start": 59.9,
-      "duration": 10.4,
-      "vo_path": null,
-      "vo_start": 60.4,
-      "vo_duration": 9.0
+      "start": 54.765,
+      "duration": 7.684,
+      "vo_path": "outputs/narration/s09/0b7e684a1c8dd257.t0.90_warm.wav",
+      "vo_start": 55.165,
+      "vo_duration": 6.684
     },
     {
       "id": "s10",
-      "start": 70.3,
-      "duration": 7.9,
-      "vo_path": null,
-      "vo_start": 70.8,
-      "vo_duration": 6.5
+      "start": 62.449,
+      "duration": 12.843,
+      "vo_path": "outputs/narration/s10/565a872babc076eb.t0.90_warm.wav",
+      "vo_start": 62.849,
+      "vo_duration": 11.843
     },
     {
       "id": "s11",
-      "start": 78.2,
-      "duration": 14.9,
-      "vo_path": null,
-      "vo_start": 78.7,
-      "vo_duration": 13.5
+      "start": 75.292,
+      "duration": 10.684,
+      "vo_path": "outputs/narration/s11/7c93d1c24771074d.t0.90_warm.wav",
+      "vo_start": 75.692,
+      "vo_duration": 9.684
     }
   ],
   "end_card": {
-    "start": 93.1,
+    "start": 85.976,
     "duration": 3.5
   },
-  "total": 96.6,
-  "estimated": true
+  "total": 89.476,
+  "estimated": false
 }

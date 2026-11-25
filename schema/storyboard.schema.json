@@ -335,6 +335,20 @@
           "description": "Dissolve length between shots",
           "title": "Transition S",
           "type": "number"
+        },
+        "vo_tempo": {
+          "default": 1.0,
+          "description": "Deterministic pitch-preserving tempo applied after TTS",
+          "maximum": 1.25,
+          "minimum": 0.75,
+          "title": "Vo Tempo",
+          "type": "number"
+        },
+        "vo_warmth": {
+          "default": true,
+          "description": "Gentle low-mid lift / high softening on the voice",
+          "title": "Vo Warmth",
+          "type": "boolean"
         }
       },
       "required": [

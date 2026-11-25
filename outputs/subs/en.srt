@@ -1,75 +1,80 @@
 1
-00:00:00,500 --> 00:00:07,300
+00:00:00,400 --> 00:00:06,374
 Every family has a beginning. Ours
 begins at the old walls of Harar.
 
 2
-00:00:08,400 --> 00:00:14,215
-My great-grandparents came here as
-strangers, carrying little more than a
+00:00:07,074 --> 00:00:14,292
+My great-grandparents came here from far
+away, carrying little more than a skill.
 
 3
-00:00:14,215 --> 00:00:14,700
-skill.
+00:00:14,991 --> 00:00:21,191
+My great-grandfather was a tailor on
+Makina Girgir, the street of sewing
 
 4
-00:00:15,800 --> 00:00:22,600
-They were tailors. Stitch by stitch,
-they built a life with their hands.
+00:00:21,191 --> 00:00:21,977
+machines.
 
 5
-00:00:23,700 --> 00:00:29,673
-Their children became merchants. The
-stitches became trade, and the trade
+00:00:22,678 --> 00:00:27,446
+My grandmother kept a small stall by the
+street. The stitches became trade, and
 
 6
-00:00:29,673 --> 00:00:31,000
-became a living.
+00:00:27,446 --> 00:00:29,035
+the trade became a living.
 
 7
-00:00:32,100 --> 00:00:38,900
-What they earned, they saved, for the
-ones who would come after them.
+00:00:29,734 --> 00:00:34,247
+What she earned, she saved, for the ones
+who would come after her.
 
 8
-00:00:40,000 --> 00:00:47,300
-My mother worked in the market by day,
-and carried her schoolbooks with her.
+00:00:35,234 --> 00:00:42,089
+My mother helped her at the stall by
+day, and carried her schoolbooks with
 
 9
-00:00:48,400 --> 00:00:53,200
+00:00:42,089 --> 00:00:42,465
+her.
+
+10
+00:00:43,165 --> 00:00:47,657
 At night, when she was tired, she
 studied anyway.
 
-10
-00:00:54,400 --> 00:00:57,200
+11
+00:00:49,165 --> 00:00:52,024
 And one day, she graduated.
 
-11
-00:01:00,400 --> 00:01:08,446
-Then she worked long hours in an office,
-and gave everything she had so that I
-
 12
-00:01:08,446 --> 00:01:09,700
-could learn.
+00:00:55,165 --> 00:01:00,033
+Then she worked long hours in a
+government office, and gave everything
 
 13
-00:01:10,800 --> 00:01:15,787
-I graduated in software engineering,
-with honours. Today, I work on
+00:01:00,033 --> 00:01:02,149
+she had so that I could learn.
 
 14
-00:01:15,787 --> 00:01:17,600
-artificial intelligence.
+00:01:02,849 --> 00:01:09,092
+I graduated in software engineering with
+honours, won a scholarship for my
 
 15
-00:01:18,700 --> 00:01:27,785
+00:01:09,092 --> 00:01:14,992
+master's, and today I am an AI engineer,
+with comforts they never had.
+
+16
+00:01:15,692 --> 00:01:22,265
 Nothing I have is mine alone. It is the
 work of everyone who came before me. Now
 
-16
-00:01:27,785 --> 00:01:32,500
+17
+00:01:22,265 --> 00:01:25,676
 it is my turn to take us a little
 further.
 

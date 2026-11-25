@@ -1,0 +1,55 @@
+{
+  "key": "818184b14d8fcec2",
+  "stage": "narration",
+  "item": "s01",
+  "provider": "addis",
+  "model": "addis-voices",
+  "inputs": {
+    "text": "እያንዳንዱ ቤተሰብ መጀመሪያ አለው። የእኛ የሚጀምረው ከድሮው የሐረር ግንብ ነው።",
+    "language": "am",
+    "voice": "am-sara",
+    "speed": 1.0,
+    "style": null
+  },
+  "run_id": "20261125T205432-1cb94b",
+  "latency_s": 29.067,
+  "licence": "Addis AI API terms: commercial use allowed, inputs not used for training (FAQ, 2026-11-25)",
+  "provider_response": {
+    "data": {
+      "id": "a7f0df6d-cdc1-4ac9-a3f9-b2139229faf2",
+      "text": "እያንዳንዱ ቤተሰብ መጀመሪያ አለው። የእኛ የሚጀምረው ከድሮው የሐረር ግንብ ነው።",
+      "text_preview": "እያንዳንዱ ቤተሰብ መጀመሪያ አለው። የእኛ የሚጀምረው ከድሮው የሐረር ግንብ ነው።",
+      "voice_id": "am-sara",
+      "voice_name": "Sara",
+      "voice_descriptor": "Motherly warm inspiring delivery",
+      "language": "am",
+      "output_format": "wav_44100",
+      "audio": null,
+      "audio_url": "https://cdn.addisassistant.com/audio/clips/a7f0df6d-cdc1-4ac9-a3f9-b2139229faf2.wav?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGlwX2lkIjoiYTdmMGRmNmQtY2RjMS00YWM5LWEzZjktYjIxMzkyMjlmYWYyIiwidXNlcl9pZCI6Ijc3ZjJlNDU4LWRhMmItNDRmYy05ZjE0LWI2OWM2YzBhYTAzOSIsInBhdGhfaGFzaCI6IjRkMzY0MWRjYjliN2RiZmM5YThiNjhlZmY1Yjc4NzNlZThjOWU4OGQ4OTA1N2Q3MWQzMjQwNTY5NTVmNTFiNzYiLCJtaW1lX3R5cGUiOiJhdWRpby93YXYiLCJleHAiOjE3OTU2NDM4OTQsInYiOjF9.GAj_LPfO-Jck8epKr4y5OP05nQ3SPgXNLADkTGGwT10",
+      "mime_type": "audio/wav",
+      "duration_seconds": 5.15,
+      "character_count": 51,
+      "billable_characters": 51,
+      "download_name": "addis-ai-sara-a7f0df6d-cdc1-4ac9-a3f9-b2139229faf2.wav",
+      "created_at": "2026-11-25T20:54:37.700285+00:00",
+      "usage": {
+        "pricing_unit": "minute",
+        "price_per_minute": 5,
+        "price_per_audio_minute": 5,
+        "credits_used": 0.4292,
+        "credits_remaining": 495.065,
+        "currency": "ETB"
+      },
+      "playback": {
+        "url": "https://cdn.addisassistant.com/audio/clips/a7f0df6d-cdc1-4ac9-a3f9-b2139229faf2.wav?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGlwX2lkIjoiYTdmMGRmNmQtY2RjMS00YWM5LWEzZjktYjIxMzkyMjlmYWYyIiwidXNlcl9pZCI6Ijc3ZjJlNDU4LWRhMmItNDRmYy05ZjE0LWI2OWM2YzBhYTAzOSIsInBhdGhfaGFzaCI6IjRkMzY0MWRjYjliN2RiZmM5YThiNjhlZmY1Yjc4NzNlZThjOWU4OGQ4OTA1N2Q3MWQzMjQwNTY5NTVmNTFiNzYiLCJtaW1lX3R5cGUiOiJhdWRpby93YXYiLCJleHAiOjE3OTU2NDM4OTQsInYiOjF9.GAj_LPfO-Jck8epKr4y5OP05nQ3SPgXNLADkTGGwT10",
+        "expires_at": "2026-11-25T21:58:14.281Z",
+        "requires_auth": true,
+        "supports_range": true
+      },
+      "meta": {
+        "ignored_voice_settings": [],
+        "idempotent_replay": true
+      }
+    }
+  }
+}

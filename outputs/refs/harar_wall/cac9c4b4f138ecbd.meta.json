@@ -1,0 +1,17 @@
+{
+  "key": "cac9c4b4f138ecbd",
+  "stage": "refs",
+  "item": "harar_wall",
+  "provider": "cloudflare",
+  "model": "@cf/black-forest-labs/flux-2-klein-4b",
+  "inputs": {
+    "prompt": "Location reference, wide establishing view, no people, no text. The old walled city of Harar, Ethiopia (Jugol): a rough, irregular wall of rubble stone plastered with pale limewash, low flat-roofed two-storey houses of the same plastered stone, small wooden doors, almost no windows facing the street, a narrow winding dirt alley, dry highland light; no towers, no battlements, no arches. Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
+    "seed": 703,
+    "width": 1024,
+    "height": 1024
+  },
+  "run_id": "20261125T220056-6b737f",
+  "latency_s": 19.81,
+  "licence": "FLUX.2 klein 4B: Apache-2.0 weights; Cloudflare Workers AI terms",
+  "provider_response": null
+}

@@ -25,17 +25,25 @@ SYSTEM = (
     "native script (no transliteration), for a young woman narrating in the first person about her own "
     "family. Use short sentences written for the ear, warm and simple, never bureaucratic. Keep the "
     "meaning of each line exactly; do not add facts, names, places or dates. Keep 'Harar' as the city name. "
+    "'My' must stay possessive (my mother, my great-grandparents). "
     "Return only a JSON object mapping each line id to its translation."
 )
+# Terms the first (Flash-Lite) draft got wrong; see EXPERIMENTS E2.
+GLOSSARY = {"am": {"tailors": "ልብስ ሰፊዎች", "my mother": "እናቴ", "merchants": "ነጋዴዎች"}}
 
 
-def draft(sb: Storyboard, language: str | None = None) -> dict[str, str]:
+def draft(sb: Storyboard, language: str | None = None, model: str | None = None) -> dict[str, str]:
     lang = language or sb.meta.language
     lines = {s.id: s.narration.text_en for s in sb.shots if s.narration}
     system = SYSTEM.format(lang=LANG_NAMES.get(lang, lang))
+    glossary = GLOSSARY.get(lang)
     prompt = "Translate these narration lines:\n" + json.dumps(lines, ensure_ascii=False, indent=1)
+    if glossary:
+        prompt += "\nUse this glossary:\n" + json.dumps(glossary, ensure_ascii=False)
     inputs = {"prompt": prompt, "system": system, "language": lang}
     cfg = config.provider_cfg("text")
+    if model:  # explicit model: no fallback, so drafts from different models can be compared (E2)
+        cfg = {**cfg, "draft_model": model, "model": model}
 
     def attempt(model: str) -> Path | None:
         prov = GeminiText(model)

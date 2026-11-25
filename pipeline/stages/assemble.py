@@ -37,6 +37,7 @@ EDIT: dict[str, Any] = {
     "duck": {"threshold": 0.02, "ratio": 6, "attack": 300, "release": 1500},
     "music_fade_in_s": 2.0,
     "music_fade_out_s": 3.5,
+    "tp_limit_lin": 0.83,  # about -1.6 dBFS before AAC encoding (F13)
     "kb_oversample": 2,
 }
 
@@ -334,7 +335,9 @@ def _loudnorm_two_pass(src: Path, dst: Path, lufs: float, tp: float) -> dict[str
             "-af",
             f"loudnorm=I={lufs}:TP={tp}:LRA=11:measured_I={measured['input_i']}:"
             f"measured_TP={measured['input_tp']}:measured_LRA={measured['input_lra']}:"
-            f"measured_thresh={measured['input_thresh']}:offset={measured['target_offset']}:linear=true",
+            f"measured_thresh={measured['input_thresh']}:offset={measured['target_offset']}:linear=true,"
+            # AAC encoding overshoots; a 4x-oversampled limiter keeps the delivered true peak <= -1 dBTP
+            f"aresample=192000,alimiter=limit={EDIT['tp_limit_lin']}:attack=1:release=50:level=false,aresample=48000",
             "-ar",
             "48000",
             "-ac",

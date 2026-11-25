@@ -22,6 +22,11 @@ def run(warn_only: bool = False) -> int:
                 or asset.suffix in (".part", ".jsonl")
             ):
                 continue
+            if "." in asset.stem:  # derived, e.g. <key>.t0.90_warm.wav: provenance is the raw take
+                raw_key = asset.stem.split(".")[0]
+                if raw_key not in logged:
+                    problems.append(f"derived from unlogged take: {asset.relative_to(config.ROOT)}")
+                continue
             n += 1
             if not asset.with_suffix(".meta.json").exists():
                 problems.append(f"no sidecar: {asset.relative_to(config.ROOT)}")

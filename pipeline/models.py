@@ -42,6 +42,10 @@ class Meta(Strict):
     lead_in_s: float = Field(0.5, description="Silence before each narration line in its shot")
     tail_s: float = Field(0.9, description="Breathing room after each narration line")
     transition_s: float = Field(0.5, description="Dissolve length between shots")
+    vo_tempo: float = Field(
+        1.0, ge=0.75, le=1.25, description="Deterministic pitch-preserving tempo applied after TTS"
+    )
+    vo_warmth: bool = Field(True, description="Gentle low-mid lift / high softening on the voice")
 
 
 class RefImage(Strict):

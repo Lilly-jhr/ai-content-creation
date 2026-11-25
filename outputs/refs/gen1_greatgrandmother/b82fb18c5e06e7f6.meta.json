@@ -1,0 +1,17 @@
+{
+  "key": "b82fb18c5e06e7f6",
+  "stage": "refs",
+  "item": "gen1_greatgrandmother",
+  "provider": "cloudflare",
+  "model": "@cf/black-forest-labs/flux-2-klein-4b",
+  "inputs": {
+    "prompt": "Character reference sheet, full body and head-and-shoulders portrait side by side, neutral warm background. A young woman in her mid twenties with warm brown skin, an oval face and kind dark eyes, hair covered by a soft muted-indigo cotton headscarf, wearing a long simple dress, a thin bracelet of woven green and gold thread on her right wrist. Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
+    "seed": 102,
+    "width": 1024,
+    "height": 1024
+  },
+  "run_id": "20261125T214705-350cdd",
+  "latency_s": 26.382,
+  "licence": "FLUX.2 klein 4B: Apache-2.0 weights; Cloudflare Workers AI terms",
+  "provider_response": null
+}

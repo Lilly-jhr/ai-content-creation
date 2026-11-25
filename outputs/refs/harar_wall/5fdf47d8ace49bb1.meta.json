@@ -1,0 +1,17 @@
+{
+  "key": "5fdf47d8ace49bb1",
+  "stage": "refs",
+  "item": "harar_wall",
+  "provider": "cloudflare",
+  "model": "@cf/black-forest-labs/flux-2-klein-4b",
+  "inputs": {
+    "prompt": "Location reference, wide establishing view. The old stone wall of Harar's walled city (Jugol), limewashed stone, a narrow winding alley of inward-facing two-storey houses, plain walls, no signage. Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
+    "seed": 702,
+    "width": 1024,
+    "height": 1024
+  },
+  "run_id": "20261125T214705-350cdd",
+  "latency_s": 14.562,
+  "licence": "FLUX.2 klein 4B: Apache-2.0 weights; Cloudflare Workers AI terms",
+  "provider_response": null
+}

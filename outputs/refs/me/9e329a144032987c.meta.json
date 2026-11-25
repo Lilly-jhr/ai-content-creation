@@ -1,0 +1,17 @@
+{
+  "key": "9e329a144032987c",
+  "stage": "refs",
+  "item": "me",
+  "provider": "cloudflare",
+  "model": "@cf/black-forest-labs/flux-2-klein-4b",
+  "inputs": {
+    "prompt": "Character reference sheet, full body and head-and-shoulders portrait side by side, neutral warm background. A young woman in her early twenties with warm brown skin, an oval face and an attentive, hopeful expression, dark hair neatly tied back, wearing a plain dark blouse, a thin bracelet of woven green and gold thread on her right wrist. Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
+    "seed": 502,
+    "width": 1024,
+    "height": 1024
+  },
+  "run_id": "20261125T214705-350cdd",
+  "latency_s": 14.099,
+  "licence": "FLUX.2 klein 4B: Apache-2.0 weights; Cloudflare Workers AI terms",
+  "provider_response": null
+}
