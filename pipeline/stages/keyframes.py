@@ -9,6 +9,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from PIL import Image
+
 from pipeline.core import cache
 from pipeline.core.calls import CTX, call_model, compute_key
 from pipeline.core.config import provider_cfg
@@ -39,12 +41,30 @@ def ref_paths(sb: Storyboard, shot: Shot) -> list[Path]:
                 f"{shot.id}: reference '{rid}' is not approved/generated. Run `refs`, choose a seed, "
                 f"then `approve refs {rid}` (or pass --allow-draft for a rough cut)."
             )
-        paths.append(p)
+        is_character = any(c.id == rid for c in sb.characters)
+        paths.append(portrait_crop(p) if is_character else p)
     return paths[:4]
 
 
+def portrait_crop(ref: Path) -> Path:
+    """Character sheets are two panels (full body | head-and-shoulders). Feeding the whole
+    sheet made klein copy the two-panel layout into scenes (duplicated people, EXPERIMENTS E3b),
+    so characters are conditioned on the portrait panel only. Deterministic derived file."""
+    out = ref.with_name(f"{ref.stem}.portrait.png")
+    if not out.exists():
+        img = Image.open(ref).convert("RGB")
+        w, h = img.size
+        img.crop((w // 2, 0, w, h)).save(out)
+    return out
+
+
 def build_prompt(sb: Storyboard, shot: Shot) -> str:
-    blocks = [shot.keyframe.prompt]
+    blocks = []
+    if shot.characters:  # only shots with people risk copying the two-panel sheet layout (E3b)
+        blocks.append(
+            "A single cinematic film frame of one moment, not a reference sheet, not a split panel."
+        )
+    blocks.append(shot.keyframe.prompt)
     blocks += [sb.character(c).description for c in shot.characters]
     if shot.location:
         blocks.append(sb.location(shot.location).description)

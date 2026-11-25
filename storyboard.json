@@ -33,7 +33,8 @@
       ],
       "ref": {
         "prompt": "Character reference sheet: a full-body portrait and a head-and-shoulders portrait of the same person side by side, neutral warm paper background, no text.",
-        "seed": 101
+        "seed": 101,
+        "approved_key": "d887391577373196"
       },
       "fact_flags": [
         {
@@ -67,7 +68,8 @@
       ],
       "ref": {
         "prompt": "Character reference sheet: a full-body portrait and a head-and-shoulders portrait of the same person side by side, neutral warm paper background, no text.",
-        "seed": 102
+        "seed": 104,
+        "approved_key": "01a486be41166150"
       },
       "fact_flags": [
         {
@@ -96,7 +98,8 @@
       ],
       "ref": {
         "prompt": "Character reference sheet: a full-body portrait and a head-and-shoulders portrait of the same person side by side, neutral warm paper background, no text.",
-        "seed": 202
+        "seed": 203,
+        "approved_key": "e579132e3a542800"
       },
       "fact_flags": [
         {
@@ -131,7 +134,8 @@
       ],
       "ref": {
         "prompt": "Character reference sheet: a full-body portrait and a head-and-shoulders portrait of the same person side by side, neutral warm paper background, no text.",
-        "seed": 301
+        "seed": 302,
+        "approved_key": "418413bd08ca4eb2"
       },
       "fact_flags": [
         {
@@ -159,7 +163,8 @@
       ],
       "ref": {
         "prompt": "Character reference sheet: a full-body portrait and a head-and-shoulders portrait of the same person side by side, neutral warm paper background, no text.",
-        "seed": 501
+        "seed": 502,
+        "approved_key": "3dd3f032c3165ef9"
       },
       "fact_flags": [
         {
@@ -187,7 +192,8 @@
       "description": "A narrow paved lane inside Harar's old walled city: whitewashed and pale-cream plastered stone walls, some wall panels carved in low relief, ochre-yellow wooden doors, corrugated metal roofs with wooden eaves, dry highland light, no signs or text.",
       "ref": {
         "prompt": "Location reference, wide establishing view, no people, no text.",
-        "seed": 701
+        "seed": 703,
+        "approved_key": "19c7500c05572c3b"
       },
       "fact_flags": [
         {
@@ -239,7 +245,8 @@
       "description": "One of the old gates of Harar's walled city: a thick white limewashed gatehouse with a sawtooth stepped parapet along its top and a single round archway, a dusty open square in front, low white walls on either side, no signs, no text.",
       "ref": {
         "prompt": "Location reference, wide establishing view, no people, no text.",
-        "seed": 711
+        "seed": 712,
+        "approved_key": "3d41b951aa98971e"
       },
       "fact_flags": [
         {
@@ -288,7 +295,8 @@
       "min_duration_s": 6.0,
       "keyframe": {
         "prompt": "Extreme wide view at dawn of an old white limewashed city gate with a sawtooth parapet and a single round archway, an empty dusty square in front, first golden light on the white walls.",
-        "seed": 1001
+        "seed": 1001,
+        "approved_key": "5fe255507a11d989"
       },
       "motion": {
         "mode": "auto",
@@ -338,7 +346,8 @@
       "min_duration_s": 6.5,
       "keyframe": {
         "prompt": "Wide shot from behind of a young couple carrying cloth bundles, walking across a dusty square toward an old white city gate with a round archway, in morning light.",
-        "seed": 1002
+        "seed": 1002,
+        "approved_key": "129dacd8c9a71980"
       },
       "motion": {
         "mode": "auto",
@@ -392,7 +401,9 @@
       "min_duration_s": 6.0,
       "keyframe": {
         "prompt": "Close-up of a tailor's hands guiding plain cotton cloth through an old black sewing machine on a worn wooden table outdoors, a thin green-and-gold thread bracelet on the wrist, a spool of thread beside it.",
-        "seed": 1003
+        "seed": 1004,
+        "use_refs": false,
+        "approved_key": "530dc853335cb295"
       },
       "motion": {
         "mode": "auto",
@@ -446,7 +457,8 @@
       "min_duration_s": 6.5,
       "keyframe": {
         "prompt": "Medium shot of a woman in her late forties standing behind a small street-side stall of folded cloth, woven baskets and small heaps of spices on a low wooden table under a simple shade, neatly arranging her goods.",
-        "seed": 1004
+        "seed": 1004,
+        "approved_key": "b9f17a23075c38a2"
       },
       "motion": {
         "mode": "kenburns",
@@ -500,7 +512,9 @@
       "min_duration_s": 5.5,
       "keyframe": {
         "prompt": "Close-up of a woman's hands with a green-and-gold thread bracelet placing coins into a small worn tin box on a wooden table in warm evening light.",
-        "seed": 1005
+        "seed": 1005,
+        "use_refs": false,
+        "approved_key": "3338732b97d5c250"
       },
       "motion": {
         "mode": "kenburns",
@@ -549,7 +563,8 @@
       "min_duration_s": 6.5,
       "keyframe": {
         "prompt": "Medium shot of a 17-year-old girl in a deep-green headscarf sitting at a market stall with an open schoolbook on her lap and a pencil in her hand, goods and woven baskets around her.",
-        "seed": 1006
+        "seed": 1006,
+        "approved_key": "7ec7170693279396"
       },
       "motion": {
         "mode": "kenburns",
@@ -603,7 +618,8 @@
       "min_duration_s": 6.0,
       "keyframe": {
         "prompt": "Close-up of the same 17-year-old girl studying alone at night in a simple room, lit only by a small kerosene lamp, tired eyes, notebook open, deep shadows.",
-        "seed": 1007
+        "seed": 1008,
+        "approved_key": "f1b9c6a2dd9e696d"
       },
       "motion": {
         "mode": "auto",
@@ -652,7 +668,8 @@
       "min_duration_s": 6.0,
       "keyframe": {
         "prompt": "Medium close-up of the same woman at about 23 years old in a graduation gown, holding a rolled certificate tied with ribbon, a proud quiet smile, outdoors in soft daylight.",
-        "seed": 1008
+        "seed": 1009,
+        "approved_key": "c430926019b775f5"
       },
       "motion": {
         "mode": "kenburns",
@@ -706,7 +723,8 @@
       "min_duration_s": 7.0,
       "keyframe": {
         "prompt": "Medium shot of the same woman at about 35 years old working late at an office desk with stacks of papers and folders, a desk lamp, night outside the window, a child's school notebook resting beside her work.",
-        "seed": 1009
+        "seed": 1009,
+        "approved_key": "621f554d7ae43620"
       },
       "motion": {
         "mode": "auto",
@@ -760,7 +778,8 @@
       "min_duration_s": 7.0,
       "keyframe": {
         "prompt": "Medium close-up of a young woman in her early twenties typing at a modern, well-equipped desk with two large monitors and a laptop, plants beside her, a big window behind her showing city lights at dusk, soft screen glow on her face, a green-and-gold thread bracelet on her wrist, focused and hopeful.",
-        "seed": 1010
+        "seed": 1010,
+        "approved_key": "2a5b97074e5f5b37"
       },
       "motion": {
         "mode": "kenburns",
@@ -808,7 +827,7 @@
       "transition_out": "fade",
       "min_duration_s": 7.5,
       "keyframe": {
-        "prompt": "Wide shot from behind of a young woman standing on a high balcony above a modern city at sunrise, buildings spreading across green hills below, warm golden light.",
+        "prompt": "Wide shot of a young woman seen from behind, her back to the camera, standing on a high balcony and looking out over a modern city at sunrise, buildings spreading across green hills below, warm golden light.",
         "seed": 1011
       },
       "motion": {

@@ -1,0 +1,22 @@
+{
+  "key": "129dacd8c9a71980",
+  "stage": "keyframes",
+  "item": "s02",
+  "provider": "cloudflare",
+  "model": "@cf/black-forest-labs/flux-2-klein-4b",
+  "inputs": {
+    "prompt": "A single cinematic film frame of one moment, not a reference sheet, not a split panel. Wide shot from behind of a young couple carrying cloth bundles, walking across a dusty square toward an old white city gate with a round archway, in morning light. A slim young Ethiopian man from Harar in his late twenties, with Habesha features, dark brown skin, short tightly curled black hair and a neat short beard, calm focused eyes, wearing a plain white cotton shirt with rolled sleeves and a dark waistcoat, a thin bracelet of woven green and gold thread on his right wrist. A young Ethiopian woman from Harar in her mid twenties, with Habesha features, dark brown skin, an oval face and kind dark eyes, hair covered by a soft muted-indigo cotton headscarf, wearing a long cotton dress with a small faded floral print, a thin bracelet of woven green and gold thread on her right wrist. One of the old gates of Harar's walled city: a thick white limewashed gatehouse with a sawtooth stepped parapet along its top and a single round archway, a dusty open square in front, low white walls on either side, no signs, no text. Lighting: morning sun, long soft shadows. Composition: couple centred, wall filling the background. Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
+    "seed": 1002,
+    "width": 1024,
+    "height": 1024,
+    "ref_hashes": [
+      "5313758e72aee476",
+      "cacc9d10945cc610",
+      "6ac9014f91f68fa3"
+    ]
+  },
+  "run_id": "20261125T232411-cb6f7e",
+  "latency_s": 16.923,
+  "licence": "FLUX.2 klein 4B: Apache-2.0 weights; Cloudflare Workers AI terms",
+  "provider_response": null
+}

@@ -1,5 +1,5 @@
 {
-  "id": "KAGGLE_USERNAME/alf-wan-i2v",
+  "id": "ilillijuhar/alf-wan-i2v",
   "title": "alf-wan-i2v",
   "code_file": "run.py",
   "language": "python",
@@ -7,7 +7,9 @@
   "is_private": true,
   "enable_gpu": true,
   "enable_internet": true,
-  "dataset_sources": [],
+  "dataset_sources": [
+    "ilillijuhar/alf-wan-jobs"
+  ],
   "competition_sources": [],
   "kernel_sources": []
 }

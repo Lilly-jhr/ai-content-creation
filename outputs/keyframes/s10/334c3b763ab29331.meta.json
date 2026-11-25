@@ -1,0 +1,20 @@
+{
+  "key": "334c3b763ab29331",
+  "stage": "keyframes",
+  "item": "s10",
+  "provider": "cloudflare",
+  "model": "@cf/black-forest-labs/flux-2-klein-4b",
+  "inputs": {
+    "prompt": "A single cinematic film frame of one moment, not a reference sheet, not a split panel. Medium close-up of a young woman in her early twenties typing at a modern, well-equipped desk with two large monitors and a laptop, plants beside her, a big window behind her showing city lights at dusk, soft screen glow on her face, a green-and-gold thread bracelet on her wrist, focused and hopeful. A young Ethiopian woman in her early twenties with Habesha features, dark brown skin, an oval face and an attentive, hopeful expression, natural curly black hair tied back, wearing a plain dark blouse, a thin bracelet of woven green and gold thread on her right wrist. Modern Addis Ababa today: mid-rise and glass buildings spreading across green hills, the Entoto hills on the horizon. Lighting: soft screen glow mixed with warm evening light from the window. Composition: face and hands centred. Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
+    "seed": 1011,
+    "width": 1024,
+    "height": 1024,
+    "ref_hashes": [
+      "21caacfc37f6b116"
+    ]
+  },
+  "run_id": "20261125T232411-cb6f7e",
+  "latency_s": 13.313,
+  "licence": "FLUX.2 klein 4B: Apache-2.0 weights; Cloudflare Workers AI terms",
+  "provider_response": null
+}

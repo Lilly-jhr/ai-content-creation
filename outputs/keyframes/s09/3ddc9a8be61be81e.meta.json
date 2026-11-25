@@ -1,0 +1,20 @@
+{
+  "key": "3ddc9a8be61be81e",
+  "stage": "keyframes",
+  "item": "s09",
+  "provider": "cloudflare",
+  "model": "@cf/black-forest-labs/flux-2-klein-4b",
+  "inputs": {
+    "prompt": "A single cinematic film frame of one moment, not a reference sheet, not a split panel. Medium shot of the same woman at about 35 years old working late at an office desk with stacks of papers and folders, a desk lamp, night outside the window, a child's school notebook resting beside her work. An Ethiopian woman from Harar with Habesha features, dark brown skin, an oval face, high cheekbones and bright determined dark eyes, her hair covered by a simple deep-green headscarf, a thin bracelet of woven green and gold thread on her right wrist. Lighting: cool desk lamp in an otherwise dark office, night through the window. Composition: mother centred at the desk. Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
+    "seed": 1010,
+    "width": 1024,
+    "height": 1024,
+    "ref_hashes": [
+      "7e6a1e9529a41c3e"
+    ]
+  },
+  "run_id": "20261125T232411-cb6f7e",
+  "latency_s": 14.169,
+  "licence": "FLUX.2 klein 4B: Apache-2.0 weights; Cloudflare Workers AI terms",
+  "provider_response": null
+}

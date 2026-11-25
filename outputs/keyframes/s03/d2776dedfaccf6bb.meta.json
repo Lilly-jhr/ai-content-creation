@@ -1,0 +1,20 @@
+{
+  "key": "d2776dedfaccf6bb",
+  "stage": "keyframes",
+  "item": "s03",
+  "provider": "cloudflare",
+  "model": "@cf/black-forest-labs/flux-2-klein-4b",
+  "inputs": {
+    "prompt": "Close-up of a tailor's hands guiding plain cotton cloth through an old black sewing machine on a worn wooden table outdoors, a thin green-and-gold thread bracelet on the wrist, a spool of thread beside it. A slim young Ethiopian man from Harar in his late twenties, with Habesha features, dark brown skin, short tightly curled black hair and a neat short beard, calm focused eyes, wearing a plain white cotton shirt with rolled sleeves and a dark waistcoat, a thin bracelet of woven green and gold thread on his right wrist. A lane in old Harar where tailors work outdoors: an old black sewing machine on a worn wooden table against a whitewashed wall, bolts of plain cotton cloth, a paved lane behind. Lighting: warm daylight under an overhanging roof. Composition: hands and needle centred. Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
+    "seed": 1003,
+    "width": 1024,
+    "height": 1024,
+    "ref_hashes": [
+      "171e6627e9ba80f8"
+    ]
+  },
+  "run_id": "20261125T231729-f75b48",
+  "latency_s": 10.525,
+  "licence": "FLUX.2 klein 4B: Apache-2.0 weights; Cloudflare Workers AI terms",
+  "provider_response": null
+}

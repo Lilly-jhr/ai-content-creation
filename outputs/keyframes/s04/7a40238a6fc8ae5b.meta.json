@@ -1,0 +1,20 @@
+{
+  "key": "7a40238a6fc8ae5b",
+  "stage": "keyframes",
+  "item": "s04",
+  "provider": "cloudflare",
+  "model": "@cf/black-forest-labs/flux-2-klein-4b",
+  "inputs": {
+    "prompt": "Medium shot of a woman in her late forties standing behind a small street-side stall of folded cloth, woven baskets and small heaps of spices on a low wooden table under a simple shade, neatly arranging her goods. A strong, warm Ethiopian woman from Harar in her late forties, with Habesha features, dark brown skin, a round kind face and steady dark eyes, hair covered by a deep-red patterned headscarf, wearing a long floral-print dress with a shawl over her shoulders, a thin bracelet of woven green and gold thread on her right wrist. A busy street-side market in old Harar: women sellers in bright headscarves sitting beside goods laid out on cloth on the ground and in woven baskets, a striped awning, whitewashed walls and a distant white gate, warm dusty light. Lighting: warm afternoon light, dust in the air. Composition: grandmother centred behind her stall. Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
+    "seed": 1005,
+    "width": 1024,
+    "height": 1024,
+    "ref_hashes": [
+      "494143c3483aa82f"
+    ]
+  },
+  "run_id": "20261125T231729-f75b48",
+  "latency_s": 14.921,
+  "licence": "FLUX.2 klein 4B: Apache-2.0 weights; Cloudflare Workers AI terms",
+  "provider_response": null
+}

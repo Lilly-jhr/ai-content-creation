@@ -79,6 +79,20 @@ estimated or invented. Planned entries are marked *planned* until they are run.
 - **Conclusion:** the model's default identity is not ours. Specificity grounded in the research brief fixed both problems at no extra cost.
 - **Change:** the descriptions are updated in `storyboard.json`. Since every keyframe prompt reuses them verbatim, the fix propagates to all shots.
 
+## E3b. Conditioning on the whole reference sheet vs the portrait panel only
+- **Observation that triggered it:** with full two-panel character sheets (full body | head-and-shoulders) as klein `input_image`s, 4 of 22 keyframes
+  copied the **two-panel layout** into the scene. The same person appeared twice side by side: s03 (both), s05 (seed 1006), s06 (1006) and s08 (1009).
+  The s03 "close-up of hands" became two portraits.
+- **Change (one variable per shot group):**
+  1. Characters are conditioned on the right-hand **portrait crop** only (derived file `<key>.portrait.png`).
+  2. Shots with people get the prefix "a single cinematic film frame of one moment, not a reference sheet".
+  3. Hands-only inserts (s03, s05) use **no** face references (`keyframe.use_refs: false`).
+- **Controls:** same seeds (1002–1012), same prompts, same model and size. s01 has no people, so its prompt was left unchanged and it was reused from cache.
+- **Result:** 20/20 new candidates are single scenes. **0 duplicated people** (was 4/22). Faces stay recognisably the approved references
+  (side by side in `outputs/review/keyframes_sheet.png`). Side effect: without face refs, s03 still drew the tailor (a medium shot rather than hands only),
+  which the director accepted. s11 lost "from behind" and is being regenerated with stronger wording.
+- **Conclusion:** reference images are copied *as compositions*, not only as identities. Crop references to exactly what should transfer.
+
 ## Planned
 | # | Question | Variable | Evidence |
 |---|---|---|---|
