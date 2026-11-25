@@ -1,0 +1,98 @@
+{
+  "shots": [
+    {
+      "id": "s01",
+      "start": 0.0,
+      "duration": 7.9,
+      "vo_path": null,
+      "vo_start": 0.5,
+      "vo_duration": 6.5
+    },
+    {
+      "id": "s02",
+      "start": 7.9,
+      "duration": 7.4,
+      "vo_path": null,
+      "vo_start": 8.4,
+      "vo_duration": 6.0
+    },
+    {
+      "id": "s03",
+      "start": 15.3,
+      "duration": 7.9,
+      "vo_path": null,
+      "vo_start": 15.8,
+      "vo_duration": 6.5
+    },
+    {
+      "id": "s04",
+      "start": 23.2,
+      "duration": 8.4,
+      "vo_path": null,
+      "vo_start": 23.7,
+      "vo_duration": 7.0
+    },
+    {
+      "id": "s05",
+      "start": 31.6,
+      "duration": 7.9,
+      "vo_path": null,
+      "vo_start": 32.1,
+      "vo_duration": 6.5
+    },
+    {
+      "id": "s06",
+      "start": 39.5,
+      "duration": 8.4,
+      "vo_path": null,
+      "vo_start": 40.0,
+      "vo_duration": 7.0
+    },
+    {
+      "id": "s07",
+      "start": 47.9,
+      "duration": 6.0,
+      "vo_path": null,
+      "vo_start": 48.4,
+      "vo_duration": 4.5
+    },
+    {
+      "id": "s08",
+      "start": 53.9,
+      "duration": 6.0,
+      "vo_path": null,
+      "vo_start": 54.4,
+      "vo_duration": 2.5
+    },
+    {
+      "id": "s09",
+      "start": 59.9,
+      "duration": 10.4,
+      "vo_path": null,
+      "vo_start": 60.4,
+      "vo_duration": 9.0
+    },
+    {
+      "id": "s10",
+      "start": 70.3,
+      "duration": 7.9,
+      "vo_path": null,
+      "vo_start": 70.8,
+      "vo_duration": 6.5
+    },
+    {
+      "id": "s11",
+      "start": 78.2,
+      "duration": 14.9,
+      "vo_path": null,
+      "vo_start": 78.7,
+      "vo_duration": 13.5
+    }
+  ],
+  "end_card": {
+    "start": 93.1,
+    "duration": 3.5
+  },
+  "total": 96.6,
+  "estimated": true
+}

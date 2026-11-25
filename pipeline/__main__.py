@@ -73,6 +73,83 @@ def schema() -> None:
 
 
 @app.command()
+def translate(
+    apply: Annotated[
+        bool, typer.Option("--apply", help="Write the draft into narration.text")
+    ] = False,
+    language: Annotated[
+        str | None, typer.Option(help="Target language code (default meta.language)")
+    ] = None,
+) -> None:
+    """Draft the narration translation from text_en with Gemini (native-speaker review required)."""
+    from pipeline.stages import script
+
+    sb = _load()
+    tr = script.draft(sb, language)
+    for sid, text in tr.items():
+        typer.echo(f"{sid}: {text}")
+    if apply and tr and not CTX.dry_run:
+        typer.echo(f"applied {script.apply(tr)} line(s) to storyboard.json")
+    _print_plan()
+
+
+@app.command()
+def audition(
+    text: Annotated[str, typer.Option(help="Line to read (default: s01 narration)")] = "",
+    voice: Annotated[list[str] | None, typer.Option(help="provider:voice, repeatable")] = None,
+) -> None:
+    """Experiment 1: render one line in several voices, plus blind-labelled copies (A, B, C...)."""
+    import shutil
+
+    from pipeline.core.calls import call_model
+    from pipeline.stages import narration as nar
+
+    sb = _load()
+    line = text or sb.shots[0].narration.text
+    voices = voice or [
+        "addis:am-loza",
+        "addis:am-sara",
+        "addis:am-hamen",
+        "addis:am-melat",
+        "gemini:Kore",
+    ]
+    blind_dir = config.OUTPUTS / "audition" / "blind"
+    blind_dir.mkdir(parents=True, exist_ok=True)
+    key_rows = []
+    for i, spec in enumerate(voices):
+        pname, vname = spec.split(":", 1)
+        prov = nar.provider_for(pname)
+        inputs = {
+            "text": line,
+            "language": sb.meta.language,
+            "voice": vname,
+            "speed": 1.0,
+            "style": None,
+        }
+        try:
+            out = call_model(
+                stage="audition",
+                item=f"{pname}_{vname}",
+                provider=prov.name,
+                model=prov.model,
+                inputs=inputs,
+                ext="wav",
+                run=lambda tmp, prov=prov, vname=vname: prov.synthesize(
+                    line, tmp, voice=vname, language=sb.meta.language, speed=1.0, style=None
+                ),
+            )
+        except Exception as exc:  # noqa: BLE001 - one unavailable voice must not sink the test
+            key_rows.append(f"{chr(ord('A') + i)} = {spec} FAILED: {str(exc)[:100]}")
+            continue
+        if out:
+            label = chr(ord("A") + i)
+            shutil.copyfile(out, blind_dir / f"voice_{label}.wav")
+            key_rows.append(f"{label} = {spec} ({out.relative_to(config.ROOT)})")
+    (blind_dir / "KEY_do_not_share.txt").write_text("\n".join(key_rows) + "\n")
+    typer.echo(f"blind files in {blind_dir.relative_to(config.ROOT)}; key in KEY_do_not_share.txt")
+
+
+@app.command()
 def narration() -> None:
     """Generate one narration clip per shot and the measured timeline."""
     from pipeline.stages import narration as st

@@ -34,9 +34,21 @@
         "seed": 101
       },
       "fact_flags": [
-        {"claim": "great-grandparents were immigrants who worked as tailors in Harar", "status": "family-confirmed", "source": "producer brief"},
-        {"claim": "appearance, clothing and origin", "status": "interpretation", "source": null},
-        {"claim": "thread bracelet passed down the generations", "status": "interpretation", "source": "symbolic motif, not a real heirloom unless the family confirms one"}
+        {
+          "claim": "great-grandparents were immigrants who worked as tailors in Harar",
+          "status": "family-confirmed",
+          "source": "producer brief"
+        },
+        {
+          "claim": "appearance, clothing and origin",
+          "status": "interpretation",
+          "source": null
+        },
+        {
+          "claim": "thread bracelet passed down the generations",
+          "status": "interpretation",
+          "source": "symbolic motif, not a real heirloom unless the family confirms one"
+        }
       ]
     },
     {
@@ -56,7 +68,11 @@
         "seed": 102
       },
       "fact_flags": [
-        {"claim": "appearance and clothing", "status": "interpretation", "source": null}
+        {
+          "claim": "appearance and clothing",
+          "status": "interpretation",
+          "source": null
+        }
       ]
     },
     {
@@ -75,9 +91,21 @@
         "seed": 201
       },
       "fact_flags": [
-        {"claim": "grandparents were merchants in Harar", "status": "family-confirmed", "source": "producer brief"},
-        {"claim": "what they traded", "status": "pending-family", "source": null},
-        {"claim": "appearance", "status": "interpretation", "source": null}
+        {
+          "claim": "grandparents were merchants in Harar",
+          "status": "family-confirmed",
+          "source": "producer brief"
+        },
+        {
+          "claim": "what they traded",
+          "status": "pending-family",
+          "source": null
+        },
+        {
+          "claim": "appearance",
+          "status": "interpretation",
+          "source": null
+        }
       ]
     },
     {
@@ -98,17 +126,25 @@
         "seed": 301
       },
       "fact_flags": [
-        {"claim": "worked in the market while studying, graduated, then worked long office hours while raising me", "status": "family-confirmed", "source": "producer brief"},
-        {"claim": "fictionalised AI depiction, not her likeness", "status": "interpretation", "source": "consent recorded in ETHICS.md"}
+        {
+          "claim": "worked in the market while studying, graduated, then worked long office hours while raising me",
+          "status": "family-confirmed",
+          "source": "producer brief"
+        },
+        {
+          "claim": "fictionalised AI depiction, not her likeness",
+          "status": "interpretation",
+          "source": "consent recorded in ETHICS.md"
+        }
       ]
     },
     {
       "id": "me",
-      "role": "the narrator, software engineering graduate",
+      "role": "the narrator (a young woman), software engineering graduate",
       "chapter": 5,
       "age_range": "22-26",
-      "description": "A young man in his early twenties with warm brown skin, short dark hair and an attentive, hopeful expression, wearing a plain dark shirt, a thin bracelet of woven green and gold thread on his right wrist.",
-      "wardrobe": "plain dark shirt; graduation gown in s10",
+      "description": "A young woman in her early twenties with warm brown skin, an oval face and an attentive, hopeful expression, dark hair neatly tied back, wearing a plain dark blouse, a thin bracelet of woven green and gold thread on her right wrist.",
+      "wardrobe": "plain dark blouse; graduation gown in s10",
       "demeanour": "grateful, focused, looking forward",
       "continuity_rules": [
         "thread bracelet"
@@ -118,8 +154,21 @@
         "seed": 501
       },
       "fact_flags": [
-        {"claim": "software engineering graduate with honours, now working on AI", "status": "family-confirmed", "source": "producer brief"},
-        {"claim": "appearance", "status": "pending-family", "source": null}
+        {
+          "claim": "software engineering graduate with honours, now working on AI",
+          "status": "family-confirmed",
+          "source": "producer brief"
+        },
+        {
+          "claim": "the narrator is a young woman; narration in a female voice",
+          "status": "family-confirmed",
+          "source": "producer, 2026-11-25"
+        },
+        {
+          "claim": "exact appearance",
+          "status": "pending-family",
+          "source": null
+        }
       ]
     }
   ],
@@ -133,7 +182,11 @@
         "seed": 701
       },
       "fact_flags": [
-        {"claim": "Jugol: stone wall, narrow alleys, inward-facing two-storey houses; limewashed walls in early eras", "status": "researched", "source": "OVPM/UNESCO description; Zerihun 2018; see docs/research/harar-brief.md"}
+        {
+          "claim": "Jugol: stone wall, narrow alleys, inward-facing two-storey houses; limewashed walls in early eras",
+          "status": "researched",
+          "source": "OVPM/UNESCO description; Zerihun 2018; see docs/research/harar-brief.md"
+        }
       ]
     },
     {
@@ -142,7 +195,11 @@
       "description": "An open-air market in old Harar with stalls under overhanging roofs and simple wooden sheds, bundles of cloth, woven baskets and sacks, people in modest everyday clothing, warm dusty light.",
       "ref": null,
       "fact_flags": [
-        {"claim": "tailors and traders worked in the open air or under sheds and overhanging roofs; textiles, baskets and spices sold in Harar markets", "status": "researched", "source": "Pankhurst (TWL); Zerihun 2018"}
+        {
+          "claim": "tailors and traders worked in the open air or under sheds and overhanging roofs; textiles, baskets and spices sold in Harar markets",
+          "status": "researched",
+          "source": "Pankhurst (TWL); Zerihun 2018"
+        }
       ]
     }
   ],
@@ -172,7 +229,11 @@
         "mode": "auto",
         "prompt": "The camera pushes in very slowly. Morning light gradually brightens on the stone walls. A little dust drifts in the air.",
         "seed": 1,
-        "kenburns": {"zoom_start": 1.0, "zoom_end": 1.12, "pan": "none"}
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.12,
+          "pan": "none"
+        }
       },
       "narration": {
         "text": "Every family has a beginning. Ours begins at the old walls of Harar.",
@@ -181,7 +242,11 @@
       "music_cue": "m1",
       "ambience": "early morning birds, distant footsteps",
       "fact_flags": [
-        {"claim": "the family's story begins in Harar", "status": "family-confirmed", "source": "producer brief"}
+        {
+          "claim": "the family's story begins in Harar",
+          "status": "family-confirmed",
+          "source": "producer brief"
+        }
       ]
     },
     {
@@ -191,7 +256,10 @@
       "purpose": "Introduce generation one as newcomers: everything that follows starts with them arriving with little.",
       "emotional_beat": "uncertainty and courage",
       "visual": "A young couple seen from behind, carrying cloth bundles, walking toward the city wall.",
-      "characters": ["gen1_tailor_m", "gen1_tailor_f"],
+      "characters": [
+        "gen1_tailor_m",
+        "gen1_tailor_f"
+      ],
       "location": "harar_wall",
       "shot_size": "wide",
       "angle": "slightly low, from behind",
@@ -209,7 +277,11 @@
         "mode": "auto",
         "prompt": "The couple walk slowly forward, away from the camera. The camera follows gently at walking pace. Their clothes move softly in the breeze.",
         "seed": 2,
-        "kenburns": {"zoom_start": 1.0, "zoom_end": 1.1, "pan": "none"}
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.1,
+          "pan": "none"
+        }
       },
       "narration": {
         "text": "My great-grandparents came here as strangers, carrying little more than a skill.",
@@ -218,8 +290,16 @@
       "music_cue": "m1",
       "ambience": "wind, footsteps on dirt",
       "fact_flags": [
-        {"claim": "they were immigrants", "status": "family-confirmed", "source": "producer brief"},
-        {"claim": "where they came from and how they travelled", "status": "pending-family", "source": null}
+        {
+          "claim": "they were immigrants",
+          "status": "family-confirmed",
+          "source": "producer brief"
+        },
+        {
+          "claim": "where they came from and how they travelled",
+          "status": "pending-family",
+          "source": null
+        }
       ]
     },
     {
@@ -229,7 +309,9 @@
       "purpose": "Show their contribution, a livelihood made by hand, and introduce the thread motif.",
       "emotional_beat": "patient work",
       "visual": "Close-up of hands guiding cloth through a sewing machine; the green-and-gold thread bracelet on the wrist.",
-      "characters": ["gen1_tailor_m"],
+      "characters": [
+        "gen1_tailor_m"
+      ],
       "location": "market",
       "shot_size": "close",
       "angle": "high angle over the work",
@@ -247,7 +329,11 @@
         "mode": "auto",
         "prompt": "The hands slowly guide the cloth forward under the needle. The needle moves up and down steadily. The camera is fixed.",
         "seed": 3,
-        "kenburns": {"zoom_start": 1.05, "zoom_end": 1.15, "pan": "none"}
+        "kenburns": {
+          "zoom_start": 1.05,
+          "zoom_end": 1.15,
+          "pan": "none"
+        }
       },
       "narration": {
         "text": "They were tailors. Stitch by stitch, they built a life with their hands.",
@@ -256,8 +342,16 @@
       "music_cue": "m1",
       "ambience": "sewing machine rhythm, market murmur",
       "fact_flags": [
-        {"claim": "they were tailors", "status": "family-confirmed", "source": "producer brief"},
-        {"claim": "hand-cranked machine (sewing machines reached Harar from 1905; Singer from 1909)", "status": "researched", "source": "Pankhurst, TWL; machine type pending-family"}
+        {
+          "claim": "they were tailors",
+          "status": "family-confirmed",
+          "source": "producer brief"
+        },
+        {
+          "claim": "hand-cranked machine (sewing machines reached Harar from 1905; Singer from 1909)",
+          "status": "researched",
+          "source": "Pankhurst, TWL; machine type pending-family"
+        }
       ]
     },
     {
@@ -267,7 +361,9 @@
       "purpose": "Generation two continues and extends the foundation: work by hand becomes trade.",
       "emotional_beat": "building, responsibility",
       "visual": "A merchant arranging goods at a market stall under an overhanging roof.",
-      "characters": ["gen2_merchant"],
+      "characters": [
+        "gen2_merchant"
+      ],
       "location": "market",
       "shot_size": "medium",
       "angle": "eye-level",
@@ -278,14 +374,18 @@
       "transition_out": "dissolve",
       "min_duration_s": 6.5,
       "keyframe": {
-        "prompt": "Medium shot of a merchant in his forties standing behind a small market stall of folded cloth and woven baskets under an overhanging roof, neatly arranging his goods.",
+        "prompt": "Medium shot of a merchant in her forties standing behind a small market stall of folded cloth and woven baskets under an overhanging roof, neatly arranging her goods.",
         "seed": 1004
       },
       "motion": {
         "mode": "kenburns",
         "prompt": "",
         "seed": 4,
-        "kenburns": {"zoom_start": 1.0, "zoom_end": 1.1, "pan": "right"}
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.1,
+          "pan": "right"
+        }
       },
       "narration": {
         "text": "Their children became merchants. The stitches became trade, and the trade became a living.",
@@ -294,8 +394,16 @@
       "music_cue": "m1",
       "ambience": "market voices, coins, footsteps",
       "fact_flags": [
-        {"claim": "grandparents were merchants in Harar", "status": "family-confirmed", "source": "producer brief"},
-        {"claim": "goods shown (cloth, baskets)", "status": "interpretation", "source": "pending-family: what they traded"}
+        {
+          "claim": "grandparents were merchants in Harar",
+          "status": "family-confirmed",
+          "source": "producer brief"
+        },
+        {
+          "claim": "goods shown (cloth, baskets)",
+          "status": "interpretation",
+          "source": "pending-family: what they traded"
+        }
       ]
     },
     {
@@ -305,7 +413,9 @@
       "purpose": "Make the sacrifice concrete: what is earned is put aside for the next generation.",
       "emotional_beat": "quiet sacrifice",
       "visual": "Close-up of hands placing coins into a small tin box at the end of the day.",
-      "characters": ["gen2_merchant"],
+      "characters": [
+        "gen2_merchant"
+      ],
       "location": "market",
       "shot_size": "close",
       "angle": "high angle",
@@ -323,7 +433,11 @@
         "mode": "kenburns",
         "prompt": "",
         "seed": 5,
-        "kenburns": {"zoom_start": 1.1, "zoom_end": 1.2, "pan": "none"}
+        "kenburns": {
+          "zoom_start": 1.1,
+          "zoom_end": 1.2,
+          "pan": "none"
+        }
       },
       "narration": {
         "text": "What they earned, they saved, for the ones who would come after them.",
@@ -332,7 +446,11 @@
       "music_cue": "m1",
       "ambience": "coins, evening quiet",
       "fact_flags": [
-        {"claim": "saving for the next generation", "status": "interpretation", "source": "symbolic of the brief's theme"}
+        {
+          "claim": "saving for the next generation",
+          "status": "interpretation",
+          "source": "symbolic of the brief's theme"
+        }
       ]
     },
     {
@@ -342,7 +460,9 @@
       "purpose": "Introduce my mother carrying two responsibilities at once: work and school.",
       "emotional_beat": "struggle, determination",
       "visual": "A teenage girl at a market stall with a schoolbook open on her lap between customers.",
-      "characters": ["mother"],
+      "characters": [
+        "mother"
+      ],
       "location": "market",
       "shot_size": "medium",
       "angle": "eye-level",
@@ -360,7 +480,11 @@
         "mode": "kenburns",
         "prompt": "",
         "seed": 6,
-        "kenburns": {"zoom_start": 1.0, "zoom_end": 1.12, "pan": "none"}
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.12,
+          "pan": "none"
+        }
       },
       "narration": {
         "text": "My mother worked in the market by day, and carried her schoolbooks with her.",
@@ -369,8 +493,16 @@
       "music_cue": "m2",
       "ambience": "market bustle",
       "fact_flags": [
-        {"claim": "worked in the market while studying", "status": "family-confirmed", "source": "producer brief"},
-        {"claim": "what she sold", "status": "pending-family", "source": null}
+        {
+          "claim": "worked in the market while studying",
+          "status": "family-confirmed",
+          "source": "producer brief"
+        },
+        {
+          "claim": "what she sold",
+          "status": "pending-family",
+          "source": null
+        }
       ]
     },
     {
@@ -380,7 +512,9 @@
       "purpose": "The emotional heart: the cost of studying when exhausted.",
       "emotional_beat": "exhaustion and perseverance",
       "visual": "The girl studying alone at night by the light of a small lamp, tired eyes.",
-      "characters": ["mother"],
+      "characters": [
+        "mother"
+      ],
       "location": null,
       "shot_size": "close",
       "angle": "eye-level",
@@ -398,7 +532,11 @@
         "mode": "auto",
         "prompt": "The lamp flame flickers gently. She blinks slowly and turns a page. The camera is fixed.",
         "seed": 7,
-        "kenburns": {"zoom_start": 1.08, "zoom_end": 1.18, "pan": "none"}
+        "kenburns": {
+          "zoom_start": 1.08,
+          "zoom_end": 1.18,
+          "pan": "none"
+        }
       },
       "narration": {
         "text": "At night, when she was tired, she studied anyway.",
@@ -407,7 +545,11 @@
       "music_cue": "m2",
       "ambience": "night crickets, lamp hiss",
       "fact_flags": [
-        {"claim": "kerosene lamp", "status": "researched", "source": "kerosene a major lighting fuel in Ethiopia in 2000 (World Bank); pending-family for her home"}
+        {
+          "claim": "kerosene lamp",
+          "status": "researched",
+          "source": "kerosene a major lighting fuel in Ethiopia in 2000 (World Bank); pending-family for her home"
+        }
       ]
     },
     {
@@ -417,7 +559,9 @@
       "purpose": "Turning point: her persistence pays off.",
       "emotional_beat": "pride, release",
       "visual": "The young woman in a graduation gown holding her certificate, smiling.",
-      "characters": ["mother"],
+      "characters": [
+        "mother"
+      ],
       "location": null,
       "shot_size": "medium-close",
       "angle": "eye-level",
@@ -435,7 +579,11 @@
         "mode": "kenburns",
         "prompt": "",
         "seed": 8,
-        "kenburns": {"zoom_start": 1.0, "zoom_end": 1.1, "pan": "up"}
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.1,
+          "pan": "up"
+        }
       },
       "narration": {
         "text": "And one day, she graduated.",
@@ -444,8 +592,16 @@
       "music_cue": "m2",
       "ambience": "distant celebration",
       "fact_flags": [
-        {"claim": "she graduated", "status": "family-confirmed", "source": "producer brief"},
-        {"claim": "field and institution", "status": "pending-family", "source": null}
+        {
+          "claim": "she graduated",
+          "status": "family-confirmed",
+          "source": "producer brief"
+        },
+        {
+          "claim": "field and institution",
+          "status": "pending-family",
+          "source": null
+        }
       ]
     },
     {
@@ -455,7 +611,9 @@
       "purpose": "Show the sacrifice made for a child: long office hours, time and energy given up.",
       "emotional_beat": "love and responsibility",
       "visual": "The mother working late at an office desk; a child's school notebook beside her papers.",
-      "characters": ["mother"],
+      "characters": [
+        "mother"
+      ],
       "location": null,
       "shot_size": "medium",
       "angle": "eye-level",
@@ -473,7 +631,11 @@
         "mode": "auto",
         "prompt": "She writes slowly, then pauses and glances at the small notebook beside her. The camera pushes in very slowly.",
         "seed": 9,
-        "kenburns": {"zoom_start": 1.0, "zoom_end": 1.1, "pan": "none"}
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.1,
+          "pan": "none"
+        }
       },
       "narration": {
         "text": "Then she worked long hours in an office, and gave everything she had so that I could learn.",
@@ -482,8 +644,16 @@
       "music_cue": "m2",
       "ambience": "quiet office hum, clock",
       "fact_flags": [
-        {"claim": "long office hours while raising me and investing in my education", "status": "family-confirmed", "source": "producer brief"},
-        {"claim": "her profession", "status": "pending-family", "source": null}
+        {
+          "claim": "long office hours while raising me and investing in my education",
+          "status": "family-confirmed",
+          "source": "producer brief"
+        },
+        {
+          "claim": "her profession",
+          "status": "pending-family",
+          "source": null
+        }
       ]
     },
     {
@@ -492,26 +662,32 @@
       "chapter": 5,
       "purpose": "The fifth stage: my achievement, shown as the result of everything before it.",
       "emotional_beat": "pride and gratitude",
-      "visual": "The young man at a laptop, light from the screen on his face, the thread bracelet on his wrist as he types.",
-      "characters": ["me"],
+      "visual": "The young woman at a laptop, light from the screen on her face, the thread bracelet on her wrist as she types.",
+      "characters": [
+        "me"
+      ],
       "location": null,
       "shot_size": "medium-close",
       "angle": "eye-level",
       "camera_move": "slow push-in",
-      "subject_move": "he types, then pauses and looks at the bracelet",
+      "subject_move": "she types, then pauses and looks at the bracelet",
       "lighting": "soft screen glow mixed with warm room light",
       "composition": "face and hands centred",
       "transition_out": "dissolve",
       "min_duration_s": 6.5,
       "keyframe": {
-        "prompt": "Medium close-up of a young man in his early twenties typing on a laptop at a desk, soft glow of the screen on his face, a green-and-gold thread bracelet on his wrist, focused and hopeful.",
+        "prompt": "Medium close-up of a young woman in her early twenties typing on a laptop at a desk, soft glow of the screen on her face, a green-and-gold thread bracelet on her wrist, focused and hopeful.",
         "seed": 1010
       },
       "motion": {
         "mode": "kenburns",
         "prompt": "",
         "seed": 10,
-        "kenburns": {"zoom_start": 1.0, "zoom_end": 1.12, "pan": "none"}
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.12,
+          "pan": "none"
+        }
       },
       "narration": {
         "text": "I graduated in software engineering, with honours. Today, I work on artificial intelligence.",
@@ -520,7 +696,11 @@
       "music_cue": "m3",
       "ambience": "keyboard, room tone",
       "fact_flags": [
-        {"claim": "software engineering graduate with honours, working on AI", "status": "family-confirmed", "source": "producer brief"}
+        {
+          "claim": "software engineering graduate with honours, working on AI",
+          "status": "family-confirmed",
+          "source": "producer brief"
+        }
       ]
     },
     {
@@ -529,26 +709,32 @@
       "chapter": 5,
       "purpose": "Close the circle at Harar's walls (echo of s01) and hand the story forward.",
       "emotional_beat": "possibility, responsibility",
-      "visual": "The young man on a rooftop above the old city at sunrise, looking out over Harar.",
-      "characters": ["me"],
+      "visual": "The young woman on a rooftop above the old city at sunrise, looking out over Harar.",
+      "characters": [
+        "me"
+      ],
       "location": "harar_wall",
       "shot_size": "wide",
       "angle": "from behind, slightly high",
       "camera_move": "slow rise",
-      "subject_move": "he stands still, wind in his shirt",
+      "subject_move": "she stands still, wind in her scarf",
       "lighting": "sunrise, warm gold rim light",
       "composition": "figure centred against the city",
       "transition_out": "fade",
       "min_duration_s": 7.5,
       "keyframe": {
-        "prompt": "Wide shot from behind of a young man standing on a flat rooftop above the old walled city at sunrise, rooftops and the stone wall stretching below, warm golden light.",
+        "prompt": "Wide shot from behind of a young woman standing on a flat rooftop above the old walled city at sunrise, rooftops and the stone wall stretching below, warm golden light.",
         "seed": 1011
       },
       "motion": {
         "mode": "auto",
-        "prompt": "The camera rises slowly behind him. The sun climbs and the light grows warmer. His shirt moves slightly in the wind.",
+        "prompt": "The camera rises slowly behind her. The sun climbs and the light grows warmer. Her scarf moves slightly in the wind.",
         "seed": 11,
-        "kenburns": {"zoom_start": 1.12, "zoom_end": 1.0, "pan": "up"}
+        "kenburns": {
+          "zoom_start": 1.12,
+          "zoom_end": 1.0,
+          "pan": "up"
+        }
       },
       "narration": {
         "text": "Nothing I have is mine alone. It is the work of everyone who came before me. Now it is my turn to take us a little further.",
@@ -557,15 +743,34 @@
       "music_cue": "m3",
       "ambience": "morning wind, distant city",
       "fact_flags": [
-        {"claim": "forward-looking responsibility", "status": "family-confirmed", "source": "producer brief (central message)"}
+        {
+          "claim": "forward-looking responsibility",
+          "status": "family-confirmed",
+          "source": "producer brief (central message)"
+        }
       ]
     }
   ],
   "music": {
     "cues": [
-      {"id": "m1", "from_shot": "s01", "to_shot": "s05", "purpose": "humble beginnings: sparse, warm, unhurried"},
-      {"id": "m2", "from_shot": "s06", "to_shot": "s09", "purpose": "struggle and love: gentle pulse, slightly fuller"},
-      {"id": "m3", "from_shot": "s10", "to_shot": "s11", "purpose": "lift: the theme returns, hopeful and open"}
+      {
+        "id": "m1",
+        "from_shot": "s01",
+        "to_shot": "s05",
+        "purpose": "humble beginnings: sparse, warm, unhurried"
+      },
+      {
+        "id": "m2",
+        "from_shot": "s06",
+        "to_shot": "s09",
+        "purpose": "struggle and love: gentle pulse, slightly fuller"
+      },
+      {
+        "id": "m3",
+        "from_shot": "s10",
+        "to_shot": "s11",
+        "purpose": "lift: the theme returns, hopeful and open"
+      }
     ],
     "caption": "Slow, warm, nostalgic instrumental film score in an Ethiopian tizita mood, pentatonic melody on krar lyre and masinqo fiddle, soft washint flute, sparse hand drum, gentle cello and string pad underneath, intimate and unhurried at first, building gradually to a warm hopeful final section, cinematic, no vocals.",
     "lyrics": "[Instrumental]",
@@ -573,7 +778,12 @@
     "keyscale": "A minor",
     "timesignature": "4",
     "duration_s": 95.0,
-    "seeds": [11, 22, 33, 44],
+    "seeds": [
+      11,
+      22,
+      33,
+      44
+    ],
     "chosen_seed": null,
     "why": null
   },

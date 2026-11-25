@@ -1,0 +1,14 @@
+{
+  "key": "c096a37c1c17f1cd",
+  "stage": "smoke",
+  "item": "text",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "inputs": {
+    "prompt": "Reply with exactly: OK"
+  },
+  "run_id": "20261125T195346-3514b0",
+  "latency_s": 9.945,
+  "licence": "",
+  "provider_response": null
+}

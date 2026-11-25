@@ -23,7 +23,7 @@ licence = "Addis AI API terms: commercial use allowed, inputs not used for train
 
 [tts.gemini]
 model = "gemini-3.8-flash-tts"
-voice = "Charon"
+voice = "Kore"                       # female voice; narrator is a young woman
 usd_per_minute_list = 0.0            # free tier on 2026-11-25; paid list price not used
 licence = "Gemini API Terms; output watermarked with SynthID"
 

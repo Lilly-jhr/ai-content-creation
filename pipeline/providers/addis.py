@@ -9,6 +9,7 @@ from typing import Any
 from pipeline.core import media
 from pipeline.core.calls import ProviderError
 from pipeline.core.config import provider_cfg, secret
+from pipeline.core.hashing import hash_obj
 from pipeline.providers.base import get, post
 
 
@@ -55,6 +56,9 @@ class AddisTTS:
         }
         if speed != 1.0:
             body["speed"] = speed
+        # Required by the API (docs said optional). Deterministic, so a retry of the same
+        # request is idempotent on Addis' side and never double-billed.
+        body["client_request_id"] = "alf-" + hash_obj(body)
         url = f"{self.cfg['base_url']}/voice/generations"
         resp = post(url, self.name, headers=self._headers(), json=body)
         raw = out.with_name(out.name + ".raw")

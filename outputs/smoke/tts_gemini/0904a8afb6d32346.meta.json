@@ -1,0 +1,17 @@
+{
+  "key": "0904a8afb6d32346",
+  "stage": "smoke",
+  "item": "tts_gemini",
+  "provider": "gemini",
+  "model": "gemini-3.8-flash-tts",
+  "inputs": {
+    "text": "ሰላም። ይህ የድምፅ ሙከራ ነው።",
+    "language": "am",
+    "voice": "Kore",
+    "speed": 1.0
+  },
+  "run_id": "20261125T195346-3514b0",
+  "latency_s": 44.423,
+  "licence": "",
+  "provider_response": null
+}

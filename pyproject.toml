@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-kaggle = ["kaggle>=1.6"]
+kaggle = ["kaggle>=1.6", "six"]  # kaggle CLI imports six without declaring it
 
 [dependency-groups]
 dev = ["pytest>=8.3", "ruff>=0.6"]
