@@ -66,14 +66,38 @@ Each `shots[].purpose` in `storyboard.json` states why the shot exists. Here is 
 **Insight:** the family heard the words more than the pictures. Two of the four notes were about *language*: word order in s05, and pronunciation.
 The narration is the spine, so native listeners are the most valuable reviewers, as the brief predicted ("names and places are where TTS goes wrong").
 
-## User test 2: near-final cut
-*Status: pending.*
+## User test 2: near-final cut (2026-11-26)
+**What they saw:** the near-final vertical film (85.5 s; 6 Wan shots, 5 Ken Burns, chosen score, gentle ducking), sent by the producer.
+**Response recorded here:** one detailed, timestamped written review from a native Amharic speaker in the audience (shared by the producer; relationship not recorded).
+Overall: *"I really liked it!"* … *"I really liked the ending of the story."*
 
-| # | Who | Watched on | What they said | Where they reacted |
+The timestamps map onto the measured timeline (`outputs/timeline.json`). I classified each note by cause:
+
+| Time | Shot | What they said | Cause | Text in the storyboard |
 |---|---|---|---|---|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
+| 00:15 | s03 | long gap between "ልብስ ሰፊዎች" and "ነበሩ" | **TTS rendering** (pause inside a phrase) | correct |
+| 00:16 | s03 | word duplication "ስፌት በስፌት" | **script choice**: the intended "stitch by stitch" reads as an error to a native ear | as written |
+| 00:22 | s04 | long gap between "መንገድ" and "ዳር" | **TTS rendering** | correct |
+| 00:29 | s05 | "ብለው" read as sentence-final; it should rise into the next word | **TTS prosody**, triggered by the `፤` after ብለው | punctuation |
+| 00:34 | s06 | "ቀን ገን" should be "ቀን ቀን" | **TTS mispronunciation** | correct (ቀን ቀን) |
+| 00:40 | s07 | "ማታ ማታ ማታ" has an extra "ማታ" | **TTS repetition** (hallucinated word) | correct (ማታ ማታ) |
+| 00:43 | s07 | "ነበር" should have a final, narrating tone | **TTS prosody** | correct |
+| 00:46 | s08 | replace "አንድ ቀንም" with a line about the day her hard work paid off, e.g. "ልፋትዋን የምታይበትም ቀን ደረሰና" | **script / meaning**: graduation as payoff, not a one-off event | script |
+| 01:02 | s10 | "ተመረቅሁ" should be "ተመረኩ" | **script register** (spoken form) | script |
+| 01:17 | s11 | "ሁላችንም" should be "ሁላችንንም" | **TTS dropped a syllable** | correct (ሁላችንንም) |
 
-**Insights → changes:**
-- …
+**Insights:**
+- **7 of 10 problems are the voice model misreading text that is correct in the storyboard.** Only 3 are script choices. Test 1's general note,
+  "some mispronunciations", now has specifics. The text pipeline (translation, glossary, review) held up; the weakest link is Amharic TTS rendering:
+  pauses, a repeated word, a dropped syllable, and sentence-final intonation where a clause continues.
+- A native ear rejects rhetorical repetition ("ስፌት በስፌት") that reads well in English ("stitch by stitch"). Translation needs a native *listener*, not only a reader.
+- The ending landed ("I really liked the ending"), so the s11 continuity change from test 1 worked.
+
+**What changed: nothing in this version (producer's decision, deadline).** The fix is cheap and contained:
+1. Script edits in `narration.text` for s03, s08 and s10, and `፤` → `፣` after "ብለው" in s05.
+2. Re-takes of the TTS-error lines (s03, s04, s06, s07, s11). TTS is stochastic, so a re-take changes the take, and each needs a native re-listen.
+3. `make film`: per the cache design, only those narration lines and the edit regenerate (about 8 Addis calls, no images or clips).
+
+The bottleneck is native verification of each re-take, not compute. This is the first change in the next version.
+
+*Coverage note: the brief asks for ≥3 people per test; this section records one written response. Any further test-2 replies go in the table above.*
