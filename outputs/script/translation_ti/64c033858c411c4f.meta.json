@@ -1,0 +1,16 @@
+{
+  "key": "64c033858c411c4f",
+  "stage": "script",
+  "item": "translation_ti",
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "inputs": {
+    "prompt": "Translate these narration lines:\n{\n \"s01\": \"Every family has a beginning. Ours begins at the old walls of Harar.\",\n \"s02\": \"My great-grandparents came here as strangers, carrying little more than a skill.\",\n \"s03\": \"They were tailors. Stitch by stitch, they built a life with their hands.\",\n \"s04\": \"My grandmother kept a small stall by the street. The stitches became trade, and the trade became a living.\",\n \"s05\": \"What she earned, she saved, for the ones who would come after her.\",\n \"s06\": \"My mother worked in the market by day, and carried her schoolbooks with her.\",\n \"s07\": \"At night, when she was tired, she studied anyway.\",\n \"s08\": \"And one day, she graduated.\",\n \"s09\": \"Then she worked long hours in an office, and gave everything she had so that I could learn.\",\n \"s10\": \"I graduated in software engineering with honours, won a scholarship for my master's, and today I am an AI engineer, with comforts they never had.\",\n \"s11\": \"Nothing I have is mine alone. It is the work of everyone who came before me. Now it is my turn to take us a little further.\"\n}",
+    "system": "You translate documentary film narration for voice-over. Write natural, spoken Tigrinya in its native script (no transliteration), for a young woman narrating in the first person about her own family. Use short sentences written for the ear, warm and simple, never bureaucratic. Keep the meaning of each line exactly; do not add facts, names, places or dates. Keep 'Harar' as the city name. 'My' must stay possessive (my mother, my great-grandparents). Return only a JSON object mapping each line id to its translation.",
+    "language": "ti"
+  },
+  "run_id": "20261126T001043-b5fd31",
+  "latency_s": 36.212,
+  "licence": "Gemini API Terms; free tier inputs may be used to improve Google products",
+  "provider_response": null
+}

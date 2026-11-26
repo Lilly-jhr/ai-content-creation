@@ -1,0 +1,18 @@
+{
+  "key": "1f65ef04b58dd1ba",
+  "stage": "ceiling",
+  "item": "hrr_s01",
+  "provider": "gemini",
+  "model": "gemini-3.8-flash-tts",
+  "inputs": {
+    "text": "ኩል አሀልም መጀመርያ ቦኡ። የኛ መጀመርያ የሐረር ቆዲም ጁገልቤ ይጀምራል።",
+    "language": "hrr",
+    "voice": "Kore",
+    "speed": 1.0,
+    "style": null
+  },
+  "run_id": "20261126T001043-b5fd31",
+  "latency_s": 7.549,
+  "licence": "",
+  "provider_response": null
+}

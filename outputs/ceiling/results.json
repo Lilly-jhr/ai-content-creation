@@ -1,0 +1,56 @@
+[
+  {
+    "language": "om",
+    "provider": "addis",
+    "voice": "om-obse",
+    "shot": "s01",
+    "text": "Maatii hundaa jalqaba qaba. Keenya immoo dallaa Harar baraa irraa jalqaba.",
+    "audio": "outputs/ceiling/om_s01/40ae8d2eb9124633.wav",
+    "audio_s": 4.6
+  },
+  {
+    "language": "om",
+    "provider": "addis",
+    "voice": "om-obse",
+    "shot": "s11",
+    "text": "Wanti ani qabu kamiyyuu kan kiyya qofa miti. Hojii namoota na dura dhufan hundumaati. Ammoo yeroon kiyya xiqqoo fuuldarratti nu fuudhuufi.",
+    "audio": "outputs/ceiling/om_s11/c4cd8d67b69f3fec.wav",
+    "audio_s": 7.49
+  },
+  {
+    "language": "ti",
+    "provider": "addis",
+    "voice": "ti-saba",
+    "shot": "s01",
+    "text": "ነፍሲ ወከፍ ስድራ መበገሲ ኣለዎ። ናትና ድማ ካብቲ ጥንታዊ መናድቕ ሓረር እዩ ዝጅምር።",
+    "audio": "outputs/ceiling/ti_s01/5a7d900ed1b3a9cc.wav",
+    "audio_s": 5.4
+  },
+  {
+    "language": "ti",
+    "provider": "addis",
+    "voice": "ti-saba",
+    "shot": "s11",
+    "text": "ዘለኒ ኩሉ ናተይ ጥራይ ኣይኮነን። ናይቶም ቅድመይ ዝነበሩ ኩሎም ድኻም እዩ። ሕጂ ድማ ተራይ እዩ፣ ንዓና ቁሩብ ንቕድሚት ከሰጉመና።",
+    "audio": "outputs/ceiling/ti_s11/eff5cfeca32b242b.wav",
+    "audio_s": 7.18
+  },
+  {
+    "language": "hrr",
+    "provider": "gemini",
+    "voice": "Kore",
+    "shot": "s01",
+    "text": "ኩል አሀልም መጀመርያ ቦኡ። የኛ መጀመርያ የሐረር ቆዲም ጁገልቤ ይጀምራል።",
+    "audio": "outputs/ceiling/hrr_s01/1f65ef04b58dd1ba.wav",
+    "audio_s": 5.81
+  },
+  {
+    "language": "hrr",
+    "provider": "gemini",
+    "voice": "Kore",
+    "shot": "s11",
+    "text": "ቦኝ ነገር ኩሉ የኔ ብቻ አይኮነም። ከፊቴ ለነበሩት ኩሉ ታዕቢ ነው። አሁንም ኑሮኣችን ጢቆ ወደፊት ለማብፃህ የኔ ተራ ነው።",
+    "audio": "outputs/ceiling/hrr_s11/c6cd4b35d6595691.wav",
+    "audio_s": 8.35
+  }
+]

@@ -120,6 +120,31 @@ estimated or invented. Planned entries are marked *planned* until they are run.
   change cost one image per shot (3.9k neurons) and no re-approval round. s11 was regenerated fresh (its square version was rejected).
 - **Conclusion:** a reference image carries *composition* as strongly as identity. E3b showed the harmful side of the same effect.
 
+## E12 (ceiling). Can the same narration be made in Afaan Oromo, Tigrinya and Harari, the languages of Harar's region?
+- **Why these languages:** Harar is the Harari people's city, inside an Oromo-majority region; Tigrinya is a control language with good provider support.
+- **Procedure:** `pipeline/tools/languages.py` translates s01 + s11 with Gemini (same prompt as E2), then synthesises with a female voice:
+  Addis `om-obse` (Oromo, "Narration"), Addis `ti-saba` (Tigrinya, "Storytelling"), and for Harari, which **no provider lists**,
+  Gemini TTS `Kore`. Outputs are in `outputs/ceiling/`, all calls are in runs.jsonl (stages `script`, `ceiling`), and the summary is in `outputs/ceiling/results.json`.
+- **Measured:**
+
+| Lang | Translation model (attempts) | TTS | ok? | Audio s01 / s11 (s) | TTS latency (s) |
+|---|---|---|---|---|---|
+| om | 3.8 Flash 503 → **3.5 Flash-Lite** (2) | Addis `om-obse` | yes | 4.6 / 7.5 | 8.8 / 9.2 |
+| ti | **3.8 Flash** (3: timeout, 503, ok) | Addis `ti-saba` | yes | 5.4 / 7.2 | 11.1 / 11.6 |
+| hrr | **3.8 Flash** (3: 503, 503, ok) | Gemini `Kore` | "yes" | 5.8 / 8.4 | 7.5 / 5.1 |
+
+- **What the outputs show (agent reading; native speakers needed for real ratings):**
+  - **Tigrinya** reads as plausible Tigrinya (e.g. "ጥንታዊ መናድቕ ሓረር" for "Harar's ancient walls").
+  - **Oromo** came from the weaker fallback model. One phrase looks off ("dallaa Harar baraa"), so it needs a native check.
+  - **Harari is the important finding:** every API call *succeeded*, but the text is mostly **Amharic** with a few Harari- or
+    Arabic-looking words (ቦኡ, ጁገልቤ, ቆዲም). The voice is a multilingual model reading Ge'ez script, so it is almost certainly
+    Amharic pronunciation. **A 200 OK is not evidence of language support.** For a low-resource language without provider support, the
+    pipeline can produce something that *looks* right to a non-speaker and is wrong.
+- **Conclusion:** Oromo and Tigrinya narration are feasible today with Addis, pending native rating. Harari is not: it would need a
+  native translator and either a native voice actor (with consent) or a fine-tuned voice. The film stays in Amharic.
+- **Change:** none to the film. The language list in `script.LANG_NAMES` and the probe tool remain, so a native-reviewed Oromo or
+  Tigrinya version is one `translate --language om --apply` plus `narration` away.
+
 ## Planned
 | # | Question | Variable | Evidence |
 |---|---|---|---|
