@@ -900,7 +900,7 @@
       },
       "motion": {
         "mode": "auto",
-        "prompt": "The camera rises slowly behind her. The sun climbs and the light grows warmer. Her scarf moves slightly in the wind.",
+        "prompt": "Slow upward crane movement from behind her. She stands still with both hands resting on the balcony railing, looking out at the sunrise over the city. A light breeze moves her hair. The sun slowly brightens.",
         "seed": 11,
         "kenburns": {
           "zoom_start": 1.12,

@@ -39,7 +39,8 @@ EDIT: dict[str, Any] = {
     "music_fade_out_s": 3.5,
     "tp_limit_lin": 0.83,  # about -1.6 dBFS before AAC encoding (F13)
     "kb_oversample": 2,
-    "vertical_from_wide_clip": True,  # producer decision: master in 16:9, cut 9:16 from it
+    "vertical_from_wide_clip": True,
+    "wan_max_slow": 2.0,  # motion-compensated slow motion cap for 3.4 s Wan clips (F16)  # producer decision: master in 16:9, cut 9:16 from it
 }
 
 
@@ -137,6 +138,73 @@ def _kenburns_filter(shot: Shot, ratio: str, frames: int) -> str:
     )
 
 
+def render_wan_segment(
+    shot: Shot, ratio: str, src: Path, length: float, out: Path, common: list[str]
+) -> None:
+    """Wan clips are ~3.4 s; shots are 6-11 s. Director's rule (FAILURES F16):
+    1) motion-compensated slow motion up to EDIT['wan_max_slow'] (gentle actions survive it),
+    2) if the slot is still longer, continue from the clip's last frame with a very slow push-in,
+       using the identical crop, so the hand-off is invisible (no frozen frame)."""
+    w, h = SIZES[ratio]
+    vc = shot.keyframe.vertical_center if ratio == "9x16" else 0.5
+    avail = media.duration(src) - EDIT["head_trim_s"]
+    factor = min(EDIT["wan_max_slow"], max(1.0, length / avail))
+    motion_len = min(length, avail * factor)
+    interp = (
+        f"minterpolate=fps={24 * factor:.3f}:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1,"
+        if factor > 1.05
+        else ""
+    )
+    part_a = out.with_name(out.stem + "_a.mp4")
+    vf = (
+        f"trim=start={EDIT['head_trim_s']},setpts=PTS-STARTPTS,{interp}setpts={factor:.4f}*PTS,"
+        f"scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,"
+        f"crop={w}:{h}:'max(0,min(iw-ow,{vc}*iw-ow/2))':'(ih-oh)/2',"
+        f"fps=24,trim=duration={motion_len:.3f},setsar=1,format=yuv420p"
+    )
+    media.run(["-i", str(src), "-vf", vf, *common, str(part_a)])
+    tail = length - media.duration(part_a)
+    if tail < 0.05:
+        part_a.replace(out)
+        return
+    last = out.with_name(out.stem + "_last.png")
+    media.run(["-sseof", "-0.1", "-i", str(part_a), "-frames:v", "1", "-update", "1", str(last)])
+    hold = shot.model_copy(deep=True)
+    hold.keyframe.vertical_center = 0.5  # the frame is already cropped
+    hold.motion.kenburns.zoom_start, hold.motion.kenburns.zoom_end = 1.0, 1.0 + 0.012 * tail
+    hold.motion.kenburns.pan = "none"
+    frames = max(int(round(tail * 24)), 2)
+    part_b = out.with_name(out.stem + "_b.mp4")
+    media.run(
+        [
+            "-i",
+            str(last),
+            "-vf",
+            _kenburns_filter(hold, ratio, frames),
+            "-frames:v",
+            str(frames),
+            *common,
+            str(part_b),
+        ]
+    )
+    media.run(
+        [
+            "-i",
+            str(part_a),
+            "-i",
+            str(part_b),
+            "-filter_complex",
+            "[0:v][1:v]concat=n=2:v=1:a=0,format=yuv420p[v]",
+            "-map",
+            "[v]",
+            *common,
+            str(out),
+        ]
+    )
+    for p in (part_a, part_b, last):
+        p.unlink(missing_ok=True)
+
+
 def segment_source(
     sb: Storyboard, shot: Shot, ratio: str, allow_draft: bool
 ) -> tuple[str, Path | None]:
@@ -176,16 +244,7 @@ def render_segment(
     out.parent.mkdir(parents=True, exist_ok=True)
     common = ["-r", "24", "-c:v", "libx264", "-preset", "veryfast", "-crf", "16", "-an"]
     if kind == "wan":
-        avail = media.duration(src) - EDIT["head_trim_s"]
-        slow = min(1.35, length / avail) if length > avail else 1.0
-        vf = (
-            f"trim=start={EDIT['head_trim_s']},setpts=PTS-STARTPTS,setpts={slow:.4f}*PTS,"
-            f"scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,"
-            f"crop={w}:{h}:'max(0,min(iw-ow,{shot.keyframe.vertical_center if ratio == '9x16' else 0.5}*iw-ow/2))':'(ih-oh)/2',"
-            f"fps=24,tpad=stop_mode=clone:stop_duration={length:.3f},trim=duration={length:.3f},"
-            "setsar=1,format=yuv420p"
-        )
-        media.run(["-i", str(src), "-vf", vf, *common, str(out)])
+        render_wan_segment(shot, ratio, src, length, out, common)
     elif kind in ("kenburns", "still"):
         if kind == "still":
             shot = shot.model_copy(deep=True)

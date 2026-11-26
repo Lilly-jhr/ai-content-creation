@@ -22,7 +22,7 @@ estimated or invented. Planned entries are marked *planned* until they are run.
 | B | addis `am-sara` (female, "motherly warm inspiring") | 74.8 | 5.29 | 16047ed55216e261 |
 | C | addis `am-hamen` (female, "warm conversational", default) | 159.1 | 5.71 | b175ed7e4ba57825 |
 | D | addis `am-melat` (female, "authentic conversational") | 103.4 | 5.17 | 32223fcd01d4e706 |
-| E | gemini `Kore` (female) | n/a | n/a | 503 × 3 (F9), retry pending |
+| E | gemini `Kore` (female) | n/a | n/a | 503 × 3 (F9); not included in the blind test |
 
 - **Side finding:** Addis took **74–159 s to synthesise ~5 s of audio**, roughly 15–30× slower than real time. For 11 lines that is about 15–20 min,
   so narration runs as a background job, and caching it matters more than expected.
@@ -145,15 +145,32 @@ estimated or invented. Planned entries are marked *planned* until they are run.
 - **Change:** none to the film. The language list in `script.LANG_NAMES` and the probe tool remain, so a native-reviewed Oromo or
   Tigrinya version is one `translate --language om --apply` plus `narration` away.
 
+## E7. Motion-prompt wording: "the camera …" vs camera-free phrasing (image-to-video)
+- **Hypothesis (from the brief's tip):** an I2V prompt should describe motion and camera only. We added: *the word "camera" itself is
+  ambiguous to a video model when a person is in frame.*
+- **Evidence:** in the batch of 6 Wan clips (same model and settings), 2 prompts used "the camera …":
+  - s07 ("The camera is fixed"): clean.
+  - s11 ("The camera rises slowly behind her"): **failed**. The subject picked up a camera mid-shot (FAILURES F17).
+  - The 4 prompts that described camera motion as *push in / follows gently* had no props appear.
+- **Change:** s11 rephrased as "slow upward crane movement from behind her … she stands still with both hands on the railing". Re-run with the same seed and keyframe:
+  no prop, subject still, gentle rise. Both runs are in runs.jsonl (stage `clips`, item s11).
+- **Conclusion:** describe camera moves with film terms (crane, push-in, dolly) and *pin the subject's hands and pose* when a person is in frame.
+  n = 1 failure, so this is a strong anecdote, not a statistic.
+
+## E8. Wan resolution on a T4: 544×960 vs 1280×704
+| Run | Resolution | Frames / steps | GPU time per clip | Peak VRAM GPU0 / GPU1 |
+|---|---|---|---|---|
+| E4 run 2 (s07) | 544×960 (522k px) | 81 / 30 | 1036.6 s | 7.33 / 5.46 GB |
+| overnight batch, 6 clips | 1280×704 (901k px) | 81 / 30 | 2193.6–2205.2 s (mean ≈ 2199 s) | 8.94 / 6.93 GB |
+| s11 re-run | 1280×704 | 81 / 30 | 2456.3 s | n/a |
+- **Result:** 1.73× the pixels cost **2.1×** the GPU time (attention is super-linear in tokens), and only +1.6 GB VRAM thanks to fp8 storage.
+- **Conclusion and change:** native 720p fits comfortably and was worth it, because the 9:16 film crops from this master (a 396 px wide crop instead of 306 px).
+  7 clips × ~37 min ≈ 4.3 GPU-hours of the ~30 h weekly Kaggle quota.
+
 ## Planned
 | # | Question | Variable | Evidence |
 |---|---|---|---|
-| E3 | Do approved reference sheets keep characters consistent? | refs on vs off (`keyframe.use_refs`) | image-embedding cosine similarity vs the approved ref, plus eyeballing |
-| E5 | Short vs detailed image prompt | prompt length | prompt adherence notes |
 | E6 | Fixed vs varied seed | seed | variation across 4 candidates |
-| E7 | Motion-only vs full re-description in the I2V prompt | motion prompt | artefacts in Wan clips |
-| E8 | Wan resolution on T4 | 544×960 (E4 run 2) vs 1280×704 (overnight batch) | GPU seconds per clip, peak VRAM |
 | E9 | Wan clip vs Ken Burns for the same shot | segment kind | viewer preference |
 | E10 | ACE-Step candidates | seed (4) under the same caption | listening under the narration at phone volume |
 | E11 | Ducking settings | sidechain threshold/ratio | narration intelligibility at low volume |
-| E12 | *(ceiling)* Afaan Oromo / Tigrinya narration via Addis | language | native-speaker rating, failure notes |

@@ -89,3 +89,20 @@ Newest last. Evidence is in runs.jsonl (`status: "error"` lines) where a model c
 - **Fallback if it fails again:** fewer frames (49) and 480×832, then Ken Burns for every shot. The film never depends on this stage (ARCHITECTURE.md).
 - **Result (attempt 2, 03:05 EAT):** **success.** s07, 544×960, 81 frames, 30 steps: 1036.6 s of GPU time. Peak **7.33 GB** on GPU 0 (fp8-stored transformer) and 5.46 GB on GPU 1 (VAE decode).
   The text encoder took 152 s on the CPU. The clip was checked frame by frame: identity is stable across all 81 frames, with no NaN or black frames from fp16.
+
+### F16. Wan clips are 3.4 s; shots are 6–11 s (2026-11-26 ~07:10 EAT)
+- **What:** 81 frames at 24 fps is 3.375 s (3.1 s after trimming the weak first frames). The narration-driven slots for the clip shots are 6.0–10.7 s,
+  plus the dissolve. The first assembly code slowed clips by at most 1.35× and then **froze the last frame** for several seconds, which looks broken.
+- **Considered:** longer clips (121 frames, +50% GPU time per clip, still short); ping-pong looping (the couple in s02 would walk backwards);
+  a cut to Ken Burns on the keyframe (a visible jump back to the first frame).
+- **Fix (director's rule, `assemble.render_wan_segment`):**
+  1. Motion-compensated slow motion up to 2× (`minterpolate` mci/aobmc). The motions are gentle (walking, stitching, a flame), so they hold up.
+  2. If the slot is still longer, continue from the clip's **last frame** with a very slow push-in, using the identical crop.
+- **Check:** frames at 12.8 s / 13.0 s (the s02 handoff) are identical in framing. The push-in only becomes visible about 1 s later. No frozen frames.
+
+### F17. "The camera rises" put a camera in the narrator's hands (2026-11-26 ~06:58 EAT)
+- **What:** the s11 Wan clip started correctly, then the narrator **raised a camera/binoculars to her face** halfway through the shot. The motion
+  prompt said "*The camera* rises slowly behind her"; the model read "camera" as an object for the subject.
+- **Fix:** the motion prompt was rewritten without the word: "Slow upward crane movement from behind her. She stands still with both hands resting on the
+  railing…". Re-rendered on Kaggle (2456 s GPU). The new clip shows no prop and keeps her still. The prompt edit changed the cache key, so
+  until the new clip arrived the film automatically used Ken Burns for s11. EXPERIMENTS E7.
