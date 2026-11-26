@@ -52,17 +52,19 @@ Each `shots[].purpose` in `storyboard.json` states why the shot exists. Here is 
 - **What changed:** every line now uses `am-sara`. The provider's speed setting turned out to be ignored (EXPERIMENTS E1b), so the
   voice is slowed (×0.9) and warmed deterministically in our own pipeline (`meta.vo_tempo`, `meta.vo_warmth`).
 
-## User test 1: radio cut (narration + temp music on black, with subtitles)
-*Status: pending. The radio cut is sent to ≥3 people from the audience; replies are recorded verbatim here.*
+## User test 1: radio cut (2026-11-26)
+**What they saw:** `outputs/final/radio_cut.mp4` (85.5 s; Amharic narration over a temp drone on black, English subtitles), sent on WhatsApp.
+**Who:** the producer's siblings and friends: the film's primary audience (family) plus peers.
 
-| # | Who (relationship, no names) | Watched on | What they said (verbatim / close paraphrase) | Where they reacted |
-|---|---|---|---|---|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
+| # | Who (relationship) | What they said | What changed |
+|---|---|---|---|
+| 1 | siblings | s05 should say **"ከእነሱ በኋላ ለሚመጡት ብለው፤ ያገኙትን ቆጠቡ"**, putting "for the ones who would come after them" first | `shots[s05].narration.text` replaced with their wording, and `text_en` re-ordered to match ("For the ones who would come after them, they saved what they earned."). Only s05's narration regenerates (dry run: `GENERATE narration s05 changed: text`) |
+| 2 | a friend | "there are some mispronunciations" | *open: asked which words/lines; the fix is phonetic respelling of those words in `narration.text`* |
+| 3 | a friend | the s11 image (on the balcony) isn't consistent with the s10 character | s11 keyframe re-prompted with s10's wardrobe and hair, and the approved s10 frame passed as an extra reference (`keyframe.extra_refs`, new pipeline feature) |
+| 4 | a sibling | "the content has an emotional hook and a sentimental meaning" | no change: confirms the intent stated above. The story structure is kept |
 
-**Insights → storyboard changes** (each linked to a commit):
-- …
+**Insight:** the family heard the words more than the pictures. Two of the four notes were about *language*: word order in s05, and pronunciation.
+The narration is the spine, so native listeners are the most valuable reviewers, as the brief predicted ("names and places are where TTS goes wrong").
 
 ## User test 2: near-final cut
 *Status: pending.*

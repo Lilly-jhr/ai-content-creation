@@ -561,8 +561,8 @@
         ]
       },
       "narration": {
-        "text": "ያገኘችውን ሁሉ ቆጠበች፤ ከእሷ በኋላ ለሚመጡት ብላ።",
-        "text_en": "What she earned, she saved, for the ones who would come after her.",
+        "text": "ከእነሱ በኋላ ለሚመጡት ብለው፤ ያገኙትን ቆጠቡ።",
+        "text_en": "For the ones who would come after them, they saved what they earned.",
         "provider": "addis",
         "voice": "am-sara"
       },
@@ -891,13 +891,16 @@
       "transition_out": "fade",
       "min_duration_s": 7.5,
       "keyframe": {
-        "prompt": "Wide shot of a young woman seen from behind, her back to the camera, standing on a high balcony and looking out over a modern city at sunrise, buildings spreading across green hills below, warm golden light.",
-        "seed": 1012,
+        "prompt": "Wide shot of the same young woman from the previous shot, seen from behind, her back to the camera, standing on a high balcony and looking out over a modern city at sunrise. She wears the same olive-grey long-sleeved blouse, her curly black hair loosely tied back with a few loose curls, her right hand resting on the balcony railing with the stacked green-and-gold thread bracelets visible on her wrist. Buildings spread across green hills below, warm golden light.",
+        "seed": 1011,
         "composition_ref": null,
         "width": 1920,
         "height": 1088,
         "approved_key": "df41b40168e21a47",
-        "vertical_center": 0.57
+        "vertical_center": 0.57,
+        "extra_refs": [
+          "outputs/keyframes/s10/e5c97520d6314edc.png"
+        ]
       },
       "motion": {
         "mode": "auto",
@@ -930,6 +933,11 @@
           "claim": "forward-looking responsibility",
           "status": "family-confirmed",
           "source": "producer brief (central message)"
+        },
+        {
+          "claim": "s11 must match s10's wardrobe and hair (radio-cut test 1, friend)",
+          "status": "interpretation",
+          "source": "DESIGN.md user test 1"
         }
       ]
     }

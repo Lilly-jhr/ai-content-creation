@@ -209,6 +209,14 @@
           "description": "Repo-relative image whose composition/look to keep (e.g. an earlier approved frame)",
           "title": "Composition Ref"
         },
+        "extra_refs": {
+          "description": "Repo-relative images that must stay consistent (e.g. the previous shot of the same character)",
+          "items": {
+            "type": "string"
+          },
+          "title": "Extra Refs",
+          "type": "array"
+        },
         "vertical_center": {
           "default": 0.5,
           "description": "Where (fraction of width) the 9:16 crop is centred in the 16:9 master",

@@ -83,6 +83,12 @@ def inputs_for(
         if not comp.exists():
             raise FileNotFoundError(f"{shot.id}: composition_ref {kf.composition_ref} not found")
         refs = [comp, *refs][:4]
+    if kf.extra_refs:
+        extra = [config.ROOT / r for r in kf.extra_refs]
+        missing = [str(r) for r in extra if not r.exists()]
+        if missing:
+            raise FileNotFoundError(f"{shot.id}: extra_refs not found: {missing}")
+        refs = [*extra, *refs][:4]
     return (
         {
             "prompt": build_prompt(sb, shot),

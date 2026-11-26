@@ -87,6 +87,10 @@ class Keyframe(Strict):
         None,
         description="Repo-relative image whose composition/look to keep (e.g. an earlier approved frame)",
     )
+    extra_refs: list[str] = Field(
+        default_factory=list,
+        description="Repo-relative images that must stay consistent (e.g. the previous shot of the same character)",
+    )
     vertical_center: float = Field(
         0.5,
         ge=0.0,
