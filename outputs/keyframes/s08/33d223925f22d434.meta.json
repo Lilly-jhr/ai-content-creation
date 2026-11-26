@@ -1,0 +1,21 @@
+{
+  "key": "33d223925f22d434",
+  "stage": "keyframes",
+  "item": "s08",
+  "provider": "cloudflare",
+  "model": "@cf/black-forest-labs/flux-2-klein-4b",
+  "inputs": {
+    "prompt": "A single cinematic film frame of one moment, not a reference sheet, not a split panel. Medium close-up of the same woman at about 23 years old in a graduation gown, holding a rolled certificate tied with ribbon, a proud quiet smile, outdoors in soft daylight. An Ethiopian woman from Harar with Habesha features, dark brown skin, an oval face, high cheekbones and bright determined dark eyes, her hair covered by a simple deep-green headscarf, a thin bracelet of woven green and gold thread on her right wrist. Lighting: bright soft daylight. Composition: wide 16:9 frame with the subject centred, so a 9:16 centre crop keeps the subject. Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
+    "seed": 1008,
+    "width": 1920,
+    "height": 1088,
+    "ref_hashes": [
+      "6816cac8771df81b",
+      "7e6a1e9529a41c3e"
+    ]
+  },
+  "run_id": "20261126T000156-85f5b8",
+  "latency_s": 12.864,
+  "licence": "FLUX.2 klein 4B: Apache-2.0 weights; Cloudflare Workers AI terms",
+  "provider_response": null
+}

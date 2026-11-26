@@ -1,0 +1,42 @@
+{
+  "ratio": "16x9",
+  "total_s": 85.453,
+  "segments": {
+    "s01": "kenburns",
+    "s02": "kenburns",
+    "s03": "kenburns",
+    "s04": "kenburns",
+    "s05": "kenburns",
+    "s06": "kenburns",
+    "s07": "kenburns",
+    "s08": "kenburns",
+    "s09": "kenburns",
+    "s10": "kenburns",
+    "s11": "kenburns"
+  },
+  "summary": {
+    "kenburns": 11
+  },
+  "music": "placeholder",
+  "picture": "picture_54a0d7050e985567.mp4",
+  "mix": "mix_e0cf1f7cd9b16340.wav",
+  "edit": {
+    "crf": 18,
+    "preset": "medium",
+    "head_trim_s": 0.25,
+    "cut_s": 0.041666666666666664,
+    "vo_lufs": -16.0,
+    "music_lufs": -24.0,
+    "duck": {
+      "threshold": 0.02,
+      "ratio": 6,
+      "attack": 300,
+      "release": 1500
+    },
+    "music_fade_in_s": 2.0,
+    "music_fade_out_s": 3.5,
+    "tp_limit_lin": 0.83,
+    "kb_oversample": 2,
+    "vertical_from_wide_clip": true
+  }
+}

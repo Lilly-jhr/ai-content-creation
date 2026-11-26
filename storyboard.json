@@ -290,13 +290,17 @@
       "camera_move": "very slow push-in",
       "subject_move": "light slowly warms the stones",
       "lighting": "first light of dawn, soft gold on pale stone, cool shadows",
-      "composition": "the alley's vanishing point centred; safe for 9:16 and 16:9 crops",
+      "composition": "wide 16:9 frame with the subject centred, so a 9:16 centre crop keeps the subject",
       "transition_out": "dissolve",
       "min_duration_s": 6.0,
       "keyframe": {
         "prompt": "Extreme wide view at dawn of an old white limewashed city gate with a sawtooth parapet and a single round archway, an empty dusty square in front, first golden light on the white walls.",
         "seed": 1001,
-        "approved_key": "5fe255507a11d989"
+        "approved_key": "2de73b1336f73848",
+        "composition_ref": "outputs/keyframes/s01/5fe255507a11d989.png",
+        "width": 1920,
+        "height": 1088,
+        "vertical_center": 0.45
       },
       "motion": {
         "mode": "auto",
@@ -306,7 +310,10 @@
           "zoom_start": 1.0,
           "zoom_end": 1.12,
           "pan": "none"
-        }
+        },
+        "targets": [
+          "16x9"
+        ]
       },
       "narration": {
         "text": "እያንዳንዱ ቤተሰብ መጀመሪያ አለው። የእኛ የሚጀምረው ከድሮው የሐረር ግንብ ነው።",
@@ -341,13 +348,16 @@
       "camera_move": "slow follow",
       "subject_move": "the couple walk slowly away from camera",
       "lighting": "morning sun, long soft shadows",
-      "composition": "couple centred, wall filling the background",
+      "composition": "wide 16:9 frame with the subject centred, so a 9:16 centre crop keeps the subject",
       "transition_out": "dissolve",
       "min_duration_s": 6.5,
       "keyframe": {
         "prompt": "Wide shot from behind of a young couple carrying cloth bundles, walking across a dusty square toward an old white city gate with a round archway, in morning light.",
         "seed": 1002,
-        "approved_key": "129dacd8c9a71980"
+        "approved_key": "d29fd0d2c995c4eb",
+        "composition_ref": "outputs/keyframes/s02/129dacd8c9a71980.png",
+        "width": 1920,
+        "height": 1088
       },
       "motion": {
         "mode": "auto",
@@ -357,7 +367,10 @@
           "zoom_start": 1.0,
           "zoom_end": 1.1,
           "pan": "none"
-        }
+        },
+        "targets": [
+          "16x9"
+        ]
       },
       "narration": {
         "text": "ቅድመ አያቶቼ ወደዚህ የመጡት እንደ እንግዳ ነበር፤ ከሙያቸው በቀር ብዙ የያዙት ነገር አልነበረም።",
@@ -396,14 +409,18 @@
       "camera_move": "static",
       "subject_move": "hands slowly feed cloth under the needle",
       "lighting": "warm daylight under an overhanging roof",
-      "composition": "hands and needle centred",
+      "composition": "wide 16:9 frame with the subject centred, so a 9:16 centre crop keeps the subject",
       "transition_out": "dissolve",
       "min_duration_s": 6.0,
       "keyframe": {
         "prompt": "Close-up of a tailor's hands guiding plain cotton cloth through an old black sewing machine on a worn wooden table outdoors, a thin green-and-gold thread bracelet on the wrist, a spool of thread beside it.",
         "seed": 1004,
         "use_refs": false,
-        "approved_key": "530dc853335cb295"
+        "approved_key": "29b35809f1cff2be",
+        "composition_ref": "outputs/keyframes/s03/530dc853335cb295.png",
+        "width": 1920,
+        "height": 1088,
+        "vertical_center": 0.66
       },
       "motion": {
         "mode": "auto",
@@ -413,7 +430,10 @@
           "zoom_start": 1.05,
           "zoom_end": 1.15,
           "pan": "none"
-        }
+        },
+        "targets": [
+          "16x9"
+        ]
       },
       "narration": {
         "text": "ልብስ ሰፊዎች ነበሩ። ስፌት በስፌት፣ በእጆቻቸው ኑሮን ገነቡ።",
@@ -452,13 +472,16 @@
       "camera_move": "slow push-in",
       "subject_move": "she straightens a stack of folded cloth",
       "lighting": "warm afternoon light, dust in the air",
-      "composition": "grandmother centred behind her stall",
+      "composition": "wide 16:9 frame with the subject centred, so a 9:16 centre crop keeps the subject",
       "transition_out": "dissolve",
       "min_duration_s": 6.5,
       "keyframe": {
         "prompt": "Medium shot of a woman in her late forties standing behind a small street-side stall of folded cloth, woven baskets and small heaps of spices on a low wooden table under a simple shade, neatly arranging her goods.",
         "seed": 1004,
-        "approved_key": "b9f17a23075c38a2"
+        "approved_key": "7ca3756b49beacae",
+        "composition_ref": "outputs/keyframes/s04/b9f17a23075c38a2.png",
+        "width": 1920,
+        "height": 1088
       },
       "motion": {
         "mode": "kenburns",
@@ -468,7 +491,10 @@
           "zoom_start": 1.0,
           "zoom_end": 1.1,
           "pan": "right"
-        }
+        },
+        "targets": [
+          "16x9"
+        ]
       },
       "narration": {
         "text": "አያቴ መንገድ ዳር ትንሽ መደብር ነበራት። ስፌቱ ንግድ ሆነ፤ ንግዱም ኑሮ ሆነ።",
@@ -507,24 +533,31 @@
       "camera_move": "static",
       "subject_move": "hands drop coins into the tin and close the lid",
       "lighting": "low warm evening light",
-      "composition": "tin centred",
+      "composition": "wide 16:9 frame with the subject centred, so a 9:16 centre crop keeps the subject",
       "transition_out": "dissolve",
       "min_duration_s": 5.5,
       "keyframe": {
         "prompt": "Close-up of a woman's hands with a green-and-gold thread bracelet placing coins into a small worn tin box on a wooden table in warm evening light.",
         "seed": 1005,
         "use_refs": false,
-        "approved_key": "3338732b97d5c250"
+        "approved_key": "ab367dca42cdc217",
+        "composition_ref": "outputs/keyframes/s05/3338732b97d5c250.png",
+        "width": 1920,
+        "height": 1088,
+        "vertical_center": 0.78
       },
       "motion": {
         "mode": "kenburns",
         "prompt": "",
         "seed": 5,
         "kenburns": {
-          "zoom_start": 1.1,
-          "zoom_end": 1.2,
-          "pan": "none"
-        }
+          "zoom_start": 1.0,
+          "zoom_end": 1.08,
+          "pan": "up"
+        },
+        "targets": [
+          "16x9"
+        ]
       },
       "narration": {
         "text": "ያገኘችውን ሁሉ ቆጠበች፤ ከእሷ በኋላ ለሚመጡት ብላ።",
@@ -558,13 +591,16 @@
       "camera_move": "slow push-in",
       "subject_move": "she looks up from the book toward a customer",
       "lighting": "bright midday light under a shade cloth",
-      "composition": "girl centred, stall around her",
+      "composition": "wide 16:9 frame with the subject centred, so a 9:16 centre crop keeps the subject",
       "transition_out": "dissolve",
       "min_duration_s": 6.5,
       "keyframe": {
         "prompt": "Medium shot of a 17-year-old girl in a deep-green headscarf sitting at a market stall with an open schoolbook on her lap and a pencil in her hand, goods and woven baskets around her.",
         "seed": 1006,
-        "approved_key": "7ec7170693279396"
+        "approved_key": "0405de3909a1239a",
+        "composition_ref": "outputs/keyframes/s06/7ec7170693279396.png",
+        "width": 1920,
+        "height": 1088
       },
       "motion": {
         "mode": "kenburns",
@@ -574,7 +610,10 @@
           "zoom_start": 1.0,
           "zoom_end": 1.12,
           "pan": "none"
-        }
+        },
+        "targets": [
+          "16x9"
+        ]
       },
       "narration": {
         "text": "እናቴ ቀን ቀን ገበያ ውስጥ ትሰራ ነበር፤ የትምህርት ደብተሮቿንም ይዛ ትሄድ ነበር።",
@@ -613,13 +652,16 @@
       "camera_move": "static",
       "subject_move": "she rubs her eyes, then keeps reading",
       "lighting": "single warm lamp in darkness, deep shadows",
-      "composition": "face and book centred in the lamplight",
+      "composition": "wide 16:9 frame with the subject centred, so a 9:16 centre crop keeps the subject",
       "transition_out": "dissolve",
       "min_duration_s": 6.0,
       "keyframe": {
         "prompt": "Close-up of the same 17-year-old girl studying alone at night in a simple room, lit only by a small kerosene lamp, tired eyes, notebook open, deep shadows.",
         "seed": 1008,
-        "approved_key": "f1b9c6a2dd9e696d"
+        "approved_key": "784cea13e7307a88",
+        "composition_ref": "outputs/keyframes/s07/f1b9c6a2dd9e696d.png",
+        "width": 1920,
+        "height": 1088
       },
       "motion": {
         "mode": "auto",
@@ -629,7 +671,10 @@
           "zoom_start": 1.08,
           "zoom_end": 1.18,
           "pan": "none"
-        }
+        },
+        "targets": [
+          "16x9"
+        ]
       },
       "narration": {
         "text": "ማታ ማታ ቢደክማትም እንኳ፣ ታጠና ነበር።",
@@ -663,13 +708,16 @@
       "camera_move": "slow push-in",
       "subject_move": "she lifts her eyes from the certificate and smiles",
       "lighting": "bright soft daylight",
-      "composition": "face and certificate centred",
+      "composition": "wide 16:9 frame with the subject centred, so a 9:16 centre crop keeps the subject",
       "transition_out": "dissolve",
       "min_duration_s": 6.0,
       "keyframe": {
         "prompt": "Medium close-up of the same woman at about 23 years old in a graduation gown, holding a rolled certificate tied with ribbon, a proud quiet smile, outdoors in soft daylight.",
-        "seed": 1009,
-        "approved_key": "c430926019b775f5"
+        "seed": 1008,
+        "approved_key": "33d223925f22d434",
+        "composition_ref": "outputs/keyframes/s08/0aebcc3deed35cf3.png",
+        "width": 1920,
+        "height": 1088
       },
       "motion": {
         "mode": "kenburns",
@@ -679,7 +727,10 @@
           "zoom_start": 1.0,
           "zoom_end": 1.1,
           "pan": "up"
-        }
+        },
+        "targets": [
+          "16x9"
+        ]
       },
       "narration": {
         "text": "አንድ ቀንም ተመረቀች።",
@@ -718,13 +769,16 @@
       "camera_move": "very slow push-in",
       "subject_move": "she glances at the child's notebook and keeps working",
       "lighting": "cool desk lamp in an otherwise dark office, night through the window",
-      "composition": "mother centred at the desk",
+      "composition": "wide 16:9 frame with the subject centred, so a 9:16 centre crop keeps the subject",
       "transition_out": "dissolve",
       "min_duration_s": 7.0,
       "keyframe": {
         "prompt": "Medium shot of the same woman at about 35 years old working late at an office desk with stacks of papers and folders, a desk lamp, night outside the window, a child's school notebook resting beside her work.",
         "seed": 1009,
-        "approved_key": "621f554d7ae43620"
+        "approved_key": "59dd9f5cfabae0da",
+        "composition_ref": "outputs/keyframes/s09/621f554d7ae43620.png",
+        "width": 1920,
+        "height": 1088
       },
       "motion": {
         "mode": "auto",
@@ -734,7 +788,10 @@
           "zoom_start": 1.0,
           "zoom_end": 1.1,
           "pan": "none"
-        }
+        },
+        "targets": [
+          "16x9"
+        ]
       },
       "narration": {
         "text": "ከዚያም ቢሮ ውስጥ ረጅም ሰዓታት ሠራች፤ እኔ እንድማርም ያላትን ሁሉ ሰጠች።",
@@ -773,13 +830,16 @@
       "camera_move": "slow push-in",
       "subject_move": "she types, then pauses and looks at the bracelet",
       "lighting": "soft screen glow mixed with warm evening light from the window",
-      "composition": "face and hands centred",
+      "composition": "wide 16:9 frame with the subject centred, so a 9:16 centre crop keeps the subject",
       "transition_out": "dissolve",
       "min_duration_s": 7.0,
       "keyframe": {
         "prompt": "Medium close-up of a young woman in her early twenties typing at a modern, well-equipped desk with two large monitors and a laptop, plants beside her, a big window behind her showing city lights at dusk, soft screen glow on her face, a green-and-gold thread bracelet on her wrist, focused and hopeful.",
         "seed": 1010,
-        "approved_key": "2a5b97074e5f5b37"
+        "approved_key": "e5c97520d6314edc",
+        "composition_ref": "outputs/keyframes/s10/2a5b97074e5f5b37.png",
+        "width": 1920,
+        "height": 1088
       },
       "motion": {
         "mode": "kenburns",
@@ -789,7 +849,10 @@
           "zoom_start": 1.0,
           "zoom_end": 1.12,
           "pan": "none"
-        }
+        },
+        "targets": [
+          "16x9"
+        ]
       },
       "narration": {
         "text": "እኔ በሶፍትዌር ኢንጂነሪንግ በማዕረግ ተመረቅሁ፤ ለማስተርሴ የነፃ ትምህርት ዕድል አገኘሁ፤ ዛሬ ደግሞ እነሱ ፈጽሞ ያላዩትን ምቾት ያገኘሁ የኤአይ ኢንጂነር ነኝ።",
@@ -823,12 +886,17 @@
       "camera_move": "slow rise",
       "subject_move": "she stands still, wind in her scarf",
       "lighting": "sunrise, warm gold rim light",
-      "composition": "figure centred against the city",
+      "composition": "wide 16:9 frame with the subject centred, so a 9:16 centre crop keeps the subject",
       "transition_out": "fade",
       "min_duration_s": 7.5,
       "keyframe": {
         "prompt": "Wide shot of a young woman seen from behind, her back to the camera, standing on a high balcony and looking out over a modern city at sunrise, buildings spreading across green hills below, warm golden light.",
-        "seed": 1011
+        "seed": 1012,
+        "composition_ref": null,
+        "width": 1920,
+        "height": 1088,
+        "approved_key": "df41b40168e21a47",
+        "vertical_center": 0.57
       },
       "motion": {
         "mode": "auto",
@@ -838,7 +906,10 @@
           "zoom_start": 1.12,
           "zoom_end": 1.0,
           "pan": "up"
-        }
+        },
+        "targets": [
+          "16x9"
+        ]
       },
       "narration": {
         "text": "ያለኝ ነገር ሁሉ የእኔ ብቻ አይደለም። ከእኔ በፊት የነበሩት ሁሉ የድካም ውጤት ነው። አሁን ደግሞ ሁላችንንም ጥቂት ወደፊት የማራመድ ተራው የእኔ ነው።",

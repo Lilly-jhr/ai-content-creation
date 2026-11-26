@@ -1,0 +1,20 @@
+{
+  "key": "df41b40168e21a47",
+  "stage": "keyframes",
+  "item": "s11",
+  "provider": "cloudflare",
+  "model": "@cf/black-forest-labs/flux-2-klein-4b",
+  "inputs": {
+    "prompt": "A single cinematic film frame of one moment, not a reference sheet, not a split panel. Wide shot of a young woman seen from behind, her back to the camera, standing on a high balcony and looking out over a modern city at sunrise, buildings spreading across green hills below, warm golden light. A young Ethiopian woman in her early twenties with Habesha features, dark brown skin, an oval face and an attentive, hopeful expression, natural curly black hair tied back, wearing a plain dark blouse, a thin bracelet of woven green and gold thread on her right wrist. Modern Addis Ababa today: mid-rise and glass buildings spreading across green hills, the Entoto hills on the horizon. Lighting: sunrise, warm gold rim light. Composition: wide 16:9 frame with the subject centred, so a 9:16 centre crop keeps the subject. Painterly hand-painted illustration, soft gouache and oil textures with visible brush strokes, gentle film grain, warm earthy palette of ochre, sienna, deep green and muted indigo, soft natural light, dignified, humane and intimate, cinematic composition with the subject centred, no text, no letters, no signage, no watermark.",
+    "seed": 1012,
+    "width": 1920,
+    "height": 1088,
+    "ref_hashes": [
+      "21caacfc37f6b116"
+    ]
+  },
+  "run_id": "20261126T000357-a06dcd",
+  "latency_s": 8.237,
+  "licence": "FLUX.2 klein 4B: Apache-2.0 weights; Cloudflare Workers AI terms",
+  "provider_response": null
+}

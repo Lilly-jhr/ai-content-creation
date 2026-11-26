@@ -43,8 +43,8 @@ model = "Wan-AI/Wan2.2-TI2V-5B-Diffusers"
 # Draft resolution for T4 (multiples of 32). Native is 704x1280; Experiment 8 measures the trade-off.
 width_9x16 = 544
 height_9x16 = 960
-width_16x9 = 960
-height_16x9 = 544
+width_16x9 = 1280                    # native TI2V-5B 720p: the 16:9 master is also cropped to 9:16
+height_16x9 = 704
 fps = 24
 usd_per_gpu_hour_list = 0.35         # NVIDIA T4 on-demand list price equivalent (cloud GPU)
 licence = "Wan 2.2: Apache-2.0"

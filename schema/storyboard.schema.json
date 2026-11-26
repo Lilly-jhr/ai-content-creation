@@ -196,6 +196,27 @@
           "title": "Use Refs",
           "type": "boolean"
         },
+        "composition_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Repo-relative image whose composition/look to keep (e.g. an earlier approved frame)",
+          "title": "Composition Ref"
+        },
+        "vertical_center": {
+          "default": 0.5,
+          "description": "Where (fraction of width) the 9:16 crop is centred in the 16:9 master",
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Vertical Center",
+          "type": "number"
+        },
         "approved_key": {
           "anyOf": [
             {

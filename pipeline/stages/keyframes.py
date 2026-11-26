@@ -11,7 +11,7 @@ from typing import Any
 
 from PIL import Image
 
-from pipeline.core import cache
+from pipeline.core import cache, config
 from pipeline.core.calls import CTX, call_model, compute_key
 from pipeline.core.config import provider_cfg
 from pipeline.core.hashing import hash_file
@@ -78,6 +78,11 @@ def inputs_for(
 ) -> tuple[dict[str, Any], list[Path]]:
     refs = ref_paths(sb, shot)
     kf = shot.keyframe
+    if kf.composition_ref:
+        comp = config.ROOT / kf.composition_ref
+        if not comp.exists():
+            raise FileNotFoundError(f"{shot.id}: composition_ref {kf.composition_ref} not found")
+        refs = [comp, *refs][:4]
     return (
         {
             "prompt": build_prompt(sb, shot),

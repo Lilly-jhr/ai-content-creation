@@ -1,0 +1,28 @@
+{
+  "key": "0f5855c015ec3d6c",
+  "stage": "clips",
+  "item": "s07",
+  "provider": "kaggle",
+  "model": "Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+  "inputs": {
+    "prompt": "The lamp flame flickers gently. She blinks slowly and turns a page. The camera is fixed.",
+    "seed": 7,
+    "keyframe": "76561cba9f3c9a4f",
+    "ratio": "9x16",
+    "width": 544,
+    "height": 960,
+    "frames": 81,
+    "steps": 30,
+    "fps": 24
+  },
+  "run_id": "20261126T000509-54ad00",
+  "licence": "Wan 2.2: Apache-2.0",
+  "external": {
+    "latency_s": 1036.6,
+    "gpu_s": 1036.6,
+    "gpu": "Tesla T4 x2",
+    "dtype": "transformer fp8-storage/fp16-compute / fp32 vae on cuda:1 / fp32 text-encoder (cpu)",
+    "peak_vram_gb": 7.33,
+    "est_cost_usd": 0.1008
+  }
+}

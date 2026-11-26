@@ -359,7 +359,15 @@ def costs() -> None:
     """Summarise runs.jsonl into per-stage latency / GPU time / list-price cost (for COSTS.md)."""
     from pipeline.tools import costs_report
 
-    typer.echo(costs_report.markdown())
+    table = costs_report.markdown()
+    target = config.ROOT / "COSTS.md"
+    text = target.read_text() if target.exists() else ""
+    start, end = "<!-- costs:start -->", "<!-- costs:end -->"
+    if start in text and end in text:
+        before, rest = text.split(start, 1)
+        target.write_text(before + start + "\n" + table + "\n" + end + rest.split(end, 1)[1])
+        typer.echo("updated COSTS.md table from runs.jsonl")
+    typer.echo(table)
 
 
 @app.command()

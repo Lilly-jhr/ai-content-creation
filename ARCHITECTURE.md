@@ -10,6 +10,7 @@ models. A test fails if the two drift. Every stage validates the storyboard befo
         │
         ├─► script      Gemini: draft translation of text_en → narration.text (native-speaker reviewed)
         ├─► narration   TTS per shot (Addis AI | Gemini) ─► outputs/narration/<shot>/<key>.wav
+        │                 └─► deterministic post-process: atempo + warmth EQ ─► <key>.t0.90_warm.wav (E1b)
         │                 └─► timeline.json  (shot length = max(min_duration, lead + measured voice + tail))
         ├─► subtitles   timeline + text_en ─► outputs/subs/{9x16,16x9}.ass, en.srt
         ├─► refs        character/location sheets (FLUX.2 klein 4B) ─► approve
@@ -82,11 +83,21 @@ Wan 2.2 on a free T4 takes minutes per clip and queues unpredictably. `video-sub
 plus motion prompts into a Kaggle dataset and pushes `kaggle/wan_i2v/run.py`. `video-fetch` registers whatever
 finished. `make film` never waits on a GPU: it uses the clips that exist.
 
-T4-specific design (`kaggle/wan_i2v/run.py`):
+T4-specific design (`kaggle/wan_i2v/run.py`). These are the lessons of FAILURES F1 and F15:
 - The official Wan repo hard-requires FlashAttention 2, which the T4 can't run, so we use Diffusers + PyTorch SDPA.
 - The T4 has no bf16, so the transformer runs in fp16.
 - The UMT5-XXL text encoder is unstable in fp16, so every prompt is encoded once in fp32 on the CPU and the encoder is freed before the transformer loads (Kaggle has about 29 GB RAM).
-- We render at draft resolution (544×960) and upscale in assembly.
+- The transformer is stored in **fp8** and computed in fp16 (`enable_layerwise_casting`). The first fp16-only attempt ran out of memory at 15.0 GB on a 14.6 GB T4.
+  With fp8 storage the peak is 7.3 GB.
+- The VAE decodes on the **second T4** (Kaggle provides 2), with tiling.
+- Clips render at **1280×704 (16:9)**, TI2V-5B's native 720p. Assembly upscales them for 16:9 and crops them for 9:16.
+
+## Framing: one 16:9 master, two deliveries (producer decision)
+Keyframes are generated at **1920×1088**, the maximum klein output, and Wan clips at 1280×704. The 9:16 film is *cut from* that
+master. Each shot has a `keyframe.vertical_center` (0–1) saying where along the width the vertical crop sits, so off-centre subjects
+(the grandmother in s05, the tailor in s03) stay in frame. The crop is an **edit** parameter: it is not part of the keyframe cache
+key, so re-framing never regenerates an image. When the 16:9 master replaced the earlier square frames, each shot passed its
+approved square frame as a **composition reference** (`keyframe.composition_ref`), so the approved look survived the format change.
 
 ## Assembly (deterministic, no AI)
 `pipeline/stages/assemble.py`:

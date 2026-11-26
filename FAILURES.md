@@ -76,3 +76,16 @@ Newest last. Evidence is in runs.jsonl (`status: "error"` lines) where a model c
 - **What:** the first 18 reference candidates had South Asian / Middle Eastern faces. "Warm brown skin" wasn't specific enough, so the model fell back on its default. The Harar wall came out as a **crenellated European castle wall with glass windows**, the "generic old town" error the research brief warned about.
 - **Fix:** each character description now says "Ethiopian … from Harar, with Habesha features, dark brown skin". The wall description uses the research facts (rubble stone with limewash, flat-roofed two-storey houses, few street-facing windows, wooden doors) and says "no towers, no battlements, no arches".
 - **Result:** the second batch reads as Ethiopian, and the Jugol looks plausible (see `outputs/review/refs_sheet.png`: left three columns are the old prompts, right three the new). Written up as EXPERIMENTS E3a.
+
+### F15. Wan 2.2 on a Kaggle T4: CUDA out of memory at the first denoising step (2026-11-26 ~02:45 EAT)
+- **What:** the first GPU job (s07, 544×960, 81 frames, 30 steps) got through setup, the ~20 GB weight download, fp32 CPU text encoding (149 s) and model load.
+  It then failed in the transformer's FFN: `CUDA out of memory. Tried to allocate 294 MiB … 14.56 GiB total … 13.71 GiB allocated by PyTorch`.
+  Peak 15.01 GB. The kernel's `results.json` recorded the error, and `video-fetch` registered 0 clips (it logs a failed result rather than crashing).
+- **Why:** a 5B-parameter transformer in fp16 is about 10 GB of weights before any activations, on a 14.6 GB card. Kaggle gave **two** T4s and we used one.
+- **Fix (attempt 2):**
+  1. `enable_layerwise_casting(storage=float8_e4m3fn, compute=float16)`: weights are stored in fp8 (~5 GB) and each layer is upcast just for its compute.
+  2. The VAE moves to the **second T4**, and the latents are decoded there with tiling.
+  3. `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True`.
+- **Fallback if it fails again:** fewer frames (49) and 480×832, then Ken Burns for every shot. The film never depends on this stage (ARCHITECTURE.md).
+- **Result (attempt 2, 03:05 EAT):** **success.** s07, 544×960, 81 frames, 30 steps: 1036.6 s of GPU time. Peak **7.33 GB** on GPU 0 (fp8-stored transformer) and 5.46 GB on GPU 1 (VAE decode).
+  The text encoder took 152 s on the CPU. The clip was checked frame by frame: identity is stable across all 81 frames, with no NaN or black frames from fp16.

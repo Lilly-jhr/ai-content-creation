@@ -83,6 +83,16 @@ class Keyframe(Strict):
     width: int = 1024
     height: int = 1024
     use_refs: bool = Field(True, description="Condition on approved character/location references")
+    composition_ref: str | None = Field(
+        None,
+        description="Repo-relative image whose composition/look to keep (e.g. an earlier approved frame)",
+    )
+    vertical_center: float = Field(
+        0.5,
+        ge=0.0,
+        le=1.0,
+        description="Where (fraction of width) the 9:16 crop is centred in the 16:9 master",
+    )
     approved_key: str | None = None
 
 

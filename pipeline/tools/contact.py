@@ -9,7 +9,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from pipeline.core import config
 
-THUMB = 300
+THUMB = 300  # thumbnail height; width follows the image aspect ratio
 
 
 def sheet(stage: str, items: list[str] | None = None, latest: int | None = None) -> Path:
@@ -29,16 +29,19 @@ def sheet(stage: str, items: list[str] | None = None, latest: int | None = None)
         if cands:
             rows.append((d.name, cands))
     cols = max(len(c) for _, c in rows)
+    aspect = max(Image.open(c[0]).width / Image.open(c[0]).height for _, cs in rows for c in cs)
+    tw = int(THUMB * aspect)
     label_w = 230
     font = ImageFont.truetype(str(config.FONTS / "NotoSans[wdth,wght].ttf"), 20)
-    out = Image.new("RGB", (label_w + cols * (THUMB + 10), len(rows) * (THUMB + 40)), (24, 22, 20))
+    out = Image.new("RGB", (label_w + cols * (tw + 10), len(rows) * (THUMB + 40)), (24, 22, 20))
     draw = ImageDraw.Draw(out)
     for r, (name, cands) in enumerate(rows):
         y = r * (THUMB + 40)
         draw.text((10, y + THUMB // 2), name, font=font, fill=(235, 225, 210))
         for c, (img, meta) in enumerate(cands):
-            x = label_w + c * (THUMB + 10)
-            out.paste(Image.open(img).convert("RGB").resize((THUMB, THUMB)), (x, y))
+            x = label_w + c * (tw + 10)
+            im = Image.open(img).convert("RGB")
+            out.paste(im.resize((int(THUMB * im.width / im.height), THUMB)), (x, y))
             draw.text(
                 (x + 4, y + THUMB + 6),
                 f"seed {meta['inputs']['seed']}  {meta['key'][:6]}",

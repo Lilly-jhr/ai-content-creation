@@ -45,6 +45,13 @@ Each `shots[].purpose` in `storyboard.json` states why the shot exists. Here is 
 
 ---
 
+## User test 0: narrator voice (blind audition, 2026-11-25)
+- **What:** the same opening line in 4 female Amharic voices (A–D, names hidden; `outputs/audition/blind/`).
+- **Who:** the producer, her sisters and her friends (the film's primary audience).
+- **Result:** voice **B** (`am-sara`, tagged "motherly, warm, inspiring") was chosen. Their note: *"a little fast, and it needs more warmth."*
+- **What changed:** every line now uses `am-sara`. The provider's speed setting turned out to be ignored (EXPERIMENTS E1b), so the
+  voice is slowed (×0.9) and warmed deterministically in our own pipeline (`meta.vo_tempo`, `meta.vo_warmth`).
+
 ## User test 1: radio cut (narration + temp music on black, with subtitles)
 *Status: pending. The radio cut is sent to ≥3 people from the audience; replies are recorded verbatim here.*
 

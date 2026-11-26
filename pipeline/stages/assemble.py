@@ -39,6 +39,7 @@ EDIT: dict[str, Any] = {
     "music_fade_out_s": 3.5,
     "tp_limit_lin": 0.83,  # about -1.6 dBFS before AAC encoding (F13)
     "kb_oversample": 2,
+    "vertical_from_wide_clip": True,  # producer decision: master in 16:9, cut 9:16 from it
 }
 
 
@@ -116,7 +117,12 @@ def _kenburns_filter(shot: Shot, ratio: str, frames: int) -> str:
     zs, ze = kb.zoom_start, kb.zoom_end
     if kb.pan != "none" and max(zs, ze) < 1.06:
         zs = ze = 1.1  # panning needs slack inside the frame
-    crop = "crop=1024:576" if ratio == "16x9" else "crop=576:1024"
+    r = w / h  # largest crop of the target aspect, whatever the source aspect (16:9 master)
+    c = shot.keyframe.vertical_center if ratio == "9x16" else 0.5
+    crop = (
+        f"crop='min(iw,ih*{r:.6f})':'min(ih,iw/{r:.6f})':"
+        f"'max(0,min(iw-ow,{c}*iw-ow/2))':'(ih-oh)/2'"
+    )
     ow, oh = w * EDIT["kb_oversample"], h * EDIT["kb_oversample"]
     n = max(frames - 1, 1)
     z = f"{zs}+({ze}-{zs})*on/{n}"
@@ -124,7 +130,7 @@ def _kenburns_filter(shot: Shot, ratio: str, frames: int) -> str:
     x = {"left": f"{sx}*(1-on/{n})", "right": f"{sx}*on/{n}"}.get(kb.pan, f"{sx}/2")
     y = {"up": f"{sy}*(1-on/{n})", "down": f"{sy}*on/{n}"}.get(kb.pan, f"{sy}/2")
     return (
-        f"scale=1024:1024:force_original_aspect_ratio=increase,crop=1024:1024,{crop},"
+        f"{crop},"
         f"scale={ow}:{oh}:flags=lanczos,"
         f"zoompan=z='{z}':x='{x}':y='{y}':d={frames}:s={w}x{h}:fps=24,"
         "setsar=1,format=yuv420p"
@@ -138,6 +144,8 @@ def segment_source(
 
     if shot.motion.mode in ("auto", "wan"):
         clip = video_stage.cached_clip(sb, shot, ratio)
+        if not clip and ratio == "9x16" and EDIT["vertical_from_wide_clip"]:
+            clip = video_stage.cached_clip(sb, shot, "16x9")  # 16:9 master, centre-cropped
         if clip:
             return "wan", clip
     kf = kf_stage.current_path(sb, shot, require_approved=not allow_draft)
@@ -158,6 +166,7 @@ def render_segment(
         "len": round(length, 3),
         "ratio": ratio,
         "kb": shot.motion.kenburns.model_dump(),
+        "vcenter": shot.keyframe.vertical_center if ratio == "9x16" else 0.5,
         "edit": EDIT,
         "visual": shot.visual if kind == "placeholder" else None,
     }
@@ -171,7 +180,8 @@ def render_segment(
         slow = min(1.35, length / avail) if length > avail else 1.0
         vf = (
             f"trim=start={EDIT['head_trim_s']},setpts=PTS-STARTPTS,setpts={slow:.4f}*PTS,"
-            f"scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,crop={w}:{h},"
+            f"scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,"
+            f"crop={w}:{h}:'max(0,min(iw-ow,{shot.keyframe.vertical_center if ratio == '9x16' else 0.5}*iw-ow/2))':'(ih-oh)/2',"
             f"fps=24,tpad=stop_mode=clone:stop_duration={length:.3f},trim=duration={length:.3f},"
             "setsar=1,format=yuv420p"
         )

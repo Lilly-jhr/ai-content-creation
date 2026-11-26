@@ -93,15 +93,41 @@ estimated or invented. Planned entries are marked *planned* until they are run.
   which the director accepted. s11 lost "from behind" and is being regenerated with stronger wording.
 - **Conclusion:** reference images are copied *as compositions*, not only as identities. Crop references to exactly what should transfer.
 
+## E4. Can Wan 2.2 TI2V-5B run on a free Kaggle T4? fp16 weights vs fp8-stored weights
+- **Hypothesis:** the 5B transformer in fp16 (~10 GB) plus activations will not fit on a 14.6 GB T4. Storing the weights in fp8 and computing
+  in fp16 (Diffusers `enable_layerwise_casting`) will fit, without visible quality loss.
+- **Variable:** transformer weight storage dtype. **Controls:** the same shot (s07), keyframe, prompt, seed 7, 544×960, 81 frames,
+  30 steps, guidance 5.0, the same Kaggle "T4 x2" machine, and the text encoder fp32 on CPU in both runs.
+- **Result (runs.jsonl stage `clips`; kernel results.json):**
+
+| Run | Storage | VAE on | Outcome | GPU time | Peak VRAM GPU0 / GPU1 |
+|---|---|---|---|---|---|
+| 1 | fp16 | GPU 0 | `CUDA out of memory` at the first denoising step | 6.3 s (after setup) | 15.01 GB / n/a |
+| 2 | fp8 storage, fp16 compute | GPU 1 | **ok**, 81 frames | 1036.6 s | 7.33 GB / 5.46 GB |
+
+- **Quality check:** frames 0/40/80 were inspected. Identity is stable, the headscarf and lighting stay consistent, and there are no NaN or black frames.
+- **Conclusion:** fp8 *storage* halves the weight memory, and the free T4 becomes usable. Splitting the VAE onto the second GPU
+  uses hardware we were already given. It costs about 17 GPU-min per 3.4 s clip at this size.
+- **Change:** both settings are now in `kaggle/wan_i2v/run.py`. With 7 GB of headroom, the batch was moved to the native 1280×704.
+
+## E5. Does an approved frame survive a format change if it's passed as a composition reference?
+- **Context:** the producer moved the master format from 1024² to 16:9 (1920×1088) *after* approving the square keyframes. Regenerating
+  from text alone would throw those approvals away.
+- **Variable:** a `keyframe.composition_ref` pointing at the approved square frame, passed as the first klein input image.
+  **Controls:** the same seed, prompt, character refs and model.
+- **Result:** 10/10 regenerated 16:9 frames kept the approved composition, palette, wardrobe and pose: the gate, the couple
+  walking, the tailor at the machine, the stall, the lamp, the graduation, the office and the desk (`outputs/review/keyframes_sheet.png`). The format
+  change cost one image per shot (3.9k neurons) and no re-approval round. s11 was regenerated fresh (its square version was rejected).
+- **Conclusion:** a reference image carries *composition* as strongly as identity. E3b showed the harmful side of the same effect.
+
 ## Planned
 | # | Question | Variable | Evidence |
 |---|---|---|---|
 | E3 | Do approved reference sheets keep characters consistent? | refs on vs off (`keyframe.use_refs`) | image-embedding cosine similarity vs the approved ref, plus eyeballing |
-| E4 | klein-4B vs schnell | model, same prompt and seed | latency, neurons, look |
 | E5 | Short vs detailed image prompt | prompt length | prompt adherence notes |
 | E6 | Fixed vs varied seed | seed | variation across 4 candidates |
 | E7 | Motion-only vs full re-description in the I2V prompt | motion prompt | artefacts in Wan clips |
-| E8 | Wan draft resolution and steps on T4 | 544×960 @ 30 steps vs 704×1280 | GPU seconds, peak VRAM, artefacts |
+| E8 | Wan resolution on T4 | 544×960 (E4 run 2) vs 1280×704 (overnight batch) | GPU seconds per clip, peak VRAM |
 | E9 | Wan clip vs Ken Burns for the same shot | segment kind | viewer preference |
 | E10 | ACE-Step candidates | seed (4) under the same caption | listening under the narration at phone volume |
 | E11 | Ducking settings | sidechain threshold/ratio | narration intelligibility at low volume |
