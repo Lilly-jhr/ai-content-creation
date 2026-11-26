@@ -132,7 +132,7 @@ The clean clone with no keys passed: `make film` exit 0 in 5:55; both MP4s 85.45
 - **The chosen score wasn't committed**, so a stranger's film had the temp drone. → The chosen candidate WAV is now committed (the other three are kept local; their sidecars are committed).
 - `video-fetch` error lines lacked `params`/`latency_s` (runs.jsonl line 148). → Fixed in code for future lines. **The existing line is left as is: runs.jsonl is append-only.**
 - An error string embedded an **expired pre-signed download URL** (line 185) and a local home path (line 187). These are not credentials, but they look like them. → `calls.sanitize()` now strips
-  URL query strings and the home path from every logged error. The old lines are left unedited, for the same append-only reason. (The agent tried to rewrite them, and the
+  URL query strings and the home path from every logged error. The old lines are left unedited, for the same append-only reason. (I, the orchestrating agent, first tried to rewrite them, and the
   permission system blocked it: correctly.)
 - The segment summary in `outputs/final/*.json` iterated a `set`, so its key order changed between runs. → Sorted.
 - Minor: README listed the radio cut as a `make film` output; `make film` printed the timeline twice; a real run didn't show cache reuse. → All fixed.
