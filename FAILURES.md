@@ -137,3 +137,13 @@ The clean clone with no keys passed: `make film` exit 0 in 5:55; both MP4s 85.45
 - The segment summary in `outputs/final/*.json` iterated a `set`, so its key order changed between runs. → Sorted.
 - Minor: README listed the radio cut as a `make film` output; `make film` printed the timeline twice; a real run didn't show cache reuse. → All fixed.
   `make film` now prints `model assets: N reused from cache, M generated`.
+
+### F21. Cloudflare daily image quota exhausted on the deadline day (2026-11-26 ~11:05 EAT)
+- **What:** regenerating s11 for consistency (user test 1) → `HTTP 429 … you have used up your daily free allocation`, 3/3 attempts. A few minutes earlier, a short
+  network dropout (`[Errno 101] Network is unreachable` to Cloudflare and Addis) had failed the same calls. Both are logged.
+- **Why:** since the 03:00 EAT reset, the 1920×1088 16:9 master frames used more neurons than my per-tile estimate in `providers.toml` assumed. The estimate
+  (12 output tiles × 26.05) is evidently low for this size, so COSTS.md's neuron figures for 16:9 frames are lower bounds.
+- **Constraint:** the quota resets at 03:00 EAT, after the 23:59 deadline.
+- **Fix (director's decision):** s11 no longer needs a new image. A new `keyframe.source_shot` option lets a shot start from another shot's approved frame.
+  s11 now starts from s10's frame, and Wan animates her turning from the screen to the window and the city. The character is identical by construction, which answers the
+  tester's consistency note directly. Reverting is one field (`source_shot: null`).

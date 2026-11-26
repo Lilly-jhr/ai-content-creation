@@ -87,6 +87,10 @@ class Keyframe(Strict):
         None,
         description="Repo-relative image whose composition/look to keep (e.g. an earlier approved frame)",
     )
+    source_shot: str | None = Field(
+        None,
+        description="Reuse another shot's approved keyframe instead of generating one (continuity)",
+    )
     extra_refs: list[str] = Field(
         default_factory=list,
         description="Repo-relative images that must stay consistent (e.g. the previous shot of the same character)",
@@ -213,6 +217,10 @@ class Storyboard(Strict):
                 errors.append(f"{s.id}: unknown characters {missing}")
             if s.location and s.location not in loc_ids:
                 errors.append(f"{s.id}: unknown location {s.location!r}")
+        for s in self.shots:
+            src = s.keyframe.source_shot
+            if src and (src not in shot_ids or src == s.id):
+                errors.append(f"{s.id}: keyframe.source_shot {src!r} must be another shot id")
         cue_ids = {c.id for c in self.music.cues}
         for s in self.shots:
             if s.music_cue and s.music_cue not in cue_ids:

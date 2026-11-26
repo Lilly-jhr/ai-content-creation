@@ -60,7 +60,7 @@ Each `shots[].purpose` in `storyboard.json` states why the shot exists. Here is 
 |---|---|---|---|
 | 1 | siblings | s05 should say **"ከእነሱ በኋላ ለሚመጡት ብለው፤ ያገኙትን ቆጠቡ"**, putting "for the ones who would come after them" first | `shots[s05].narration.text` replaced with their wording, and `text_en` re-ordered to match ("For the ones who would come after them, they saved what they earned."). Only s05's narration regenerates (dry run: `GENERATE narration s05 changed: text`) |
 | 2 | a friend | "there are some mispronunciations" | *open: asked which words/lines; the fix is phonetic respelling of those words in `narration.text`* |
-| 3 | a friend | the s11 image (on the balcony) isn't consistent with the s10 character | s11 keyframe re-prompted with s10's wardrobe and hair, and the approved s10 frame passed as an extra reference (`keyframe.extra_refs`, new pipeline feature) |
+| 3 | a friend | the s11 image (on the balcony) isn't consistent with the s10 character | First attempt: s11 re-prompted with s10's wardrobe and hair, with the s10 frame as an extra reference (`keyframe.extra_refs`). Blocked by the image quota (FAILURES F21). **Final:** s11 now *continues from s10's own frame* (`keyframe.source_shot: s10`). Wan animates her turning from the laptop to the window and the city, so she is the same person by construction |
 | 4 | a sibling | "the content has an emotional hook and a sentimental meaning" | no change: confirms the intent stated above. The story structure is kept |
 
 **Insight:** the family heard the words more than the pictures. Two of the four notes were about *language*: word order in s05, and pronunciation.

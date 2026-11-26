@@ -1,0 +1,55 @@
+{
+  "key": "64d14f5a3916df0c",
+  "stage": "narration",
+  "item": "s05",
+  "provider": "addis",
+  "model": "addis-voices",
+  "inputs": {
+    "text": "ከእነሱ በኋላ ለሚመጡት ብለው፤ ያገኙትን ቆጠቡ።",
+    "language": "am",
+    "voice": "am-sara",
+    "speed": 1.0,
+    "style": null
+  },
+  "run_id": "20261126T080420-569f7d",
+  "latency_s": 10.08,
+  "licence": "Addis AI API terms: commercial use allowed, inputs not used for training (FAQ, 2026-11-25)",
+  "provider_response": {
+    "data": {
+      "id": "99758002-8683-433d-9cda-16402e6d39d0",
+      "text": "ከእነሱ በኋላ ለሚመጡት ብለው፤ ያገኙትን ቆጠቡ።",
+      "text_preview": "ከእነሱ በኋላ ለሚመጡት ብለው፤ ያገኙትን ቆጠቡ።",
+      "voice_id": "am-sara",
+      "voice_name": "Sara",
+      "voice_descriptor": "Motherly warm inspiring delivery",
+      "language": "am",
+      "output_format": "wav_44100",
+      "audio": null,
+      "audio_url": "https://cdn.addisassistant.com/audio/clips/99758002-8683-433d-9cda-16402e6d39d0.wav?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGlwX2lkIjoiOTk3NTgwMDItODY4My00MzNkLTljZGEtMTY0MDJlNmQzOWQwIiwidXNlcl9pZCI6Ijc3ZjJlNDU4LWRhMmItNDRmYy05ZjE0LWI2OWM2YzBhYTAzOSIsInBhdGhfaGFzaCI6ImUzMmRlOTZiZWFmMjlkZDljOWIzNjQ1NzIyOTUxZjNlNmZlZWQ5NjcxNzRmNWNjYmE4ZmVjNzU4M2YxMThhY2UiLCJtaW1lX3R5cGUiOiJhdWRpby93YXYiLCJleHAiOjE3OTU2ODM4NzEsInYiOjF9._gWpT2BWHee17iyDHnb9FCDfCR8lFrPpHnXaPFwYLIY",
+      "mime_type": "audio/wav",
+      "duration_seconds": 3.74,
+      "character_count": 30,
+      "billable_characters": 30,
+      "download_name": "addis-ai-sara-99758002-8683-433d-9cda-16402e6d39d0.wav",
+      "created_at": "2026-11-26T07:57:49.282255+00:00",
+      "usage": {
+        "pricing_unit": "minute",
+        "price_per_minute": 5,
+        "price_per_audio_minute": 5,
+        "credits_used": 0.3117,
+        "credits_remaining": 485.2843,
+        "currency": "ETB"
+      },
+      "playback": {
+        "url": "https://cdn.addisassistant.com/audio/clips/99758002-8683-433d-9cda-16402e6d39d0.wav?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGlwX2lkIjoiOTk3NTgwMDItODY4My00MzNkLTljZGEtMTY0MDJlNmQzOWQwIiwidXNlcl9pZCI6Ijc3ZjJlNDU4LWRhMmItNDRmYy05ZjE0LWI2OWM2YzBhYTAzOSIsInBhdGhfaGFzaCI6ImUzMmRlOTZiZWFmMjlkZDljOWIzNjQ1NzIyOTUxZjNlNmZlZWQ5NjcxNzRmNWNjYmE4ZmVjNzU4M2YxMThhY2UiLCJtaW1lX3R5cGUiOiJhdWRpby93YXYiLCJleHAiOjE3OTU2ODM4NzEsInYiOjF9._gWpT2BWHee17iyDHnb9FCDfCR8lFrPpHnXaPFwYLIY",
+        "expires_at": "2026-11-26T09:04:31.375Z",
+        "requires_auth": true,
+        "supports_range": true
+      },
+      "meta": {
+        "ignored_voice_settings": [],
+        "idempotent_replay": true
+      }
+    }
+  }
+}

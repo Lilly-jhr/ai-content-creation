@@ -209,6 +209,19 @@
           "description": "Repo-relative image whose composition/look to keep (e.g. an earlier approved frame)",
           "title": "Composition Ref"
         },
+        "source_shot": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Reuse another shot's approved keyframe instead of generating one (continuity)",
+          "title": "Source Shot"
+        },
         "extra_refs": {
           "description": "Repo-relative images that must stay consistent (e.g. the previous shot of the same character)",
           "items": {

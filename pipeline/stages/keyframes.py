@@ -103,6 +103,8 @@ def inputs_for(
 
 def current_path(sb: Storyboard, shot: Shot, require_approved: bool = True) -> Path | None:
     """The keyframe the downstream stages should use (approved, or any cached with --allow-draft)."""
+    if shot.keyframe.source_shot:  # continuity: this shot starts from another shot's approved frame
+        return current_path(sb, sb.shot(shot.keyframe.source_shot), require_approved)
     try:
         inputs, _ = inputs_for(sb, shot)
     except RefsNotApproved:
@@ -117,7 +119,7 @@ def current_path(sb: Storyboard, shot: Shot, require_approved: bool = True) -> P
 def run(sb: Storyboard, candidates: int = 1) -> None:
     prov = CloudflareImage()
     for shot in sb.shots:
-        if not CTX.wants(shot.id):
+        if not CTX.wants(shot.id) or shot.keyframe.source_shot:
             continue
         for i in range(candidates):
             inputs, refs = inputs_for(sb, shot, seed=shot.keyframe.seed + i)

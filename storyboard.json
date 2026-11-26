@@ -875,9 +875,9 @@
       "id": "s11",
       "seq": 11,
       "chapter": 5,
-      "purpose": "Close the story with the central message and hand it forward: from Harar's old walls (s01) to the modern city she now lives in.",
+      "purpose": "Close the story on the central message and hand it forward: the narrator looks up from her work toward the city and the future (continuity with s10 after test 1).",
       "emotional_beat": "possibility, responsibility",
-      "visual": "The narrator on a high balcony above Addis Ababa at sunrise, looking out over the city.",
+      "visual": "Continuing from s10: she stops typing and turns to look out of the window at the city in the morning light.",
       "characters": [
         "me"
       ],
@@ -897,14 +897,15 @@
         "width": 1920,
         "height": 1088,
         "approved_key": "df41b40168e21a47",
-        "vertical_center": 0.57,
+        "vertical_center": 0.42,
         "extra_refs": [
           "outputs/keyframes/s10/e5c97520d6314edc.png"
-        ]
+        ],
+        "source_shot": "s10"
       },
       "motion": {
         "mode": "auto",
-        "prompt": "Slow upward crane movement from behind her. She stands still with both hands resting on the balcony railing, looking out at the sunrise over the city. A light breeze moves her hair. The sun slowly brightens.",
+        "prompt": "She stops typing, slowly turns her head to look out of the window at the city in the warm morning light, and a soft smile appears. Slow push-in. Her hands stay on the desk.",
         "seed": 11,
         "kenburns": {
           "zoom_start": 1.12,
@@ -935,9 +936,9 @@
           "source": "producer brief (central message)"
         },
         {
-          "claim": "s11 must match s10's wardrobe and hair (radio-cut test 1, friend)",
+          "claim": "s11 continues from s10's frame so the character matches (radio-cut test 1, friend); Cloudflare daily image quota was exhausted",
           "status": "interpretation",
-          "source": "DESIGN.md user test 1"
+          "source": "DESIGN.md user test 1; FAILURES F21"
         }
       ]
     }
