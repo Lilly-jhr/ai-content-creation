@@ -1,0 +1,32 @@
+{
+  "key": "1987e6c53de75a76",
+  "stage": "music",
+  "item": "score",
+  "provider": "acestep",
+  "model": "ACE-Step-1.5 (acestep-v15-turbo + 0.6B LM)",
+  "inputs": {
+    "caption": "Slow, warm, nostalgic instrumental film score in an Ethiopian tizita mood, pentatonic melody on krar lyre and masinqo fiddle, soft washint flute, sparse hand drum, gentle cello and string pad underneath, intimate and unhurried at first, building gradually to a warm hopeful final section, cinematic, no vocals.",
+    "lyrics": "[Instrumental]",
+    "bpm": 72,
+    "keyscale": "A minor",
+    "timesignature": "4",
+    "duration_s": 95.0,
+    "seed": 33
+  },
+  "run_id": "20261126T062544-e882dd",
+  "latency_s": 97.868,
+  "licence": "ACE-Step 1.5: MIT; generated music usable commercially",
+  "provider_response": {
+    "gen_s": 33.62,
+    "load_s": 46.37,
+    "download_s": 0.0,
+    "gpu": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "peak_vram_gb": 6.29,
+    "lm_metadata": {
+      "bpm": 72,
+      "keyscale": "A minor",
+      "timesignature": "4",
+      "duration": 95
+    }
+  }
+}

@@ -164,6 +164,10 @@ class Music(Strict):
     timesignature: str | None = "4"
     duration_s: float = Field(95.0, ge=10, le=600)
     seeds: list[int] = Field(min_length=1)
+    align: Literal["start", "end"] = Field(
+        "end",
+        description="end: skip the track's head so its ending (and build) lands on the film's ending",
+    )
     chosen_seed: int | None = None
     why: str | None = Field(None, description="Why the chosen candidate won")
 

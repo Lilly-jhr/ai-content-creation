@@ -519,6 +519,16 @@
           "title": "Seeds",
           "type": "array"
         },
+        "align": {
+          "default": "end",
+          "description": "end: skip the track's head so its ending (and build) lands on the film's ending",
+          "enum": [
+            "start",
+            "end"
+          ],
+          "title": "Align",
+          "type": "string"
+        },
         "chosen_seed": {
           "anyOf": [
             {

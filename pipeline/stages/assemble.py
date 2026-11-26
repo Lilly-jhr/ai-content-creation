@@ -34,7 +34,12 @@ EDIT: dict[str, Any] = {
     "cut_s": 1 / 24,
     "vo_lufs": -16.0,
     "music_lufs": -24.0,
-    "duck": {"threshold": 0.02, "ratio": 6, "attack": 300, "release": 1500},
+    "duck": {
+        "threshold": 0.05,
+        "ratio": 3,
+        "attack": 300,
+        "release": 1500,
+    },  # E11: 0.02/6 buried the score (-15.5 dB)
     "music_fade_in_s": 2.0,
     "music_fade_out_s": 3.5,
     "tp_limit_lin": 0.83,  # about -1.6 dBFS before AAC encoding (F13)
@@ -420,14 +425,20 @@ def _loudnorm_two_pass(src: Path, dst: Path, lufs: float, tp: float) -> dict[str
 def render_mix(sb: Storyboard, timeline: dict[str, Any], music: Path | None) -> Path:
     total = timeline["total"]
     vo = [(config.ROOT / s["vo_path"], s["vo_start"]) for s in timeline["shots"] if s["vo_path"]]
+    head = 0.0
     if music is None:
         music = placeholder_music(total, TMP / f"temp_music_{total:.2f}.wav")
+    elif sb.music.align == "end":
+        head = max(
+            0.0, media.duration(music) - total
+        )  # the score's ending lands on the film's ending
     spec = [
         [(hash_file(p), st) for p, st in vo],
         hash_file(music),
         total,
         EDIT,
         sb.meta.loudness_lufs,
+        head,
     ]
     out = TMP / f"mix_{hash_obj(spec)}.wav"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -452,7 +463,8 @@ def render_mix(sb: Storyboard, timeline: dict[str, Any], music: Path | None) -> 
         f"{vo_mix}amix=inputs={m}:normalize=0,apad=whole_dur={total:.3f},"
         f"loudnorm=I={EDIT['vo_lufs']}:TP=-2[vo]",
         "[vo]asplit=2[vo_sc][vo_mix]",
-        f"[{m}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{total:.3f},"
+        f"[{m}:a]aresample=48000,aformat=channel_layouts=stereo,"
+        f"atrim={head:.3f}:{head + total:.3f},asetpts=PTS-STARTPTS,"
         f"loudnorm=I={EDIT['music_lufs']}:TP=-3,"
         f"afade=t=in:d={EDIT['music_fade_in_s']},"
         f"afade=t=out:st={total - EDIT['music_fade_out_s']:.3f}:d={EDIT['music_fade_out_s']}[mus]",
@@ -548,7 +560,7 @@ def film(
         pic, kinds = render_picture(sb, timeline, ratio, allow_draft)
         out = FINAL / f"a_little_further_{ratio}.mp4"
         _mux(pic, mix, out)
-        summary = {k: list(kinds.values()).count(k) for k in set(kinds.values())}
+        summary = {k: list(kinds.values()).count(k) for k in sorted(set(kinds.values()))}
         (out.with_suffix(".json")).write_text(
             json.dumps(
                 {

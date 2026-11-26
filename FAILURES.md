@@ -51,6 +51,8 @@ Newest last. Evidence is in runs.jsonl (`status: "error"` lines) where a model c
 - **Tried:** the built-in retry/backoff (it's retryable). That wasn't enough during a demand spike.
 - **Fix:** model fallback in the `script` stage: `gemini-3.8-flash` → `gemini-3.5-flash-lite` (a different cache key, also logged). Translation succeeded in 7.2 s. The audition now skips an unavailable voice instead of aborting.
 - **Cost of the fix:** Flash-Lite's Amharic had visible errors (see EXPERIMENTS E2), so the fallback is only acceptable with native review.
+- **Later the same night:** `gemini-3.6-flash` failed **6/6** with 503, and `gemini-3.8-flash` also hit two **180 s read timeouts**
+  (`HTTPSConnectionPool … Read timed out`). runs.jsonl stage `script`, and EXPERIMENTS E2/E12.
 
 ### F10. ACE-Step weight download stalled silently (2026-11-25 22:51 → 23:10 EAT)
 - **What:** the first `music` run auto-downloaded checkpoints from Hugging Face. After 92 MB it stopped growing (0 KiB in 20 s), with `.lock` files left open. No error, just a hang. The job was killed after 1112 s (logged as a `music` error).
@@ -117,3 +119,21 @@ Newest last. Evidence is in runs.jsonl (`status: "error"` lines) where a model c
   `check_main_model_exists` that the main model is present, so it doesn't re-download. No vendor code was modified.
 - **Also:** the turbo DiT (4.79 GB) finally arrived through a single-stream `curl -C -` loop (23 resumes over DNS failures) and was **verified by SHA-256**
   against the hash in Hugging Face's own temp-file name, after the parallel downloader had left a full-size but corrupt file (hash mismatch).
+
+### F19. ACE-Step out of GPU memory on the 8 GB laptop (2026-11-26 ~09:25 EAT)
+- **What:** once the downloads were solved, the first local music job died while moving the models to the GPU:
+  `torch.OutOfMemoryError … GPU 0 has a total capacity of 7.68 GiB of which 795 MiB is free`. The turbo DiT, Qwen3 embedder, 0.6B LM and VAE don't all fit at once.
+- **Fix:** ACE-Step's own CPU offload (`offload_to_cpu=True` for both the DiT and the LM), passed as an execution-only job option. It is not part of the cache key,
+  because it doesn't change the output. All 4 candidates then generated in **31.5–41.2 s each** (79–98 s including model load), peaking at **6.29 GB** VRAM.
+
+### F20. Findings from the clean-clone repro audit (2026-11-26 ~09:45 EAT, `repro-auditor` agent)
+The clean clone with no keys passed: `make film` exit 0 in 5:55; both MP4s 85.453 s at −14.0 LUFS / −1.5 dBTP; `audit` 127 assets, 0 problems; the s08 edit → exactly one
+`GENERATE narration s08 (changed: text)`. Defects it found, and what I did:
+- **The chosen score wasn't committed**, so a stranger's film had the temp drone. → The chosen candidate WAV is now committed (the other three are kept local; their sidecars are committed).
+- `video-fetch` error lines lacked `params`/`latency_s` (runs.jsonl line 148). → Fixed in code for future lines. **The existing line is left as is: runs.jsonl is append-only.**
+- An error string embedded an **expired pre-signed download URL** (line 185) and a local home path (line 187). These are not credentials, but they look like them. → `calls.sanitize()` now strips
+  URL query strings and the home path from every logged error. The old lines are left unedited, for the same append-only reason. (The agent tried to rewrite them, and the
+  permission system blocked it: correctly.)
+- The segment summary in `outputs/final/*.json` iterated a `set`, so its key order changed between runs. → Sorted.
+- Minor: README listed the radio cut as a `make film` output; `make film` printed the timeline twice; a real run didn't show cache reuse. → All fixed.
+  `make film` now prints `model assets: N reused from cache, M generated`.

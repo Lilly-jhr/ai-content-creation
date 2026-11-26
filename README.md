@@ -6,7 +6,7 @@ A 60–90 s film narrated in Amharic with English subtitles and an original scor
 | | |
 |---|---|
 | Film | `outputs/final/a_little_further_9x16.mp4` (vertical) · `outputs/final/a_little_further_16x9.mp4` (horizontal) |
-| First audience prototype | `outputs/final/radio_cut.mp4` (narration + temp music on black) |
+| First audience prototype | `make radio` → `outputs/final/radio_cut.mp4` (narration + temp music on black) |
 | How it was designed and tested | [DESIGN.md](DESIGN.md) |
 | How it works | [ARCHITECTURE.md](ARCHITECTURE.md) |
 | What I measured / what broke / what it cost | [EXPERIMENTS.md](EXPERIMENTS.md) · [FAILURES.md](FAILURES.md) · [COSTS.md](COSTS.md) |
@@ -17,8 +17,11 @@ A 60–90 s film narrated in Amharic with English subtitles and an original scor
 git clone <this repo> && cd <repo>
 make film          # = uv sync + python -m pipeline film
 ```
-**No API keys are needed to reproduce the film.** Every model output is committed under `outputs/` with a sidecar
-`.meta.json`, so every model stage is a cache hit and assembly is deterministic FFmpeg. You need **uv** and **FFmpeg ≥ 6**.
+**No API keys are needed to reproduce the film.** Every model output the film uses is committed under `outputs/` with a sidecar
+`.meta.json` (narration takes, reference sheets, keyframes, Wan clips and the chosen ACE-Step score), so every model stage is a cache hit and
+assembly is deterministic FFmpeg. You need **uv** and **FFmpeg ≥ 6**. The rendered MP4s are not committed; `make film` rebuilds them
+(about 6 minutes on a laptop CPU) and prints how many model assets were reused vs generated. Only the chosen score candidate is committed:
+regenerating the other three needs ACE-Step (`make music-setup`). If no chosen score is cached, the edit falls back to a synthetic temp drone and says so.
 
 With keys (`cp .env.example .env`), the same command regenerates **only** what changed in the storyboard:
 ```bash

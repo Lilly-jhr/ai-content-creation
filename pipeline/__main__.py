@@ -241,7 +241,7 @@ def radio() -> None:
     nar.run(sb)
     if CTX.dry_run:
         return _print_plan()
-    tl = nar.build_timeline(sb)
+    tl = nar.build_timeline(sb, verbose=False)
     subs.run(sb, tl)
     assemble.radio_cut(sb, tl)
 
@@ -287,7 +287,8 @@ def film() -> None:
             typer.secho(f"[film] {name}: skipped ({exc})", fg="yellow")
     if CTX.dry_run:
         return _print_plan()
-    tl = nar.build_timeline(sb)
+    typer.echo(f"[film] model assets: {CTX.reused} reused from cache, {CTX.generated} generated")
+    tl = nar.build_timeline(sb, verbose=False)
     subs.run(sb, tl)
     asm.film(sb, tl, mus.chosen_path(sb), ["9x16", "16x9"], CTX.allow_draft)
     if skipped:

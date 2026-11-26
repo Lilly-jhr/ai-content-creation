@@ -15,12 +15,12 @@
     "s11": "wan"
   },
   "summary": {
-    "wan": 6,
-    "kenburns": 5
+    "kenburns": 5,
+    "wan": 6
   },
-  "music": "placeholder",
-  "picture": "picture_f9bc76484e5fd246.mp4",
-  "mix": "mix_8ebd523170cc05d5.wav",
+  "music": "outputs/music/score/1987e6c53de75a76.wav",
+  "picture": "picture_78b8b723979d2095.mp4",
+  "mix": "mix_3a5a6a0c2748c450.wav",
   "edit": {
     "crf": 18,
     "preset": "medium",
@@ -29,8 +29,8 @@
     "vo_lufs": -16.0,
     "music_lufs": -24.0,
     "duck": {
-      "threshold": 0.02,
-      "ratio": 6,
+      "threshold": 0.05,
+      "ratio": 3,
       "attack": 300,
       "release": 1500
     },

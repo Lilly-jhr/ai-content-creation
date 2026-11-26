@@ -205,6 +205,8 @@ def fetch() -> int:
         if r.get("status") != "ok":
             runlog.log(
                 {
+                    "params": {k: v for k, v in inputs.items() if k != "prompt"},
+                    "latency_s": r.get("gpu_s"),
                     "stage": STAGE,
                     "shot_id": r["shot"],
                     "provider": PROVIDER,

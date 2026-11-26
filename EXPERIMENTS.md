@@ -167,10 +167,40 @@ estimated or invented. Planned entries are marked *planned* until they are run.
 - **Conclusion and change:** native 720p fits comfortably and was worth it, because the 9:16 film crops from this master (a 396 px wide crop instead of 306 px).
   7 clips × ~37 min ≈ 4.3 GPU-hours of the ~30 h weekly Kaggle quota.
 
+## E10. Choosing the score: 4 ACE-Step candidates, same caption, different seeds
+- **Hypothesis:** with a fixed caption (tizita mood, krar/masinqo/washint, "builds to a hopeful final section"), seeds will differ mostly in arc and density.
+  The best bed for narration is the one with the least energy in the speech band and a real build at the end.
+- **Controls:** the same caption, lyrics `[Instrumental]`, 72 bpm, A minor, 95 s, turbo DiT + 0.6B LM, local RTX 3070 with CPU offload. **Variable:** seed ∈ {11, 22, 33, 44}.
+- **Measured (ffmpeg ebur128 / volumedetect on each candidate):**
+
+| Seed | Integrated loudness (LUFS) | 1–4 kHz band vs full (dB) | Last quarter vs first two thirds (dB) | Generation time (s) |
+|---|---|---|---|---|
+| 11 | −15.7 | −12.5 | −3.7 | 31.5 |
+| 22 | −14.9 | −10.4 | −4.0 | 32.4 |
+| **33** | −16.0 | −12.5 | **+4.8** | 33.6 |
+| 44 | −16.5 | −8.8 | −2.8 | 41.2 |
+
+- **Decision (director, provisional):** seed **33**. It is the only one that actually builds toward the end, and it ties for the least speech-band energy.
+  The score is **end-aligned** (`music.align = "end"`): the first 9.5 s of the 95 s track are skipped, so the build lands on s10–s11 and the music ends with the film.
+- **Listening test:** blind kit in `outputs/review/music_blind/score_A–D.m4a` (full narration mix; key kept separately). *Pending: producer/testers by ear.*
+  If they pick another, it's `python -m pipeline choose-music <seed> --why …` plus `assemble`, with no model calls.
+
+## E11. Ducking depth: how far should the score drop under the voice?
+- **Procedure:** render the *ducked music stem alone* (same voice sidechain, chosen score, end-aligned), then measure mean level inside the narration windows vs in the gaps between lines.
+- **Measured:**
+
+| Setting (sidechaincompress) | Music under speech | Music in gaps | Reduction under speech vs no ducking |
+|---|---|---|---|
+| none | −26.0 dB | −26.9 dB | n/a |
+| gentle: threshold 0.05, ratio 3 | −33.2 dB | −27.7 dB | 7.2 dB |
+| brief's starting point: threshold 0.02, ratio 6 | −41.5 dB | −32.2 dB | 15.5 dB |
+
+- **Reading:** the voice is pre-levelled 8 LU above the music (−16 vs −24 LUFS). The brief's starting point puts the score about 23 dB under the voice and doesn't let it
+  recover in the pauses (gaps −32 dB vs −27 dB). For a tribute, the music should be felt.
+- **Decision:** the gentle setting. That's about 15–17 dB of voice-over-music separation during speech, and the score lifts back in the pauses. To be confirmed on a phone speaker in user test 2.
+
 ## Planned
 | # | Question | Variable | Evidence |
 |---|---|---|---|
 | E6 | Fixed vs varied seed | seed | variation across 4 candidates |
 | E9 | Wan clip vs Ken Burns for the same shot | segment kind | viewer preference |
-| E10 | ACE-Step candidates | seed (4) under the same caption | listening under the narration at phone volume |
-| E11 | Ducking settings | sidechain threshold/ratio | narration intelligibility at low volume |

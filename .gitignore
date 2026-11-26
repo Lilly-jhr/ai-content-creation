@@ -26,3 +26,6 @@ assignement.md
 # rendered films are build artefacts: `make film` rebuilds them from committed inputs
 outputs/final/*.mp4
 outputs/audition/
+outputs/music/score/5ebb2d354dbd229b.wav
+outputs/music/score/a43af68e1893b62d.wav
+outputs/music/score/cdfee35344244c3b.wav

@@ -967,8 +967,8 @@
       33,
       44
     ],
-    "chosen_seed": null,
-    "why": null
+    "chosen_seed": 33,
+    "why": "Director's pick, provisional until listening test (E10): only candidate whose loudness builds toward the end (+4.8 dB last quarter vs first two thirds), matching the caption's 'builds to a hopeful final section'; tied-lowest energy in the 1-4 kHz speech band (-12.5 dB vs full band), so it competes least with the narration. End-aligned so the build lands on s10-s11."
   },
   "end_card": {
     "lines": [

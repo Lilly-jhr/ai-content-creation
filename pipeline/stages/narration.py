@@ -114,7 +114,7 @@ def _synth(prov, shot_id: str, inputs: dict[str, Any]) -> None:
         CTX.max_attempts = attempts
 
 
-def build_timeline(sb: Storyboard) -> dict[str, Any]:
+def build_timeline(sb: Storyboard, verbose: bool = True) -> dict[str, Any]:
     m = sb.meta
     t = 0.0
     shots = []
@@ -147,5 +147,6 @@ def build_timeline(sb: Storyboard) -> dict[str, Any]:
         write_json(TIMELINE, timeline)
     status = "ESTIMATED" if estimated else "measured"
     flag = "" if 60 <= total <= 90 else "  <-- outside the 60-90 s target"
-    print(f"[timeline] total {total:.1f}s ({status}){flag}")
+    if verbose:
+        print(f"[timeline] total {total:.1f}s ({status}){flag}")
     return timeline

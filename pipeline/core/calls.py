@@ -8,6 +8,7 @@ prompt changes only that shot's key, and only that asset is regenerated.
 from __future__ import annotations
 
 import random
+import re
 import shutil
 import time
 from collections.abc import Callable
@@ -18,6 +19,13 @@ from typing import Any
 from pipeline.core import cache, runlog
 from pipeline.core.config import MissingCredentials
 from pipeline.core.hashing import hash_obj
+
+_URL_QUERY = re.compile(r"(https?://[^\s?'\"]+)\?[^\s'\"]*")
+
+
+def sanitize(text: str) -> str:
+    """Strip URL query strings (signed URLs look like tokens) and the local home path from log text."""
+    return _URL_QUERY.sub(r"\1?<redacted>", text).replace(str(Path.home()), "~")
 
 
 class ProviderError(RuntimeError):
@@ -36,6 +44,8 @@ class RunContext:
     max_attempts: int = 3
     base_backoff_s: float = 2.0
     plan: list[dict[str, Any]] = field(default_factory=list)
+    reused: int = 0
+    generated: int = 0
 
     def wants(self, shot_id: str) -> bool:
         return self.shots is None or shot_id in self.shots
@@ -70,6 +80,7 @@ def call_model(
     if cached and not CTX.force:
         if CTX.dry_run:
             CTX.plan.append({"stage": stage, "item": item, "action": "reuse", "key": key})
+        CTX.reused += 1
         return cached
 
     if CTX.dry_run:
@@ -100,6 +111,7 @@ def call_model(
             if not tmp.exists() or tmp.stat().st_size == 0:
                 raise ProviderError("provider returned no data", retryable=True)
             shutil.move(tmp, out)
+            CTX.generated += 1
             latency = round(time.perf_counter() - t0, 3)
             entry = base | {
                 "status": "ok",
@@ -136,7 +148,7 @@ def call_model(
                     "status": "error",
                     "attempt": attempt,
                     "latency_s": latency,
-                    "error": f"{type(exc).__name__}: {exc}"[:500],
+                    "error": sanitize(f"{type(exc).__name__}: {exc}")[:500],
                     "retryable": retryable,
                 }
             )
