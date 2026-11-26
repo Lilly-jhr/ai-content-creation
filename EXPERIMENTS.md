@@ -199,6 +199,22 @@ estimated or invented. Planned entries are marked *planned* until they are run.
   recover in the pauses (gaps −32 dB vs −27 dB). For a tribute, the music should be felt.
 - **Decision:** the gentle setting. That's about 15–17 dB of voice-over-music separation during speech, and the score lifts back in the pauses. To be confirmed on a phone speaker in user test 2.
 
+## E13 (ceiling: a tool for families). Can a relative's plain-text story become a runnable storyboard?
+- **Tool:** `python -m pipeline draft-storyboard story.txt --language am --title …` (`pipeline/tools/draft_storyboard.py`). Gemini gets the real JSON Schema
+  and drafting rules (no names, every family detail flagged `pending-family`, motion prompts without the word "camera" per E7, and an AI end card). The
+  output is validated by the pipeline's own Pydantic models, and errors are fed back for up to 2 repair rounds.
+- **Test input:** a generic, invented 3-paragraph story (`docs/examples/radio_repairer_story.txt`, the assignment's "father who repaired radios" example).
+  It is not the producer's family, so no private details went to the free tier.
+- **Measured (runs.jsonl stage `draft`):**
+  - **22 calls → 1 success.** 18 failures were 503 "high demand" and 3 were network errors, across 7 attempts about 5 min apart. The success came from the fallback **Flash-Lite** in 12.9 s.
+  - The draft was **valid on round 0**: 9 shots, 1 character, **9/9 fact flags `pending-family`**, Amharic narration plus English subtitles.
+- **What validation could *not* catch:** the draft's end card says **"In memory of our father"**. The story never says the father died.
+  The schema guarantees shape, not truth. Exactly as with the main film (the `fact_flags` protocol and the heritage-ethics reviewer agent), a human or reviewer pass
+  over every claim is required before anything is generated.
+- **Conclusion:** the "storyboard as contract" design makes a family tool cheap: one prompt plus the existing validator. Its weakest link is the free LLM's
+  availability (1 in 22 calls succeeded on the deadline day), and its riskiest is plausible invented facts. Next step: run the reviewer agent automatically and
+  make the end card a template rather than model text.
+
 ## Planned
 | # | Question | Variable | Evidence |
 |---|---|---|---|

@@ -1,0 +1,457 @@
+{
+  "schema_version": "1.0",
+  "meta": {
+    "title": "The Radio Repairer",
+    "language": "am",
+    "subtitle_language": "en",
+    "audience": "Family and documentary viewers",
+    "intent": "Understand the enduring legacy of a father's patience and craft",
+    "logline": "A father repairs radios in a small stall, funding his children's education and passing down a philosophy of careful persistence.",
+    "style_block": "Hand-painted cinematic realism, textured brushstrokes, warm amber and nostalgic sepia tones, soft diffused lighting, highly detailed narrative illustration style."
+  },
+  "characters": [
+    {
+      "id": "father",
+      "role": "radio repairer",
+      "chapter": 1,
+      "age_range": "30s",
+      "description": "A focused man with gentle eyes, wearing a worn canvas work shirt, holding a tiny screwdriver.",
+      "wardrobe": "Worn canvas work shirt",
+      "demeanour": "Calm and focused",
+      "ref": {
+        "prompt": "A close up portrait of a man in his 30s with gentle eyes, wearing a worn canvas work shirt, focused expression.",
+        "seed": 501
+      },
+      "fact_flags": [
+        {
+          "claim": "Father repaired radios and opened a small stall.",
+          "status": "pending-family"
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "repair_stall",
+      "era": "mid-century",
+      "description": "A cluttered small repair stall filled with vacuum tubes, wires, and old wooden radio cabinets.",
+      "ref": {
+        "prompt": "A small cluttered radio repair stall filled with old wooden radios, tools, and spare parts under warm pendant lighting.",
+        "seed": 601
+      },
+      "fact_flags": [
+        {
+          "claim": "He opened his own small repair stall.",
+          "status": "pending-family"
+        }
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "s01",
+      "seq": 1,
+      "chapter": 1,
+      "purpose": "Establish the setting of the market where the father learned his craft as a boy.",
+      "emotional_beat": "Curiosity and wonder",
+      "visual": "An old open-air market stall with vintage radio parts displayed on wooden tables under a canvas awning.",
+      "characters": [],
+      "location": "repair_stall",
+      "shot_size": "wide",
+      "angle": "eye-level",
+      "camera_move": "slow push-in",
+      "subject_move": "none",
+      "lighting": "warm morning sunlight filtering through dust",
+      "min_duration_s": 6.0,
+      "keyframe": {
+        "prompt": "An old open-air market stall with vintage radio parts on wooden tables under a canvas awning.",
+        "seed": 1001
+      },
+      "motion": {
+        "mode": "kenburns",
+        "prompt": "Slow push-in towards the center of the stall.",
+        "seed": 1001,
+        "targets": ["9x16"],
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.15,
+          "pan": "none"
+        }
+      },
+      "narration": {
+        "text": "አባቴ ትንሽ ልጅ እያለ ራዲዮ መጠገን ጀመረ።",
+        "text_en": "My father learned to repair radios when he was a boy."
+      },
+      "fact_flags": [
+        {
+          "claim": "Father learned to repair radios when he was a boy.",
+          "status": "pending-family"
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "seq": 2,
+      "chapter": 1,
+      "purpose": "Show the young boy watching an older man in the market.",
+      "emotional_beat": "Quiet fascination",
+      "visual": "A young boy peering intently over a wooden counter as hands carefully solder wires inside an open radio chassis.",
+      "characters": [],
+      "location": "repair_stall",
+      "shot_size": "medium-close",
+      "angle": "eye-level",
+      "camera_move": "gentle pan right",
+      "subject_move": "hands shifting a small soldering iron",
+      "lighting": "warm directional light on the workbench",
+      "min_duration_s": 6.0,
+      "keyframe": {
+        "prompt": "A young boy peering intently over a wooden counter as hands solder wires inside an open radio chassis.",
+        "seed": 1002
+      },
+      "motion": {
+        "mode": "kenburns",
+        "prompt": "Gentle pan right across the workbench tools.",
+        "seed": 1002,
+        "targets": ["9x16"],
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.1,
+          "pan": "right"
+        }
+      },
+      "narration": {
+        "text": "በገበያው ውስጥ አንድ አዛውንት ሲጠግኑ ይመለከት ነበር።",
+        "text_en": "He watched an older man in the market open them up."
+      },
+      "fact_flags": [
+        {
+          "claim": "He watched an older man in the market open them up.",
+          "status": "pending-family"
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "seq": 3,
+      "chapter": 1,
+      "purpose": "Highlight the collection of broken parts he gathered.",
+      "emotional_beat": "Resourcefulness",
+      "visual": "A collection of small metal gears, vacuum tubes, and loose copper wires neatly arranged on a wooden board.",
+      "characters": [],
+      "location": "repair_stall",
+      "shot_size": "close",
+      "angle": "high-angle",
+      "camera_move": "subtle pull-back",
+      "subject_move": "none",
+      "lighting": "soft side lighting",
+      "min_duration_s": 5.0,
+      "keyframe": {
+        "prompt": "A collection of small metal gears, vacuum tubes, and loose copper wires neatly arranged on a wooden board.",
+        "seed": 1003
+      },
+      "motion": {
+        "mode": "kenburns",
+        "prompt": "Subtle pull-back revealing the collection.",
+        "seed": 1003,
+        "targets": ["9x16"],
+        "kenburns": {
+          "zoom_start": 1.12,
+          "zoom_end": 1.0,
+          "pan": "none"
+        }
+      },
+      "narration": {
+        "text": "ያገኛቸውን የተሰበሩ እቃዎች ሁሉ ይሰበስብ ነበር።",
+        "text_en": "And he kept every broken part he could find."
+      },
+      "fact_flags": [
+        {
+          "claim": "He kept every broken part he could find.",
+          "status": "pending-family"
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "seq": 4,
+      "chapter": 2,
+      "purpose": "Introduce his own small repair stall in his youth.",
+      "emotional_beat": "Pride and independence",
+      "visual": "The father in his youth standing proudly inside his small, organized repair shop filled with tools.",
+      "characters": ["father"],
+      "location": "repair_stall",
+      "shot_size": "medium",
+      "angle": "eye-level",
+      "camera_move": "slow push-in",
+      "subject_move": "father gently wiping a wooden radio cabinet",
+      "lighting": "warm amber ambient light",
+      "min_duration_s": 6.0,
+      "keyframe": {
+        "prompt": "A young man in his 30s standing proudly inside his small repair shop filled with tools and wooden radios.",
+        "seed": 1004
+      },
+      "motion": {
+        "mode": "kenburns",
+        "prompt": "Slow push-in towards the father.",
+        "seed": 1004,
+        "targets": ["9x16"],
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.12,
+          "pan": "none"
+        }
+      },
+      "narration": {
+        "text": "ወጣት እያለ የራሱን ትናንሽ የጥገና ሱቅ ከፈተ።",
+        "text_en": "He opened his own small repair stall when he was young."
+      },
+      "fact_flags": [
+        {
+          "claim": "He opened his own small repair stall when he was young.",
+          "status": "pending-family"
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "seq": 5,
+      "chapter": 2,
+      "purpose": "Show neighbors bringing radios to his shop.",
+      "emotional_beat": "Community trust",
+      "visual": "An elderly neighbor handing a dusty, heavy wooden radio across the counter to the smiling repairer.",
+      "characters": ["father"],
+      "location": "repair_stall",
+      "shot_size": "medium-close",
+      "angle": "eye-level",
+      "camera_move": "gentle pan left",
+      "subject_move": "neighbor lifting the radio onto the counter",
+      "lighting": "soft afternoon glow",
+      "min_duration_s": 6.0,
+      "keyframe": {
+        "prompt": "An elderly neighbor handing a dusty wooden radio across the counter to a smiling repairer.",
+        "seed": 1005
+      },
+      "motion": {
+        "mode": "kenburns",
+        "prompt": "Gentle pan left following the handoff.",
+        "seed": 1005,
+        "targets": ["9x16"],
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.1,
+          "pan": "left"
+        }
+      },
+      "narration": {
+        "text": "ከሰፈሩ ያሉ ሰዎች ሁሉ ራዲዮአቸውን አመጡለት።",
+        "text_en": "People brought him radios from the whole neighbourhood."
+      },
+      "fact_flags": [
+        {
+          "claim": "People brought him radios from the whole neighbourhood.",
+          "status": "pending-family"
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "seq": 6,
+      "chapter": 2,
+      "purpose": "Depict his generosity to the elderly on Sunday evenings.",
+      "emotional_beat": "Warmth and generosity",
+      "visual": "The repairer tinkering with a radio on a quiet Sunday evening, glowing lamp casting warm light on his concentrated face.",
+      "characters": ["father"],
+      "location": "repair_stall",
+      "shot_size": "close",
+      "angle": "eye-level",
+      "camera_move": "subtle push-in",
+      "subject_move": "father turning a dial with tweezers",
+      "lighting": "warm single lamp illumination",
+      "min_duration_s": 6.0,
+      "keyframe": {
+        "prompt": "A repairer tinkering with a radio under a warm desk lamp on a quiet evening.",
+        "seed": 1006
+      },
+      "motion": {
+        "mode": "kenburns",
+        "prompt": "Subtle push-in on the hands working.",
+        "seed": 1006,
+        "targets": ["9x16"],
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.15,
+          "pan": "none"
+        }
+      },
+      "narration": {
+        "text": "እሁድ ማማ ላይ ለአዛውንቶች ያለ ክፍያ ይጠግንላቸው ነበር።",
+        "text_en": "And on Sunday evenings he fixed them for free for the old people."
+      },
+      "fact_flags": [
+        {
+          "claim": "On Sunday evenings he fixed them for free for the old people.",
+          "status": "pending-family"
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "seq": 7,
+      "chapter": 3,
+      "purpose": "Connect his hard work to paying for school for the children.",
+      "emotional_beat": "Gratitude and sacrifice",
+      "visual": "Two young brothers walking together with school books under their arms down a sunlit dirt path.",
+      "characters": [],
+      "location": null,
+      "shot_size": "wide",
+      "angle": "eye-level",
+      "camera_move": "slow pan right",
+      "subject_move": "brothers walking forward",
+      "lighting": "bright golden hour sunlight",
+      "min_duration_s": 6.0,
+      "keyframe": {
+        "prompt": "Two young brothers walking together with school books under their arms down a sunlit dirt path.",
+        "seed": 1007
+      },
+      "motion": {
+        "mode": "kenburns",
+        "prompt": "Slow pan right following the walking brothers.",
+        "seed": 1007,
+        "targets": ["9x16"],
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.1,
+          "pan": "right"
+        }
+      },
+      "narration": {
+        "text": "በዚያው ስራ ለኔና ለወንድሜ ትምህርት ቤት ክፍያ ከፈለ።",
+        "text_en": "He paid for my brother and me to go to school with that work."
+      },
+      "fact_flags": [
+        {
+          "claim": "He paid for my brother and me to go to school with that work.",
+          "status": "pending-family"
+        }
+      ]
+    },
+    {
+      "id": "s08",
+      "seq": 8,
+      "chapter": 4,
+      "purpose": "Transition to the present day and the narrator's profession.",
+      "emotional_beat": "Reflection and continuity",
+      "visual": "A modern computer screen glowing in a dim room with lines of software code reflecting on a focused person's glasses.",
+      "characters": [],
+      "location": null,
+      "shot_size": "close",
+      "angle": "eye-level",
+      "camera_move": "subtle pull-back",
+      "subject_move": "hands typing lightly on a keyboard",
+      "lighting": "cool screen glow contrasting with warm room ambient",
+      "min_duration_s": 6.0,
+      "keyframe": {
+        "prompt": "A modern computer screen glowing in a dim room with lines of software code reflecting on a focused worker.",
+        "seed": 1008
+      },
+      "motion": {
+        "mode": "kenburns",
+        "prompt": "Subtle pull-back from the glowing screen.",
+        "seed": 1008,
+        "targets": ["9x16"],
+        "kenburns": {
+          "zoom_start": 1.12,
+          "zoom_end": 1.0,
+          "pan": "none"
+        }
+      },
+      "narration": {
+        "text": "አሁን ሶፍትዌር እሰራለሁ።",
+        "text_en": "Now I build software."
+      },
+      "fact_flags": [
+        {
+          "claim": "Now I build software.",
+          "status": "pending-family"
+        }
+      ]
+    },
+    {
+      "id": "s09",
+      "seq": 9,
+      "chapter": 4,
+      "purpose": "Show the enduring memory of the father's voice when things break.",
+      "emotional_beat": "Deep emotional resonance",
+      "visual": "A close-up of a vintage vacuum tube glowing softly on a modern desk alongside a laptop, bridging past and present.",
+      "characters": [],
+      "location": null,
+      "shot_size": "extreme-close",
+      "angle": "eye-level",
+      "camera_move": "gentle push-in",
+      "subject_move": "filament inside the tube glowing slightly brighter",
+      "lighting": "warm orange filament glow",
+      "min_duration_s": 6.0,
+      "keyframe": {
+        "prompt": "A close-up of a vintage vacuum tube glowing softly on a modern desk alongside a laptop.",
+        "seed": 1009
+      },
+      "motion": {
+        "mode": "kenburns",
+        "prompt": "Gentle push-in on the glowing filament.",
+        "seed": 1009,
+        "targets": ["9x16"],
+        "kenburns": {
+          "zoom_start": 1.0,
+          "zoom_end": 1.2,
+          "pan": "none"
+        }
+      },
+      "narration": {
+        "text": "አንዳንዴ ነገር ሲበላሽ ድምጹን እሰማለሁ፤ ከፈተው፣ ታገስ፣ የተበላሸውን ትንሽ ክፍል ፈልግ።",
+        "text_en": "And when something breaks I still hear him say: open it up, be patient, find the small part that is wrong."
+      },
+      "fact_flags": [
+        {
+          "claim": "When something breaks I still hear him say: open it up, be patient, find the small part that is wrong.",
+          "status": "pending-family"
+        }
+      ]
+    }
+  ],
+  "music": {
+    "caption": "Melancholic and warm acoustic guitar melody with gentle accordion undertones",
+    "bpm": 76,
+    "keyscale": "D minor",
+    "duration_s": 95.0,
+    "seeds": [11, 22, 33, 44],
+    "align": "end",
+    "cues": [
+      {
+        "id": "cue_01",
+        "from_shot": "s01",
+        "to_shot": "s03",
+        "purpose": "Establish nostalgic acoustic mood"
+      },
+      {
+        "id": "cue_02",
+        "from_shot": "s04",
+        "to_shot": "s06",
+        "purpose": "Build warmth and community connection"
+      },
+      {
+        "id": "cue_03",
+        "from_shot": "s07",
+        "to_shot": "s09",
+        "purpose": "Resolve into a reflective, tender modern resonance"
+      }
+    ]
+  },
+  "end_card": {
+    "lines": [
+      "The Radio Repairer",
+      "In memory of our father",
+      "Made with AI"
+    ],
+    "duration_s": 4.0
+  }
+}

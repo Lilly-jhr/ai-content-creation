@@ -58,6 +58,8 @@ and grounding place descriptions in research and in my own reference photos.
 - **Other languages (E12):** I narrated the opening and closing lines in Afaan Oromo and Tigrinya (Addis AI) and tried Harari, the language of the city in the
   film. Every API call succeeded, but the "Harari" came back as mostly Amharic: no provider supports it. **A 200 OK is not language support.**
   Oromo and Tigrinya are feasible pending native review; Harari would need a native translator and voice.
+- **A tool for families (E13):** `draft-storyboard` turns a relative's plain-text story into a schema-valid storyboard. On a test story, the draft was valid first time,
+  but it **invented "In memory of our father"** on the end card. Schema validation guarantees shape, not truth, so a fact check stays mandatory.
 - **Measured consistency and framing tools:** per-shot vertical crop centres on a 16:9 master; composition references, which let an approved look survive a format change (E5).
 - **Observability:** `make costs` generates COSTS.md from runs.jsonl; `make audit` checks every asset has a sidecar and a log line.
 

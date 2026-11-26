@@ -347,6 +347,30 @@ def choose_music(
     typer.echo(f"music: chose seed {seed}")
 
 
+@app.command("draft-storyboard")
+def draft_storyboard(
+    story_file: Annotated[str, typer.Argument(help="Plain-text family story (Amharic or English)")],
+    out: Annotated[
+        str, typer.Option(help="Where to write the draft storyboard")
+    ] = "outputs/drafts/storyboard.json",
+    language: Annotated[str, typer.Option(help="Narration language code")] = "am",
+    title: Annotated[str, typer.Option(help="Film title")] = "Untitled family story",
+) -> None:
+    """Tool for families: turn a written story into a validated storyboard.json draft (claims flagged pending-family)."""
+    from pathlib import Path
+
+    from pipeline.tools import draft_storyboard as ds
+
+    data, history = ds.draft(Path(story_file).read_text(encoding="utf-8"), language, title)
+    for line in history:
+        typer.echo(f"[draft] {line}")
+    if data:
+        target = config.ROOT / out
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        typer.echo(f"wrote {target.relative_to(config.ROOT)}")
+
+
 @app.command()
 def smoke() -> None:
     """Call each provider once with a tiny input and log latency to runs.jsonl."""
