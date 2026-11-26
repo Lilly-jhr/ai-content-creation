@@ -420,7 +420,7 @@
         "composition_ref": "outputs/keyframes/s03/530dc853335cb295.png",
         "width": 1920,
         "height": 1088,
-        "vertical_center": 0.66
+        "vertical_center": 0.6
       },
       "motion": {
         "mode": "auto",
@@ -481,7 +481,8 @@
         "approved_key": "7ca3756b49beacae",
         "composition_ref": "outputs/keyframes/s04/b9f17a23075c38a2.png",
         "width": 1920,
-        "height": 1088
+        "height": 1088,
+        "vertical_center": 0.52
       },
       "motion": {
         "mode": "kenburns",
@@ -489,8 +490,8 @@
         "seed": 4,
         "kenburns": {
           "zoom_start": 1.0,
-          "zoom_end": 1.1,
-          "pan": "right"
+          "zoom_end": 1.08,
+          "pan": "none"
         },
         "targets": [
           "16x9"
@@ -544,7 +545,7 @@
         "composition_ref": "outputs/keyframes/s05/3338732b97d5c250.png",
         "width": 1920,
         "height": 1088,
-        "vertical_center": 0.78
+        "vertical_center": 0.58
       },
       "motion": {
         "mode": "kenburns",

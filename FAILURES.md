@@ -106,3 +106,14 @@ Newest last. Evidence is in runs.jsonl (`status: "error"` lines) where a model c
 - **Fix:** the motion prompt was rewritten without the word: "Slow upward crane movement from behind her. She stands still with both hands resting on the
   railing…". Re-rendered on Kaggle (2456 s GPU). The new clip shows no prop and keeps her still. The prompt edit changed the cache key, so
   until the new clip arrived the film automatically used Ken Burns for s11. EXPERIMENTS E7.
+
+### F18. ACE-Step kept trying to download models we don't use (2026-11-26 09:00–10:00 EAT)
+- **What (1):** `uv run --project vendor/ACE-Step-1.5 …` re-synced the vendor environment before every music job, and on this network a wheel
+  download timed out (`client error (Connect) … operation timed out`), so the job died before generating anything.
+- **Fix (1):** call the vendor venv's interpreter directly (`vendor/ACE-Step-1.5/.venv/bin/python`). The environment is already installed.
+- **What (2):** ACE-Step's `initialize_service()` checks for the "main model", which includes the **1.7B** LM. We deliberately use the **0.6B** LM for 8 GB of VRAM.
+  It then tried to fetch the 1.7B LM, first from Hugging Face and then from ModelScope (`Failed to resolve 'www.modelscope.cn'`).
+- **Fix (2):** our job script verifies the three components it actually loads (turbo DiT, VAE, Qwen3 embedder) and then tells ACE-Step's
+  `check_main_model_exists` that the main model is present, so it doesn't re-download. No vendor code was modified.
+- **Also:** the turbo DiT (4.79 GB) finally arrived through a single-stream `curl -C -` loop (23 resumes over DNS failures) and was **verified by SHA-256**
+  against the hash in Hugging Face's own temp-file name, after the parallel downloader had left a full-size but corrupt file (hash mismatch).

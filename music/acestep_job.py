@@ -25,7 +25,18 @@ os.chdir(vendor)
 
 t0 = time.perf_counter()
 ckpt = get_checkpoints_dir()
-ensure_main_model(ckpt)
+# ACE-Step's ensure_main_model() also demands the 1.7B LM, which we do not use (8 GB VRAM -> 0.6B LM);
+# on this network it would trigger another multi-GB download (FAILURES F10). Check only what we load.
+for part in ("acestep-v15-turbo", "vae", "Qwen3-Embedding-0.6B"):
+    if not any((ckpt / part).glob("*.safetensors")):
+        ensure_main_model(ckpt)
+        break
+# initialize_service() re-checks the "main model", which includes the 1.7B LM we never load, and
+# would start a multi-GB download through mirrors this network can't resolve (FAILURES F18).
+# We verified above that every component we actually load is present.
+import acestep.core.generation.handler.init_service_downloads as _isd  # noqa: E402
+
+_isd.check_main_model_exists = lambda *a, **k: True
 lm_name = job.get("lm_model", "acestep-5Hz-lm-0.6B")
 use_lm = job.get("use_lm", True)
 if use_lm:

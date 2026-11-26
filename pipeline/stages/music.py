@@ -56,19 +56,17 @@ def _run_acestep(inputs: dict[str, Any], tmp: Path) -> dict[str, Any]:
         )
     JOB_DIR.mkdir(parents=True, exist_ok=True)
     job = JOB_DIR / f"{inputs['seed']}.json"
-    job.write_text(json.dumps(inputs | {"vendor_dir": str(vendor)}))
+    # offload: 8 GB laptop GPU cannot hold DiT + LM + embedder + VAE at once (F19); execution-only, not in the key
+    job.write_text(json.dumps(inputs | {"vendor_dir": str(vendor), "offload": True}))
     wav = tmp.with_name(tmp.name + ".wav")
+    # Call the vendor venv's interpreter directly: `uv run --project` re-syncs the env first,
+    # which on this network meant another timed-out wheel download (FAILURES F18).
+    py = vendor / ".venv" / "bin" / "python"
+    cmd = (
+        [str(py)] if py.exists() else ["uv", "run", "--no-sync", "--project", str(vendor), "python"]
+    )
     proc = subprocess.run(
-        [
-            "uv",
-            "run",
-            "--project",
-            str(vendor),
-            "python",
-            str(config.ROOT / "music" / "acestep_job.py"),
-            str(job),
-            str(wav),
-        ],
+        [*cmd, str(config.ROOT / "music" / "acestep_job.py"), str(job), str(wav)],
         capture_output=True,
         text=True,
     )
