@@ -22,3 +22,7 @@ outputs/_tmp/
 
 # course brief (not ours to publish)
 assignement.md
+
+# rendered films are build artefacts: `make film` rebuilds them from committed inputs
+outputs/final/*.mp4
+outputs/audition/
