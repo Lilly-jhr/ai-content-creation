@@ -1,0 +1,119 @@
+[
+ {
+  "stage": "keyframes",
+  "calls": 60,
+  "ok": 54,
+  "error": 6,
+  "median_latency_s": 12.7,
+  "gpu_min": 0.0,
+  "models": [
+   "@cf/black-forest-labs/flux-2-klein-4b"
+  ]
+ },
+ {
+  "stage": "refs",
+  "calls": 48,
+  "ok": 48,
+  "error": 0,
+  "median_latency_s": 18.7,
+  "gpu_min": 0.0,
+  "models": [
+   "@cf/black-forest-labs/flux-2-klein-4b"
+  ]
+ },
+ {
+  "stage": "narration",
+  "calls": 31,
+  "ok": 18,
+  "error": 13,
+  "median_latency_s": 13.8,
+  "gpu_min": 0.0,
+  "models": [
+   "addis-voices"
+  ]
+ },
+ {
+  "stage": "script",
+  "calls": 28,
+  "ok": 6,
+  "error": 22,
+  "median_latency_s": 71.3,
+  "gpu_min": 0.0,
+  "models": [
+   "gemini-3.5-flash-lite",
+   "gemini-3.6-flash",
+   "gemini-3.8-flash"
+  ]
+ },
+ {
+  "stage": "draft",
+  "calls": 22,
+  "ok": 1,
+  "error": 21,
+  "median_latency_s": 12.9,
+  "gpu_min": 0.0,
+  "models": [
+   "gemini-3.8-flash"
+  ]
+ },
+ {
+  "stage": "clips",
+  "calls": 10,
+  "ok": 9,
+  "error": 1,
+  "median_latency_s": 2199.4,
+  "gpu_min": 316.6,
+  "models": [
+   "Wan-AI/Wan2.2-TI2V-5B-Diffusers"
+  ]
+ },
+ {
+  "stage": "audition",
+  "calls": 9,
+  "ok": 6,
+  "error": 3,
+  "median_latency_s": 74.6,
+  "gpu_min": 0.0,
+  "models": [
+   "addis-voices",
+   "gemini-3.8-flash-tts"
+  ]
+ },
+ {
+  "stage": "music",
+  "calls": 8,
+  "ok": 4,
+  "error": 4,
+  "median_latency_s": 91.9,
+  "gpu_min": 4.9,
+  "models": [
+   "ACE-Step-1.5 (acestep-v15-turbo + 0.6B LM)"
+  ]
+ },
+ {
+  "stage": "ceiling",
+  "calls": 6,
+  "ok": 6,
+  "error": 0,
+  "median_latency_s": 9.0,
+  "gpu_min": 0.0,
+  "models": [
+   "addis-voices",
+   "gemini-3.8-flash-tts"
+  ]
+ },
+ {
+  "stage": "smoke",
+  "calls": 5,
+  "ok": 4,
+  "error": 1,
+  "median_latency_s": 56.4,
+  "gpu_min": 0.0,
+  "models": [
+   "@cf/black-forest-labs/flux-2-klein-4b",
+   "addis-voices",
+   "gemini-3.5-flash-lite",
+   "gemini-3.8-flash-tts"
+  ]
+ }
+]

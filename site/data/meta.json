@@ -1,0 +1,22 @@
+{
+ "title": "A Little Further",
+ "logline": "Four generations in Harar, from immigrant tailors to an AI engineer, each giving up something so the next could go a little further.",
+ "intent": "At the end, viewers feel that one person's achievement is the accumulated sacrifice of many generations, and that the story is not finished: it is the narrator's turn to carry the family a little further.",
+ "total_s": 85.453,
+ "end_card": [
+  "A Little Further",
+  "Made with AI: characters and scenes are AI-generated, not real photographs.",
+  "Narration: Addis AI · Images: FLUX.2 klein · Motion: Wan 2.2 · Music: ACE-Step 1.5",
+  "For my mother, and everyone before her."
+ ],
+ "language": "am",
+ "calls": 227,
+ "ok": 156,
+ "gpu_min": 321.5,
+ "segments": {
+  "kenburns": 5,
+  "wan": 6
+ },
+ "music_seed": 33,
+ "music_why": "Director's pick, provisional until listening test (E10): only candidate whose loudness builds toward the end (+4.8 dB last quarter vs first two thirds), matching the caption's 'builds to a hopeful final section'; tied-lowest energy in the 1-4 kHz speech band (-12.5 dB vs full band), so it competes least with the narration. End-aligned so the build lands on s10-s11."
+}

@@ -1,0 +1,32 @@
+[
+ {
+  "id": "gen1_tailor_m",
+  "role": "great-grandfather, immigrant tailor",
+  "chapter": 1,
+  "image": "media/people/gen1_tailor_m.jpg"
+ },
+ {
+  "id": "gen1_greatgrandmother",
+  "role": "great-grandmother, immigrant tailor",
+  "chapter": 1,
+  "image": "media/people/gen1_greatgrandmother.jpg"
+ },
+ {
+  "id": "gen2_grandmother",
+  "role": "grandmother, street-side stall merchant in Harar",
+  "chapter": 2,
+  "image": "media/people/gen2_grandmother.jpg"
+ },
+ {
+  "id": "mother",
+  "role": "my mother (market worker and student, later graduate and office worker)",
+  "chapter": 3,
+  "image": "media/people/mother.jpg"
+ },
+ {
+  "id": "me",
+  "role": "the narrator (a young woman), AI engineer in Addis Ababa",
+  "chapter": 5,
+  "image": "media/people/me.jpg"
+ }
+]

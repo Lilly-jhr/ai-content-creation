@@ -1,0 +1,383 @@
+[
+ {
+  "id": "s01",
+  "seq": 1,
+  "chapter": 1,
+  "chapter_name": "Great-grandparents",
+  "start": 0.0,
+  "duration": 6.674,
+  "purpose": "Establish place and time: the film begins where the family's story begins, at Harar's old walls.",
+  "beat": "humility, a quiet beginning",
+  "size": "extreme-wide",
+  "camera": "very slow push-in",
+  "light": "first light of dawn, soft gold on pale stone, cool shadows",
+  "narration_am": "እያንዳንዱ ቤተሰብ መጀመሪያ አለው። የእኛ የሚጀምረው ከድሮው የሐረር ግንብ ነው።",
+  "narration_en": "Every family has a beginning. Ours begins at the old walls of Harar.",
+  "keyframe_prompt": "Extreme wide view at dawn of an old white limewashed city gate with a sawtooth parapet and a single round archway, an empty dusty square in front, first golden light on the white walls.",
+  "seed": 1001,
+  "keyframe_key": "2de73b1336f73848",
+  "source_shot": null,
+  "motion_prompt": "The camera pushes in very slowly toward the archway. Morning light gradually brightens on the white walls. A little dust drifts in the air.",
+  "segment": "wan",
+  "vertical_center": 0.45,
+  "image": "media/shots/s01.jpg",
+  "clip": "media/clips/s01.mp4",
+  "fact_flags": [
+   {
+    "claim": "the family's story begins in Harar",
+    "status": "family-confirmed",
+    "source": "producer brief"
+   }
+  ]
+ },
+ {
+  "id": "s02",
+  "seq": 2,
+  "chapter": 1,
+  "chapter_name": "Great-grandparents",
+  "start": 6.674,
+  "duration": 7.484,
+  "purpose": "Introduce generation one as newcomers: everything that follows starts with them arriving with little.",
+  "beat": "uncertainty and courage",
+  "size": "wide",
+  "camera": "slow follow",
+  "light": "morning sun, long soft shadows",
+  "narration_am": "ቅድመ አያቶቼ ወደዚህ የመጡት እንደ እንግዳ ነበር፤ ከሙያቸው በቀር ብዙ የያዙት ነገር አልነበረም።",
+  "narration_en": "My great-grandparents came here as strangers, carrying little more than a skill.",
+  "keyframe_prompt": "Wide shot from behind of a young couple carrying cloth bundles, walking across a dusty square toward an old white city gate with a round archway, in morning light.",
+  "seed": 1002,
+  "keyframe_key": "d29fd0d2c995c4eb",
+  "source_shot": null,
+  "motion_prompt": "The couple walk slowly forward, away from the camera. The camera follows gently at walking pace. Their clothes move softly in the breeze.",
+  "segment": "wan",
+  "vertical_center": 0.5,
+  "image": "media/shots/s02.jpg",
+  "clip": "media/clips/s02.mp4",
+  "fact_flags": [
+   {
+    "claim": "they were immigrants",
+    "status": "family-confirmed",
+    "source": "producer brief"
+   },
+   {
+    "claim": "where they came from and how they travelled",
+    "status": "interpretation",
+    "source": null
+   }
+  ]
+ },
+ {
+  "id": "s03",
+  "seq": 3,
+  "chapter": 1,
+  "chapter_name": "Great-grandparents",
+  "start": 14.157,
+  "duration": 6.0,
+  "purpose": "Show the first generation's contribution, a livelihood made by hand, and introduce the thread motif.",
+  "beat": "patient work",
+  "size": "close",
+  "camera": "static",
+  "light": "warm daylight under an overhanging roof",
+  "narration_am": "ልብስ ሰፊዎች ነበሩ። ስፌት በስፌት፣ በእጆቻቸው ኑሮን ገነቡ።",
+  "narration_en": "They were tailors. Stitch by stitch, they built a life with their hands.",
+  "keyframe_prompt": "Close-up of a tailor's hands guiding plain cotton cloth through an old black sewing machine on a worn wooden table outdoors, a thin green-and-gold thread bracelet on the wrist, a spool of thread beside it.",
+  "seed": 1004,
+  "keyframe_key": "29b35809f1cff2be",
+  "source_shot": null,
+  "motion_prompt": "The hands slowly guide the cloth forward under the needle. The needle moves up and down steadily. The camera is fixed.",
+  "segment": "wan",
+  "vertical_center": 0.6,
+  "image": "media/shots/s03.jpg",
+  "clip": "media/clips/s03.mp4",
+  "fact_flags": [
+   {
+    "claim": "they were tailors",
+    "status": "family-confirmed",
+    "source": "producer brief"
+   },
+   {
+    "claim": "working outdoors at a machine",
+    "status": "researched",
+    "source": "Pankhurst (TWL); Qantara; producer-supplied reference photos of Harar (used as written visual notes only; not committed, not sent to any model)"
+   }
+  ]
+ },
+ {
+  "id": "s04",
+  "seq": 4,
+  "chapter": 2,
+  "chapter_name": "Grandmother",
+  "start": 20.157,
+  "duration": 7.057,
+  "purpose": "The second generation extends the foundation: work by hand becomes trade.",
+  "beat": "building, responsibility",
+  "size": "medium",
+  "camera": "slow push-in",
+  "light": "warm afternoon light, dust in the air",
+  "narration_am": "አያቴ መንገድ ዳር ትንሽ መደብር ነበራት። ስፌቱ ንግድ ሆነ፤ ንግዱም ኑሮ ሆነ።",
+  "narration_en": "My grandmother kept a small stall by the street. The stitches became trade, and the trade became a living.",
+  "keyframe_prompt": "Medium shot of a woman in her late forties standing behind a small street-side stall of folded cloth, woven baskets and small heaps of spices on a low wooden table under a simple shade, neatly arranging her goods.",
+  "seed": 1004,
+  "keyframe_key": "7ca3756b49beacae",
+  "source_shot": null,
+  "motion_prompt": "",
+  "segment": "kenburns",
+  "vertical_center": 0.52,
+  "image": "media/shots/s04.jpg",
+  "clip": null,
+  "fact_flags": [
+   {
+    "claim": "grandmother was a street-side stall merchant",
+    "status": "family-confirmed",
+    "source": "producer, 2026-11-26"
+   },
+   {
+    "claim": "goods shown",
+    "status": "interpretation",
+    "source": "pending-family: what she sold"
+   }
+  ]
+ },
+ {
+  "id": "s05",
+  "seq": 5,
+  "chapter": 2,
+  "chapter_name": "Grandmother",
+  "start": 27.214,
+  "duration": 5.5,
+  "purpose": "Make the sacrifice concrete: what is earned is put aside for the next generation.",
+  "beat": "quiet sacrifice",
+  "size": "close",
+  "camera": "static",
+  "light": "low warm evening light",
+  "narration_am": "ከእነሱ በኋላ ለሚመጡት ብለው፤ ያገኙትን ቆጠቡ።",
+  "narration_en": "For the ones who would come after them, they saved what they earned.",
+  "keyframe_prompt": "Close-up of a woman's hands with a green-and-gold thread bracelet placing coins into a small worn tin box on a wooden table in warm evening light.",
+  "seed": 1005,
+  "keyframe_key": "ab367dca42cdc217",
+  "source_shot": null,
+  "motion_prompt": "",
+  "segment": "kenburns",
+  "vertical_center": 0.58,
+  "image": "media/shots/s05.jpg",
+  "clip": null,
+  "fact_flags": [
+   {
+    "claim": "saving for the next generation",
+    "status": "interpretation",
+    "source": "symbolic of the brief's theme"
+   }
+  ]
+ },
+ {
+  "id": "s06",
+  "seq": 6,
+  "chapter": 3,
+  "chapter_name": "My mother",
+  "start": 32.714,
+  "duration": 6.712,
+  "purpose": "Introduce my mother carrying two responsibilities at once: work and school.",
+  "beat": "struggle, determination",
+  "size": "medium",
+  "camera": "slow push-in",
+  "light": "bright midday light under a shade cloth",
+  "narration_am": "እናቴ ቀን ቀን ገበያ ውስጥ ትሰራ ነበር፤ የትምህርት ደብተሮቿንም ይዛ ትሄድ ነበር።",
+  "narration_en": "My mother worked in the market by day, and carried her schoolbooks with her.",
+  "keyframe_prompt": "Medium shot of a 17-year-old girl in a deep-green headscarf sitting at a market stall with an open schoolbook on her lap and a pencil in her hand, goods and woven baskets around her.",
+  "seed": 1006,
+  "keyframe_key": "0405de3909a1239a",
+  "source_shot": null,
+  "motion_prompt": "",
+  "segment": "kenburns",
+  "vertical_center": 0.5,
+  "image": "media/shots/s06.jpg",
+  "clip": null,
+  "fact_flags": [
+   {
+    "claim": "worked in the market while studying",
+    "status": "family-confirmed",
+    "source": "producer brief"
+   },
+   {
+    "claim": "what she sold",
+    "status": "pending-family",
+    "source": null
+   }
+  ]
+ },
+ {
+  "id": "s07",
+  "seq": 7,
+  "chapter": 3,
+  "chapter_name": "My mother",
+  "start": 39.426,
+  "duration": 6.0,
+  "purpose": "The emotional heart: the cost of studying when exhausted.",
+  "beat": "exhaustion and perseverance",
+  "size": "close",
+  "camera": "static",
+  "light": "single warm lamp in darkness, deep shadows",
+  "narration_am": "ማታ ማታ ቢደክማትም እንኳ፣ ታጠና ነበር።",
+  "narration_en": "At night, when she was tired, she studied anyway.",
+  "keyframe_prompt": "Close-up of the same 17-year-old girl studying alone at night in a simple room, lit only by a small kerosene lamp, tired eyes, notebook open, deep shadows.",
+  "seed": 1008,
+  "keyframe_key": "784cea13e7307a88",
+  "source_shot": null,
+  "motion_prompt": "The lamp flame flickers gently. She blinks slowly and turns a page. The camera is fixed.",
+  "segment": "wan",
+  "vertical_center": 0.5,
+  "image": "media/shots/s07.jpg",
+  "clip": "media/clips/s07.mp4",
+  "fact_flags": [
+   {
+    "claim": "kerosene lamp",
+    "status": "researched",
+    "source": "kerosene a major lighting fuel in Ethiopia in 2000 (World Bank); pending-family for her home"
+   }
+  ]
+ },
+ {
+  "id": "s08",
+  "seq": 8,
+  "chapter": 3,
+  "chapter_name": "My mother",
+  "start": 45.426,
+  "duration": 6.0,
+  "purpose": "Turning point: her persistence pays off.",
+  "beat": "pride, release",
+  "size": "medium-close",
+  "camera": "slow push-in",
+  "light": "bright soft daylight",
+  "narration_am": "አንድ ቀንም ተመረቀች።",
+  "narration_en": "And one day, she graduated.",
+  "keyframe_prompt": "Medium close-up of the same woman at about 23 years old in a graduation gown, holding a rolled certificate tied with ribbon, a proud quiet smile, outdoors in soft daylight.",
+  "seed": 1008,
+  "keyframe_key": "33d223925f22d434",
+  "source_shot": null,
+  "motion_prompt": "",
+  "segment": "kenburns",
+  "vertical_center": 0.5,
+  "image": "media/shots/s08.jpg",
+  "clip": null,
+  "fact_flags": [
+   {
+    "claim": "she graduated",
+    "status": "family-confirmed",
+    "source": "producer brief"
+   },
+   {
+    "claim": "field and institution",
+    "status": "pending-family",
+    "source": null
+   }
+  ]
+ },
+ {
+  "id": "s09",
+  "seq": 9,
+  "chapter": 4,
+  "chapter_name": "Raising me",
+  "start": 51.426,
+  "duration": 7.0,
+  "purpose": "Show the sacrifice made for a child: long office hours, time and energy given up.",
+  "beat": "love and responsibility",
+  "size": "medium",
+  "camera": "very slow push-in",
+  "light": "cool desk lamp in an otherwise dark office, night through the window",
+  "narration_am": "ከዚያም ቢሮ ውስጥ ረጅም ሰዓታት ሠራች፤ እኔ እንድማርም ያላትን ሁሉ ሰጠች።",
+  "narration_en": "Then she worked long hours in an office, and gave everything she had so that I could learn.",
+  "keyframe_prompt": "Medium shot of the same woman at about 35 years old working late at an office desk with stacks of papers and folders, a desk lamp, night outside the window, a child's school notebook resting beside her work.",
+  "seed": 1009,
+  "keyframe_key": "59dd9f5cfabae0da",
+  "source_shot": null,
+  "motion_prompt": "She writes slowly, then pauses and glances at the small notebook beside her. The camera pushes in very slowly.",
+  "segment": "wan",
+  "vertical_center": 0.5,
+  "image": "media/shots/s09.jpg",
+  "clip": "media/clips/s09.mp4",
+  "fact_flags": [
+   {
+    "claim": "long office hours while raising me and investing in my education",
+    "status": "family-confirmed",
+    "source": "producer brief"
+   },
+   {
+    "claim": "her profession",
+    "status": "interpretation",
+    "source": "kept non-specific by the producer's choice"
+   }
+  ]
+ },
+ {
+  "id": "s10",
+  "seq": 10,
+  "chapter": 5,
+  "chapter_name": "Me",
+  "start": 58.426,
+  "duration": 12.843,
+  "purpose": "The fifth stage: my achievement, shown as the result of everything before it.",
+  "beat": "pride and gratitude",
+  "size": "medium-close",
+  "camera": "slow push-in",
+  "light": "soft screen glow mixed with warm evening light from the window",
+  "narration_am": "እኔ በሶፍትዌር ኢንጂነሪንግ በማዕረግ ተመረቅሁ፤ ለማስተርሴ የነፃ ትምህርት ዕድል አገኘሁ፤ ዛሬ ደግሞ እነሱ ፈጽሞ ያላዩትን ምቾት ያገኘሁ የኤአይ ኢንጂነር ነኝ።",
+  "narration_en": "I graduated in software engineering with honours, won a scholarship for my master's, and today I am an AI engineer, with comforts they never had.",
+  "keyframe_prompt": "Medium close-up of a young woman in her early twenties typing at a modern, well-equipped desk with two large monitors and a laptop, plants beside her, a big window behind her showing city lights at dusk, soft screen glow on her face, a green-and-gold thread bracelet on her wrist, focused and hopeful.",
+  "seed": 1010,
+  "keyframe_key": "e5c97520d6314edc",
+  "source_shot": null,
+  "motion_prompt": "",
+  "segment": "kenburns",
+  "vertical_center": 0.5,
+  "image": "media/shots/s10.jpg",
+  "clip": null,
+  "fact_flags": [
+   {
+    "claim": "honours graduate in software engineering, master's on scholarship, AI engineer in Addis Ababa with a comfortable life and great workplace setup",
+    "status": "family-confirmed",
+    "source": "producer, 2026-11-26"
+   }
+  ]
+ },
+ {
+  "id": "s11",
+  "seq": 11,
+  "chapter": 5,
+  "chapter_name": "Me",
+  "start": 71.269,
+  "duration": 10.684,
+  "purpose": "Close the story on the central message and hand it forward: the narrator looks up from her work toward the city and the future (continuity with s10 after test 1).",
+  "beat": "possibility, responsibility",
+  "size": "wide",
+  "camera": "slow rise",
+  "light": "sunrise, warm gold rim light",
+  "narration_am": "ያለኝ ነገር ሁሉ የእኔ ብቻ አይደለም። ከእኔ በፊት የነበሩት ሁሉ የድካም ውጤት ነው። አሁን ደግሞ ሁላችንንም ጥቂት ወደፊት የማራመድ ተራው የእኔ ነው።",
+  "narration_en": "Nothing I have is mine alone. It is the work of everyone who came before me. Now it is my turn to take us a little further.",
+  "keyframe_prompt": "Wide shot of the same young woman from the previous shot, seen from behind, her back to the camera, standing on a high balcony and looking out over a modern city at sunrise. She wears the same olive-grey long-sleeved blouse, her curly black hair loosely tied back with a few loose curls, her right hand resting on the balcony railing with the stacked green-and-gold thread bracelets visible on her wrist. Buildings spread across green hills below, warm golden light.",
+  "seed": 1011,
+  "keyframe_key": "df41b40168e21a47",
+  "source_shot": "s10",
+  "motion_prompt": "She stops typing, slowly turns her head to look out of the window at the city in the warm morning light, and a soft smile appears. Slow push-in. Her hands stay on the desk.",
+  "segment": "wan",
+  "vertical_center": 0.42,
+  "image": "media/shots/s10.jpg",
+  "clip": "media/clips/s11.mp4",
+  "fact_flags": [
+   {
+    "claim": "lives in Addis Ababa",
+    "status": "family-confirmed",
+    "source": "producer, 2026-11-26"
+   },
+   {
+    "claim": "forward-looking responsibility",
+    "status": "family-confirmed",
+    "source": "producer brief (central message)"
+   },
+   {
+    "claim": "s11 continues from s10's frame so the character matches (radio-cut test 1, friend); Cloudflare daily image quota was exhausted",
+    "status": "interpretation",
+    "source": "DESIGN.md user test 1; FAILURES F21"
+   }
+  ]
+ }
+]

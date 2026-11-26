@@ -372,6 +372,15 @@ def draft_storyboard(
 
 
 @app.command()
+def site(films: Annotated[bool, typer.Option(help="Also re-encode the web films")] = True) -> None:
+    """Build the showcase site's data and web media from the pipeline's own records."""
+    from pipeline.tools import site as st
+
+    meta = st.build(_load(), films=films)
+    typer.echo(f"site/ built: {meta['calls']} logged calls, {meta['total_s']}s film")
+
+
+@app.command()
 def smoke() -> None:
     """Call each provider once with a tiny input and log latency to runs.jsonl."""
     from pipeline.tools import smoke as st

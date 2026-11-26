@@ -12,6 +12,11 @@ A 60–90 s film narrated in Amharic with English subtitles and an original scor
 | What I measured / what broke / what it cost | [EXPERIMENTS.md](EXPERIMENTS.md) · [FAILURES.md](FAILURES.md) · [COSTS.md](COSTS.md) |
 | Consent, privacy, licences | [ETHICS.md](ETHICS.md) |
 
+## Showcase site
+`site/` is an interactive page (inspired by *The Window*). It has the film in both formats plus the radio cut; every shot with its prompts, seed,
+9:16 crop and fact flags; the pipeline with a run-log chart computed from `runs.jsonl`; what we learned; and the audience tests.
+`make site` rebuilds its data and web media from the pipeline's own records. Serve it statically: `python -m http.server -d site`, Vercel or GitHub Pages.
+
 ## One command
 ```bash
 git clone <this repo> && cd <repo>

@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>A Little Further</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Ethiopic:wght@400;500&family=Noto+Serif+Ethiopic:wght@500;700&display=swap">
+<style>
+/* Layout: one film laid along a thread — player beside the title, the generations as a thread,
+   the shots as frames, then the workshop (pipeline, log) and the record (what we learned, audience, brief). */
+:root {
+  --bg: #eceeea;        /* Harar limewash, cool */
+  --surface: #f6f7f4;
+  --ink: #14201b;       /* deep green-black */
+  --muted: #56645d;
+  --line: #cdd5cf;
+  --teal: #1d6b66;      /* the teal of Harar's corrugated roofs */
+  --gold: #a8780e;      /* the bracelet's gold thread */
+  --green: #2e5c3f;     /* the bracelet's green thread */
+  --chip-confirmed: #2e5c3f; --chip-researched: #1d6b66; --chip-interp: #8a6510; --chip-pending: #6b726e;
+  --display: "Gloock", "Georgia", serif;
+  --ethi-display: "Noto Serif Ethiopic", "Noto Sans Ethiopic", serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --ethi: "Noto Sans Ethiopic", "Instrument Sans", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  --r: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1513; --surface: #161e1b; --ink: #e7ece8; --muted: #9aa9a2; --line: #27322e;
+    --teal: #5bb8ad; --gold: #d9ad45; --green: #79b88f;
+    --chip-confirmed: #79b88f; --chip-researched: #5bb8ad; --chip-interp: #d9ad45; --chip-pending: #9aa9a2;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1513; --surface: #161e1b; --ink: #e7ece8; --muted: #9aa9a2; --line: #27322e;
+  --teal: #5bb8ad; --gold: #d9ad45; --green: #79b88f;
+  --chip-confirmed: #79b88f; --chip-researched: #5bb8ad; --chip-interp: #d9ad45; --chip-pending: #9aa9a2;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+a { color: var(--teal); text-underline-offset: 3px; }
+a:hover { color: var(--gold); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.am { font-family: var(--ethi); }
+.mono { font-family: var(--mono); font-size: .82rem; font-variant-numeric: tabular-nums; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; letter-spacing: .005em; }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); line-height: 1.1; }
+h3 { font-size: 1.15rem; line-height: 1.25; }
+.eyebrow { font-family: var(--mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.lede { color: var(--muted); max-width: 62ch; margin: .6rem 0 0; }
+section { padding-block: clamp(3rem, 7vw, 5.5rem); border-top: 1px solid var(--line); }
+.sec-head { display: grid; gap: .4rem; margin-bottom: 2rem; }
+
+/* nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; gap: 1.2rem; min-height: 52px; overflow-x: auto; scrollbar-width: none; }
+.nav .brand { font-family: var(--display); font-size: 1.05rem; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.nav a.l { font-size: .86rem; color: var(--muted); text-decoration: none; white-space: nowrap; }
+.nav a.l:hover { color: var(--ink); }
+
+/* hero */
+.hero { padding-block: clamp(2rem, 5vw, 3.5rem) clamp(2.5rem, 6vw, 4rem); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+.player { display: grid; gap: .75rem; justify-items: center; }
+.screen { position: relative; width: 100%; background: #000; border-radius: var(--r); overflow: hidden; box-shadow: 0 1px 0 var(--line); }
+.screen video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
+.screen.v { max-width: 380px; aspect-ratio: 9 / 16; }
+.screen.h { aspect-ratio: 16 / 9; }
+.screen.r { aspect-ratio: 16 / 9; display: grid; place-items: center; background: #0b0f0d; }
+.radio-face { text-align: center; color: #d7ddd8; padding: 1.5rem; display: grid; gap: .6rem; }
+.radio-face .am { font-size: 1.25rem; color: #f1f4f1; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--surface); flex-wrap: wrap; }
+.seg button { font: 500 .82rem var(--body); color: var(--muted); background: none; border: 0; border-radius: 999px; padding: .42rem .85rem; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.now { font-family: var(--mono); font-size: .78rem; color: var(--muted); min-height: 1.2em; text-align: center; }
+.now b { color: var(--ink); font-weight: 500; }
+.title-am { font-family: var(--ethi-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.1rem); color: var(--green); margin: .2rem 0 0; }
+.hero h1 { font-size: clamp(2.8rem, 7vw, 5.2rem); line-height: .95; margin-top: .6rem; }
+.logline { font-size: 1.12rem; max-width: 46ch; margin: 1.1rem 0 0; }
+.specs { display: flex; flex-wrap: wrap; gap: .4rem .5rem; margin: 1.4rem 0 0; padding: 0; list-style: none; }
+.specs li { font-family: var(--mono); font-size: .76rem; padding: .3rem .6rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--surface); }
+.specs li b { color: var(--ink); font-weight: 500; }
+.quote { margin: 1.8rem 0 0; padding: 1rem 0 0; border-top: 1px solid var(--line); max-width: 52ch; }
+.quote .am { font-size: 1.1rem; }
+.quote .en { color: var(--muted); font-style: italic; margin-top: .25rem; }
+
+/* thread of generations */
+.thread { position: relative; }
+.thread svg { display: block; width: 100%; height: 34px; overflow: visible; }
+.strand-a { stroke: var(--green); }
+.strand-b { stroke: var(--gold); }
+@media (prefers-reduced-motion: no-preference) {
+  .strand-a, .strand-b { stroke-dasharray: 10 7; animation: weave 14s linear infinite; }
+  .strand-b { animation-direction: reverse; }
+  @keyframes weave { to { stroke-dashoffset: -340; } }
+}
+.gens { display: grid; gap: 0; margin-top: .3rem; }
+.gen { all: unset; cursor: pointer; display: grid; gap: .45rem; align-content: start; padding: .8rem .7rem 1rem; border-left: 1px solid var(--line); min-width: 0; }
+.gen:first-child { border-left: 0; padding-left: 0; }
+.gen:hover h3, .gen.on h3 { color: var(--teal); }
+.gen img { width: 64px; height: 64px; object-fit: cover; object-position: top; border-radius: 50%; border: 2px solid var(--surface); box-shadow: 0 0 0 1px var(--line); }
+.gen .eyebrow { font-size: .68rem; }
+.gen p { margin: 0; font-size: .88rem; color: var(--muted); }
+.gen .bar { height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.gen .bar i { display: block; height: 100%; width: 0; background: var(--gold); }
+
+/* shots */
+.shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem 1.25rem; }
+.shot { display: grid; gap: .55rem; align-content: start; min-width: 0; }
+.frame { position: relative; aspect-ratio: 16 / 9; border-radius: var(--r); overflow: hidden; background: var(--line); cursor: pointer; }
+.frame img, .frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.frame video { opacity: 0; transition: opacity .25s; }
+.frame.playing video { opacity: 1; }
+.frame .tag { position: absolute; left: .5rem; top: .5rem; font-family: var(--mono); font-size: .68rem; padding: .18rem .45rem; border-radius: 4px; background: rgba(10,14,12,.72); color: #eef2ef; }
+.frame .tag.wan { box-shadow: inset 0 0 0 1px rgba(217,173,69,.7); }
+.shot.on .frame { box-shadow: 0 0 0 2px var(--gold); }
+.shot .meta { display: flex; gap: .6rem; align-items: baseline; flex-wrap: wrap; }
+.shot .meta .id { font-family: var(--mono); font-size: .8rem; color: var(--gold); font-weight: 500; }
+.shot .meta .t { font-family: var(--mono); font-size: .74rem; color: var(--muted); }
+.shot .purpose { margin: 0; font-size: .93rem; }
+.shot .am { margin: 0; font-size: .98rem; }
+.shot .en { margin: 0; font-size: .86rem; color: var(--muted); font-style: italic; }
+.shot .acts { display: flex; gap: .5rem; flex-wrap: wrap; }
+.btn { font: 500 .8rem var(--body); border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: .38rem .7rem; border-radius: var(--r); cursor: pointer; }
+.btn:hover { border-color: var(--teal); color: var(--teal); }
+
+/* dialog */
+dialog { border: 1px solid var(--line); border-radius: 10px; padding: 0; width: min(1000px, calc(100vw - 32px)); max-height: calc(100vh - 48px); background: var(--surface); color: var(--ink); }
+dialog::backdrop { background: rgba(8, 12, 10, .55); }
+.dlg { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1.4rem; padding: 1.4rem; }
+.dlg .big { position: relative; aspect-ratio: 16 / 9; border-radius: var(--r); overflow: hidden; background: #000; }
+.dlg .big img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.crop { position: absolute; top: 0; bottom: 0; border: 2px solid var(--gold); box-shadow: 0 0 0 9999px rgba(0,0,0,.45); pointer-events: none; }
+.dlg dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .45rem .9rem; margin: 0; font-size: .88rem; }
+.dlg dt { font-family: var(--mono); font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; padding-top: .15rem; }
+.dlg dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.chips { display: flex; flex-wrap: wrap; gap: .35rem; }
+.chip { font-family: var(--mono); font-size: .7rem; padding: .15rem .45rem; border-radius: 4px; border: 1px solid currentColor; }
+.chip.family-confirmed { color: var(--chip-confirmed); } .chip.researched { color: var(--chip-researched); }
+.chip.interpretation { color: var(--chip-interp); } .chip.pending-family { color: var(--chip-pending); }
+.flags { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; font-size: .84rem; }
+.flags li { display: grid; gap: .15rem; }
+.dlg-top { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.4rem 0; gap: 1rem; }
+
+/* workshop */
+.stages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.stage { background: var(--surface); padding: 1rem; display: grid; gap: .35rem; align-content: start; min-width: 0; }
+.stage .n { font-family: var(--mono); font-size: .72rem; color: var(--gold); }
+.stage p { margin: 0; font-size: .86rem; color: var(--muted); }
+.stage .mono { color: var(--ink); }
+.log { margin-top: 2.2rem; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 2rem; align-items: start; }
+.tally { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.tally div { border-top: 2px solid var(--ink); padding-top: .5rem; }
+.tally b { display: block; font-family: var(--display); font-size: 2rem; font-weight: 400; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.tally span { font-size: .82rem; color: var(--muted); }
+.bars { display: grid; gap: .55rem; }
+.bar-row { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr) 5.5rem; gap: .7rem; align-items: center; font-size: .82rem; }
+.bar-row .name { font-family: var(--mono); color: var(--ink); overflow: hidden; text-overflow: ellipsis; }
+.track { display: flex; height: 14px; background: color-mix(in srgb, var(--line) 50%, transparent); border-radius: 3px; overflow: hidden; }
+.track .ok { background: var(--teal); } .track .err { background: var(--gold); opacity: .85; }
+.bar-row .num { font-family: var(--mono); color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+.legend { display: flex; gap: 1rem; font-size: .78rem; color: var(--muted); margin-top: .6rem; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: .35rem; vertical-align: -1px; }
+.callout { margin-top: 2.2rem; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 1.6rem; align-items: start; }
+pre.term { margin: 0; padding: 1rem 1.1rem; background: #0e1412; color: #d9e2dc; border-radius: var(--r); overflow-x: auto; font: .78rem/1.6 var(--mono); }
+pre.term .g { color: #e3b453; } pre.term .r { color: #8fa39a; }
+
+/* learned */
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+.card { display: grid; gap: .45rem; align-content: start; padding-top: .8rem; border-top: 1px solid var(--ink); min-width: 0; }
+.card .k { font-family: var(--mono); font-size: .72rem; color: var(--gold); }
+.card .fig { font-family: var(--display); font-size: 1.7rem; line-height: 1.1; }
+.card p { margin: 0; font-size: .88rem; color: var(--muted); }
+
+/* audience + brief */
+.tests { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.test { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 1.1rem; display: grid; gap: .6rem; align-content: start; min-width: 0; }
+.test ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .45rem; font-size: .88rem; }
+.test .who { font-family: var(--mono); font-size: .72rem; color: var(--muted); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); }
+table { border-collapse: collapse; width: 100%; font-size: .88rem; min-width: 620px; }
+th, td { text-align: left; padding: .65rem .9rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 500; background: var(--surface); }
+tr:last-child td { border-bottom: 0; }
+
+footer { border-top: 1px solid var(--line); padding-block: 2.5rem 3rem; font-size: .88rem; color: var(--muted); }
+footer .wrap { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2rem; }
+footer p { margin: 0 0 .6rem; max-width: 62ch; }
+
+@media (max-width: 960px) {
+  .hero .wrap, .log, .callout, .dlg, footer .wrap { grid-template-columns: minmax(0, 1fr); }
+  .shots, .tests { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stages, .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .shots, .tests, .stages, .cards { grid-template-columns: minmax(0, 1fr); }
+  .gens { grid-template-columns: minmax(0, 1fr) !important; }
+  .gen { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; grid-template-columns: 64px minmax(0, 1fr); column-gap: .9rem; }
+  .gen img { grid-row: span 4; }
+  .thread svg { display: none; }
+  .bar-row { grid-template-columns: 5rem minmax(0, 1fr) 4.6rem; }
+}
+</style>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a class="brand" href="#top">A Little Further</a>
+    <a class="l" href="#film">Film</a>
+    <a class="l" href="#generations">Generations</a>
+    <a class="l" href="#shots">Shot by shot</a>
+    <a class="l" href="#made">How it was made</a>
+    <a class="l" href="#learned">What we learned</a>
+    <a class="l" href="#audience">Audience</a>
+    <a class="l" href="#brief">The brief</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap" id="film">
+    <div class="player">
+      <div class="screen v" id="screen">
+        <video id="video" controls playsinline preload="metadata" poster="media/poster_9x16.jpg">
+          <source src="media/film_9x16.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="seg" role="group" aria-label="Version">
+        <button id="v-9x16" aria-pressed="true">Vertical 9:16</button>
+        <button id="v-16x9" aria-pressed="false">Horizontal 16:9</button>
+        <button id="v-radio" aria-pressed="false">Radio cut · voice only</button>
+      </div>
+      <div class="now" id="now" aria-live="polite">Press play, or pick a shot below to jump to it.</div>
+    </div>
+    <div>
+      <div class="eyebrow">A heritage short · Harar to Addis Ababa</div>
+      <h1>A Little Further</h1>
+      <p class="title-am" lang="am">ጥቂት ወደፊት</p>
+      <p class="logline" id="logline">Four generations in Harar, from immigrant tailors to an AI engineer, each giving up something so the next could go a little further.</p>
+      <ul class="specs" id="specs">
+        <li><b>85.5 s</b> measured</li>
+        <li>narrated in <b>Amharic</b></li>
+        <li>English subtitles</li>
+        <li><b>11</b> shots</li>
+        <li><b>9:16</b> + <b>16:9</b></li>
+        <li><b>−14 LUFS</b></li>
+      </ul>
+      <div class="quote">
+        <div class="am" lang="am">ያለኝ ነገር ሁሉ የእኔ ብቻ አይደለም። ከእኔ በፊት የነበሩት ሁሉ የድካም ውጤት ነው።</div>
+        <div class="en">“Nothing I have is mine alone. It is the work of everyone who came before me.”</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="generations">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The thread</div>
+      <h2>Four generations, one bracelet</h2>
+      <p class="lede">Each generation wears the same green-and-gold thread. It is a symbol invented for the film, not a family heirloom. Choose a generation to jump to it.</p>
+    </div>
+    <div class="thread">
+      <svg viewBox="0 0 1000 34" preserveAspectRatio="none" aria-hidden="true">
+        <path class="strand-a" d="M0 17 C 125 3, 250 31, 375 17 S 625 3, 750 17 S 1000 31, 1000 17" fill="none" stroke-width="2.5"/>
+        <path class="strand-b" d="M0 17 C 125 31, 250 3, 375 17 S 625 31, 750 17 S 1000 3, 1000 17" fill="none" stroke-width="2.5"/>
+      </svg>
+      <div class="gens" id="gens"></div>
+    </div>
+  </div>
+</section>
+
+<section id="shots">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Shot by shot · read from storyboard.json</div>
+      <h2>Eleven shots, each with a reason to exist</h2>
+      <p class="lede">Hover a shot marked <span class="mono">Wan 2.2</span> to see its generated motion. The others move with a slow pan and zoom over the still. <b>Details</b> shows the prompts, the seed, where the vertical crop sits, and which facts the family confirmed.</p>
+    </div>
+    <div class="shots" id="shotgrid"></div>
+  </div>
+</section>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg-top">
+    <h3 id="dlg-title">Shot</h3>
+    <div class="acts" style="display:flex;gap:.5rem;flex-wrap:wrap">
+      <button class="btn" id="dlg-crop" aria-pressed="true">Hide 9:16 crop</button>
+      <button class="btn" id="dlg-play">Play from here</button>
+      <button class="btn" id="dlg-close">Close</button>
+    </div>
+  </div>
+  <div class="dlg">
+    <div style="display:grid;gap:.8rem;align-content:start">
+      <div class="big"><img id="dlg-img" alt=""><div class="crop" id="dlg-cropbox"></div></div>
+      <div class="am" id="dlg-am" lang="am"></div>
+      <div class="en" id="dlg-en" style="color:var(--muted);font-style:italic"></div>
+    </div>
+    <dl id="dlg-dl"></dl>
+  </div>
+</dialog>
+
+<section id="made">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">How it was made</div>
+      <h2>Nothing was edited by hand</h2>
+      <p class="lede">One file, <span class="mono">storyboard.json</span>, drives eight stages. Every model call goes through one function. It caches by a hash of the exact inputs, retries temporary errors, and writes one line to <span class="mono">runs.jsonl</span>. <span class="mono">make film</span> rebuilds both versions from a clean clone without any API keys.</p>
+    </div>
+    <div class="stages" id="stages-static">
+      <div class="stage"><span class="n">1 · script</span><h3>Translation draft</h3><p>Gemini 3.8 Flash, falling back to 3.5 Flash-Lite. A native speaker reviews it.</p></div>
+      <div class="stage"><span class="n">2 · narration</span><h3>Amharic voice</h3><p>Addis AI, voice <span class="mono">am-sara</span>, chosen blind by family. Slowed 0.9× and warmed by our own code.</p></div>
+      <div class="stage"><span class="n">3 · subtitles</span><h3>English captions</h3><p>Timed to the measured voice. Two lines, 40 characters, inside the safe area.</p></div>
+      <div class="stage"><span class="n">4 · refs</span><h3>Character sheets</h3><p>FLUX.2 klein 4B on Cloudflare. Approved before any shot is drawn.</p></div>
+      <div class="stage"><span class="n">5 · keyframes</span><h3>A 16:9 master</h3><p>1920×1088, conditioned on the approved faces. The vertical version is cropped per shot.</p></div>
+      <div class="stage"><span class="n">6 · video</span><h3>Moving shots</h3><p>Wan 2.2 TI2V-5B on a free Kaggle T4, fp8 weights. If a clip is missing, a Ken Burns move takes its place.</p></div>
+      <div class="stage"><span class="n">7 · music</span><h3>Original score</h3><p>ACE-Step 1.5, four candidates on a laptop GPU. The one that builds was chosen and end-aligned.</p></div>
+      <div class="stage"><span class="n">8 · assemble</span><h3>The edit</h3><p>FFmpeg only. Dissolves, ducking under the voice, two-pass loudness to −14 LUFS.</p></div>
+    </div>
+
+    <div class="log">
+      <div>
+        <div class="eyebrow" style="margin-bottom:.8rem">The run log</div>
+        <div class="tally" id="tally"></div>
+        <p class="lede" style="font-size:.86rem">Failures are logged as carefully as successes. Most of them were temporary: free-tier “high demand” replies, read timeouts and a dropped connection. Each was retried, or a fallback took over.</p>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:.8rem">Model calls per stage, from runs.jsonl</div>
+        <div class="bars" id="bars"></div>
+        <div class="legend"><span><i style="background:var(--teal)"></i>succeeded</span><span><i style="background:var(--gold)"></i>failed or retried</span><span>right: median seconds per call</span></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div>
+        <div class="eyebrow">Change one line, regenerate one shot</div>
+        <h3 style="margin-top:.4rem;font-size:1.4rem">The first audience asked for different wording in s05</h3>
+        <p class="lede">The siblings who heard the radio cut wanted s05 to open with “for the ones who would come after them”. After the storyboard was edited, the dry run listed exactly one thing to regenerate. Every image, clip and other line was reused from the cache.</p>
+      </div>
+      <pre class="term" aria-label="Dry-run output"><span class="r">$ make dry-run</span>
+  <span class="r">REUSE</span>    narration  s01   818184b14d8fcec2
+  <span class="r">REUSE</span>    narration  s02   f61ea6e28898dbe2
+  <span class="r">…</span>
+  <span class="g">GENERATE narration  s05   64d14f5a3916df0c  changed: text</span>
+  <span class="r">REUSE</span>    narration  s06   f5b90a7077870ed0
+  <span class="r">…</span>
+  <span class="r">RENDER</span>   assemble   (deterministic FFmpeg, no model calls)</pre>
+    </div>
+  </div>
+</section>
+
+<section id="learned">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">What we learned · EXPERIMENTS.md</div>
+      <h2>Measured, not assumed</h2>
+    </div>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<section id="audience">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Audience · DESIGN.md</div>
+      <h2>Made for the family, tested with them</h2>
+      <p class="lede">The film is for my family and relatives in Ethiopia and abroad, watching on a phone. It was tested with them before the pictures existed, and again before release.</p>
+    </div>
+    <div class="tests" id="tests"></div>
+  </div>
+</section>
+
+<section id="brief">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The brief, and where each part is answered</div>
+      <h2>Requirements and evidence</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>The brief asks for</th><th>Where it is answered</th></tr></thead>
+        <tbody id="brief-rows"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p><b style="color:var(--ink)">Made with AI.</b> Every frame, the voice and the music in this film were generated by AI models, then directed and assembled by me. The characters are fictional, painted AI stand-ins for real family members, not photographs. The family consented to the story being told this way.</p>
+      <p>Models: Addis AI (Amharic voice) · FLUX.2 klein 4B (images) · Wan 2.2 TI2V-5B (motion) · ACE-Step 1.5 (score) · Gemini (translation draft) · FFmpeg (edit).</p>
+    </div>
+    <div>
+      <p>Source: <a href="https://github.com/Lilly-jhr/ai-content-creation" target="_blank" rel="noopener">github.com/Lilly-jhr/ai-content-creation</a></p>
+      <p><a href="https://github.com/Lilly-jhr/ai-content-creation/blob/main/storyboard.json" target="_blank" rel="noopener">storyboard.json</a> · <a href="https://github.com/Lilly-jhr/ai-content-creation/blob/main/runs.jsonl" target="_blank" rel="noopener">runs.jsonl</a> · <a href="https://github.com/Lilly-jhr/ai-content-creation/blob/main/FAILURES.md" target="_blank" rel="noopener">FAILURES.md</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const REPO = "https://github.com/Lilly-jhr/ai-content-creation/blob/main/";
+  const $ = (s, r = document) => r.querySelector(s);
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const fmt = (t) => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
+  const video = $("#video"), screen = $("#screen");
+  let shots = [], people = [], mode = "9x16", current = null;
+
+  const CHAR_FOR = { 1: "gen1_tailor_m", 2: "gen2_grandmother", 3: "mother", 4: "mother", 5: "me" };
+  const GEN_TEXT = {
+    1: "Arrived in Harar as strangers and worked as tailors.",
+    2: "Kept a small stall by the street and saved for the next generation.",
+    3: "Worked in the market by day and studied at night, then graduated.",
+    4: "Long office hours, everything given so I could learn.",
+    5: "Software engineering with honours, a scholarship, an AI engineer."
+  };
+
+  const LEARNED = [
+    { k: "E3a · reference sheets", fig: "0 of 15 → 15 of 15", t: "Faces read as Ethiopian once the prompt said “Ethiopian, from Harar”. “Warm brown skin” alone drew someone else, and “Harar” drew a European castle." },
+    { k: "E3b · keyframes", fig: "4 of 22 duplicated", t: "The model copied the two-panel layout of the character sheets, drawing people twice. Cropping the reference to the portrait fixed it: 0 of 20." },
+    { k: "E4 · Wan 2.2 on a free T4", fig: "15.0 → 7.3 GB", t: "fp16 weights ran out of memory on a 14.6 GB card. Storing them in fp8 and decoding on the second GPU made it fit. About 37 GPU-minutes per clip at 720p." },
+    { k: "E7 · motion prompts", fig: "“the camera rises”", t: "Wan put a camera in the narrator’s hands. Film terms such as crane and push-in, plus pinning the hands, fixed it." },
+    { k: "E1b · the voice", fig: "speed 0.85 = 1.0", t: "The TTS service accepted a speed setting and ignored it. Tempo and warmth are now our own deterministic step." },
+    { k: "E11 · ducking", fig: "−15.5 dB → −7.2 dB", t: "The suggested sidechain buried the score about 23 dB under the voice. A gentler setting lets the music be felt in the pauses." },
+    { k: "E12 · other languages", fig: "200 OK ≠ Harari", t: "Afaan Oromo and Tigrinya narration worked. “Harari” succeeded on every call but came back as Amharic. No provider supports it." },
+    { k: "E13 · a tool for families", fig: "valid, still wrong", t: "A plain-text story became a valid storyboard on the first try, but the model invented “In memory of our father”. The schema checks shape, not truth." }
+  ];
+
+  const TESTS = [
+    { h: "Test 0 · the voice", who: "sisters and friends · blind, 4 voices", items: [
+      "Chose voice B (warm, “motherly”) over the studio narrator.",
+      "“A little fast, and it needs more warmth.” Slowed 0.9× and warmed in our own code." ] },
+    { h: "Test 1 · the radio cut", who: "siblings and friends · voice over black", items: [
+      "s05 reworded as the siblings wrote it.",
+      "s11 didn’t match s10. The last shot now continues from s10’s own frame.",
+      "“An emotional hook and a sentimental meaning.” Kept.",
+      "“Some mispronunciations.” No specific words given, so recorded as a limitation." ] },
+    { h: "Test 2 · the near-final cut", who: "in progress", items: [
+      "Watching the vertical film on a phone.",
+      "Blind A/B for three shots: generated motion or a slow pan?" ] }
+  ];
+
+  const BRIEF = [
+    ["A 60–90 s film, 9:16 and 16:9, Amharic narration, English subtitles", "outputs/final (rebuilt by make film) · README.md"],
+    ["Original score, ducked under the voice; AI end card", "EXPERIMENTS.md E10, E11 · storyboard.json end_card"],
+    ["storyboard.json as the contract, validated before every run", "pipeline/models.py · schema/storyboard.schema.json"],
+    ["Caching and retries; only what changed regenerates", "pipeline/core/calls.py · ARCHITECTURE.md"],
+    ["A log line for every model call", "runs.jsonl · COSTS.md"],
+    ["Audience and intent before generating; two user tests", "DESIGN.md"],
+    ["About ten experiments with hypotheses", "EXPERIMENTS.md"],
+    ["Real blockers, what was tried, what fixed them", "FAILURES.md"],
+    ["Consent, licences, labelling", "ETHICS.md"],
+    ["One command from a clean clone", "Makefile (make film) · README.md"]
+  ];
+
+  function setMode(m) {
+    mode = m;
+    const t = video.currentTime || 0, wasPlaying = !video.paused;
+    ["9x16", "16x9", "radio"].forEach((k) => $("#v-" + k).setAttribute("aria-pressed", String(k === m)));
+    screen.className = "screen " + (m === "9x16" ? "v" : m === "16x9" ? "h" : "h");
+    const src = m === "radio" ? "media/radio_cut.mp3" : `media/film_${m}.mp4`;
+    video.poster = m === "9x16" ? "media/poster_9x16.jpg" : m === "16x9" ? "media/poster_16x9.jpg" : "";
+    if (m === "radio") video.poster = "";
+    video.src = src;
+    video.addEventListener("loadedmetadata", function once() {
+      video.removeEventListener("loadedmetadata", once);
+      try { video.currentTime = t; } catch (e) {}
+      if (wasPlaying) video.play().catch(() => {});
+    });
+    try { localStorage.setItem("alf-mode", m); } catch (e) {}
+  }
+  ["9x16", "16x9", "radio"].forEach((k) => $("#v-" + k).addEventListener("click", () => setMode(k)));
+
+  function seek(t) {
+    const go = () => { try { video.currentTime = t + 0.05; } catch (e) {} video.play().catch(() => {}); };
+    document.getElementById("film").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+    if (video.readyState >= 1) go(); else video.addEventListener("loadedmetadata", go, { once: true });
+  }
+
+  video.addEventListener("timeupdate", () => {
+    const t = video.currentTime;
+    const s = shots.find((x) => t >= x.start && t < x.start + x.duration);
+    if (s && s.id !== current) {
+      current = s.id;
+      $("#now").innerHTML = `Now playing <b>${s.id}</b> · ${esc(s.chapter_name)} · ${fmt(s.start)}`;
+      document.querySelectorAll(".shot").forEach((el) => el.classList.toggle("on", el.dataset.id === s.id));
+      document.querySelectorAll(".gen").forEach((el) => el.classList.toggle("on", Number(el.dataset.ch) === s.chapter));
+    }
+    document.querySelectorAll(".gen").forEach((el) => {
+      const a = Number(el.dataset.a), b = Number(el.dataset.b);
+      const p = Math.max(0, Math.min(1, (t - a) / (b - a)));
+      el.querySelector(".bar i").style.width = (p * 100).toFixed(1) + "%";
+    });
+  });
+
+  function renderGens() {
+    const chs = [1, 2, 3, 4, 5].map((c) => {
+      const ss = shots.filter((s) => s.chapter === c);
+      return { c, a: ss[0].start, b: ss[ss.length - 1].start + ss[ss.length - 1].duration, name: ss[0].chapter_name, n: ss.length };
+    });
+    const total = chs[chs.length - 1].b;
+    const g = $("#gens");
+    g.style.gridTemplateColumns = chs.map((c) => `minmax(0, ${((c.b - c.a) / total).toFixed(3)}fr)`).join(" ");
+    g.innerHTML = chs.map((c) => {
+      const p = people.find((x) => x.id === CHAR_FOR[c.c]);
+      return `<button class="gen" data-ch="${c.c}" data-a="${c.a}" data-b="${c.b}" aria-label="Play chapter ${c.c}: ${esc(c.name)}">
+        ${p && p.image ? `<img src="${p.image}" alt="" loading="lazy">` : ""}
+        <span class="eyebrow">${c.c} · ${fmt(c.a)}–${fmt(c.b)}</span>
+        <h3>${esc(c.name)}</h3>
+        <p>${esc(GEN_TEXT[c.c])}</p>
+        <span class="bar"><i></i></span>
+      </button>`;
+    }).join("");
+    g.querySelectorAll(".gen").forEach((el) => el.addEventListener("click", () => seek(Number(el.dataset.a))));
+  }
+
+  function renderShots() {
+    const grid = $("#shotgrid");
+    grid.innerHTML = shots.map((s) => `
+      <article class="shot" data-id="${s.id}">
+        <div class="frame" tabindex="0" role="button" aria-label="Open details for ${s.id}">
+          ${s.image ? `<img src="${s.image}" alt="${esc(s.purpose)}" loading="lazy">` : ""}
+          ${s.clip ? `<video muted loop playsinline preload="none" src="${s.clip}"></video>` : ""}
+          <span class="tag ${s.segment === "wan" ? "wan" : ""}">${s.segment === "wan" ? "Wan 2.2 motion" : "Ken Burns"}</span>
+        </div>
+        <div class="meta"><span class="id">${s.id}</span><span class="t">${fmt(s.start)} · ${s.duration.toFixed(1)} s · ${esc(s.size)}</span></div>
+        <p class="purpose">${esc(s.purpose)}</p>
+        <p class="am" lang="am">${esc(s.narration_am)}</p>
+        <p class="en">${esc(s.narration_en)}</p>
+        <div class="acts"><button class="btn play">Play from here</button><button class="btn det">Details</button></div>
+      </article>`).join("");
+    grid.querySelectorAll(".shot").forEach((el) => {
+      const s = shots.find((x) => x.id === el.dataset.id);
+      const fr = el.querySelector(".frame"), v = fr.querySelector("video");
+      if (v) {
+        fr.addEventListener("mouseenter", () => { fr.classList.add("playing"); v.play().catch(() => {}); });
+        fr.addEventListener("mouseleave", () => { fr.classList.remove("playing"); v.pause(); });
+      }
+      fr.addEventListener("click", () => openDlg(s));
+      fr.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openDlg(s); } });
+      el.querySelector(".play").addEventListener("click", () => seek(s.start));
+      el.querySelector(".det").addEventListener("click", () => openDlg(s));
+    });
+  }
+
+  const dlg = $("#dlg");
+  let dlgShot = null, showCrop = true;
+  function placeCrop() {
+    const box = $("#dlg-cropbox");
+    box.hidden = !showCrop;
+    const w = (9 / 16) / (16 / 9);              // 9:16 crop width as a fraction of the 16:9 frame
+    const c = dlgShot ? dlgShot.vertical_center : 0.5;
+    const left = Math.max(0, Math.min(1 - w, c - w / 2));
+    box.style.left = (left * 100).toFixed(2) + "%";
+    box.style.width = (w * 100).toFixed(2) + "%";
+    $("#dlg-crop").textContent = showCrop ? "Hide 9:16 crop" : "Show 9:16 crop";
+    $("#dlg-crop").setAttribute("aria-pressed", String(showCrop));
+  }
+  function openDlg(s) {
+    dlgShot = s;
+    $("#dlg-title").textContent = `${s.id} · ${s.chapter_name}`;
+    $("#dlg-img").src = s.image || "";
+    $("#dlg-img").alt = s.purpose;
+    $("#dlg-am").textContent = s.narration_am;
+    $("#dlg-en").textContent = s.narration_en;
+    const flags = (s.fact_flags || []).map((f) => `<li><span class="chips"><span class="chip ${esc(f.status)}">${esc(f.status)}</span></span><span>${esc(f.claim)}${f.source ? ` <span style="color:var(--muted)">(${esc(f.source)})</span>` : ""}</span></li>`).join("");
+    $("#dlg-dl").innerHTML = `
+      <dt>Why</dt><dd>${esc(s.purpose)}</dd>
+      <dt>Beat</dt><dd>${esc(s.beat)}</dd>
+      <dt>Camera</dt><dd>${esc(s.size)} · ${esc(s.camera)} · ${esc(s.light)}</dd>
+      <dt>Image</dt><dd>${s.source_shot ? `Continues from ${esc(s.source_shot)}’s approved frame. ` : ""}${esc(s.keyframe_prompt)}</dd>
+      <dt>Motion</dt><dd>${s.segment === "wan" ? esc(s.motion_prompt) : "Ken Burns: a slow pan and zoom over the still"}</dd>
+      <dt>Seed</dt><dd class="mono">${s.seed}</dd>
+      <dt>Cache key</dt><dd class="mono">${esc(s.keyframe_key || "")}</dd>
+      <dt>9:16 crop</dt><dd class="mono">centred at ${Math.round(s.vertical_center * 100)}% of the width</dd>
+      <dt>Facts</dt><dd><ul class="flags">${flags || "<li>No family facts in this shot.</li>"}</ul></dd>`;
+    placeCrop();
+    if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+  }
+  $("#dlg-close").addEventListener("click", () => dlg.close());
+  $("#dlg-crop").addEventListener("click", () => { showCrop = !showCrop; placeCrop(); });
+  $("#dlg-play").addEventListener("click", () => { const s = dlgShot; dlg.close(); if (s) seek(s.start); });
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+
+  function renderLog(stages, meta) {
+    $("#tally").innerHTML = [
+      [meta.calls, "model calls logged"],
+      [meta.ok, "succeeded"],
+      [meta.calls - meta.ok, "failed attempts, each logged"],
+      [meta.gpu_min, "GPU-minutes"]
+    ].map(([n, l]) => `<div><b>${n}</b><span>${l}</span></div>`).join("");
+    const max = Math.max(...stages.map((s) => s.calls));
+    $("#bars").innerHTML = stages.map((s) => `
+      <div class="bar-row" title="${esc(s.models.join(", "))}">
+        <span class="name">${esc(s.stage)}</span>
+        <span class="track" role="img" aria-label="${s.stage}: ${s.ok} succeeded, ${s.error} failed">
+          <span class="ok" style="width:${(s.ok / max * 100).toFixed(2)}%"></span>
+          <span class="err" style="width:${(s.error / max * 100).toFixed(2)}%"></span>
+        </span>
+        <span class="num">${s.ok}/${s.calls} · ${s.median_latency_s == null ? "–" : s.median_latency_s + " s"}</span>
+      </div>`).join("");
+  }
+
+  function renderStatic() {
+    $("#cards").innerHTML = LEARNED.map((c) => `<div class="card"><span class="k">${esc(c.k)}</span><span class="fig">${esc(c.fig)}</span><p>${esc(c.t)}</p></div>`).join("");
+    $("#tests").innerHTML = TESTS.map((t) => `<div class="test"><h3>${esc(t.h)}</h3><span class="who">${esc(t.who)}</span><ul>${t.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
+    $("#brief-rows").innerHTML = BRIEF.map(([a, b]) => `<tr><td>${esc(a)}</td><td>${b.split(" · ").map((f) => {
+      const file = f.split(" ")[0];
+      return /\.(md|json|jsonl|py)$|^Makefile$|^outputs\/|^pipeline\/|^schema\//.test(file)
+        ? `<a href="${REPO}${file}" target="_blank" rel="noopener">${esc(f)}</a>` : esc(f);
+    }).join(" · ")}</td></tr>`).join("");
+  }
+
+  renderStatic();
+  try { const m = localStorage.getItem("alf-mode"); if (m && m !== "9x16") setMode(m); } catch (e) {}
+
+  Promise.all(["data/shots.json", "data/people.json", "data/stages.json", "data/meta.json"].map((u) => fetch(u).then((r) => r.json())))
+    .then(([s, p, st, meta]) => {
+      shots = s; people = p;
+      renderGens(); renderShots(); renderLog(st, meta);
+      $("#logline").textContent = meta.logline;
+    })
+    .catch(() => { $("#shotgrid").innerHTML = '<p class="lede">The shot data could not be loaded. Run <span class="mono">make site</span> to build site/data.</p>'; });
+})();
+</script>
+
+</body>
+</html>

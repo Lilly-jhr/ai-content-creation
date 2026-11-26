@@ -1,7 +1,7 @@
 PY := uv run python -m pipeline
 ACESTEP_DIR := vendor/ACE-Step-1.5
 
-.PHONY: help setup film dry-run radio validate schema check smoke clips clips-status clips-fetch music music-setup assemble rough costs audit
+.PHONY: site help setup film dry-run radio validate schema check smoke clips clips-status clips-fetch music music-setup assemble rough costs audit
 
 help:            ## list targets
 	@grep -E '^[a-z-]+:.*## ' Makefile | sed 's/:.*## /\t/'
@@ -52,6 +52,9 @@ music-setup:     ## install ACE-Step 1.5 in its own environment (large download)
 
 music:           ## generate score candidates (local GPU)
 	$(PY) music
+
+site:            ## build the showcase site (site/) from storyboard, timeline and runs.jsonl
+	$(PY) site
 
 costs:           ## per-stage latency / GPU minutes / list-price table from runs.jsonl
 	$(PY) costs
